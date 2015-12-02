@@ -9,7 +9,8 @@ using System.Drawing;
 using System.IO;
 using System.Xml.Serialization;
 
-	
+
+// ANTOINE	
 namespace PI_Mars_Mission_Control
 {
 	[XmlRoot("Journees")]
@@ -53,61 +54,18 @@ namespace PI_Mars_Mission_Control
 		
 #endregion
 
-		// Constructeur 
-		public Journee(int nJour, Form1 f1)
-		{
-			f1 = new Form1();
-
+ 
+		// NE PAS TOUCHER AU CONSTRUCTEUR (pour l'instant)
+		public Journee(int nJour)
+		{			
+			NumJour = nJour;
 			CompteRendu = "";
-			Dates h0 = new Dates(nJour, 0, 0);
-			Dates h7 = new Dates(nJour, 7, 0);
-			Dates h8 = new Dates(nJour, 8, 0);
-			Dates h12 = new Dates(nJour, 12, 0);
-			Dates h14 = new Dates(nJour, 14, 0);
-			Dates h19 = new Dates(nJour, 19, 0);
-			Dates h21 = new Dates(nJour, 21, 0);
-			Dates h23 = new Dates(nJour, 23, 0);
-			Dates h24_40 = new Dates(nJour, 24, 40);
-									
-			Coordonnees baseMission = new Coordonnees();
-			string sleeping = "sleeping";
-			string eating = "eating";
-			string prive = "Prive";
-
-			//on ajoute les activites par defaut de la journee.
-			ListActiviteJournee.Add(new Activite(h0, h7, baseMission, sleeping, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h7, h8, baseMission, eating, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h8, h12, baseMission, prive, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h12, h14, baseMission, eating, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h14, h19, baseMission, prive, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h19, h21, baseMission, eating, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h21, h23, baseMission, prive, f1.Cal.ListSpationaute));
-			ListActiviteJournee.Add(new Activite(h23, h24_40, baseMission, sleeping, f1.Cal.ListSpationaute));
+			this.ListActiviteJournee = new List<Activite>();
 		}
 
-		public Journee(int index, List<Journee> listeJournee)
-        {					
-			NumJour = index;
-            listeJournee.Add(this);
-			// ListActiviteJournee = Activite
-			CompteRendu = "";
-        }
-				  
 		
-		// Méthodes
 
-		public void serializer()
-		{
-			XmlSerializer xs = new XmlSerializer(typeof(Journee));
-			// Ouverture de l'instance d'écriture en précisant le chemin du fichier
-			using (TextWriter writer = new StreamWriter("./..//..//InfoGenerales.xml"))
-			{
-				xs.Serialize(writer, this);
-			}
-
-			Console.WriteLine(string.Format("Journee : enregistrement réussi"));
-		}
-
+		
 
         public List<Activite> checkActivite(Activite newActivite)
         //on verifie si une activite empiète sur d'autres.
@@ -134,41 +92,74 @@ namespace PI_Mars_Mission_Control
             return lst_ActiviteConflit;
         }
 
-       
-		public void rechercheJourActivite(string mot)
+
+		public void rechercheNomActivite(string mot, Dates dateDeb, Dates dateFin)
 		{
-			/*for (int i=0;i<.i]();i++)
+			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
+			List<Activite> listResult = listPeriode.FindAll(
+			delegate(Activite act)
 			{
-				if (mot==lst_ActiviteJournee[]
-			} il doit y avoir un truc déjà fait pour rechercher*/
+				return (act.Nom == mot);
+			}
+			);
+		}
+		public void rechercheTexteActivite(string mot, Dates dateDeb, Dates dateFin)
+		{
+			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
+			List<Activite> listResult = listPeriode.FindAll(
+			delegate(Activite act)
+			{
+				return (act.Descritpion.Contains(mot));
+			}
+			);
 		}
 
 
-		public List<Activite> selectionPeriode(int heureDeb, int heureFin)
+		public List<Activite> selectionPeriode(Dates heureDeb, Dates heureFin)
 		{
 			List<Activite> lst_periode = new List<Activite>();
 			foreach (Activite uneActivite in ListActiviteJournee)
 			{
-				if (uneActivite.HeureFin.heure > heureDeb || uneActivite.HeureDebut.heure < heureFin)
+				if (uneActivite.HeureFin.heure > heureDeb.heure || uneActivite.HeureDebut.heure < heureFin.heure)
 				{
 					lst_periode.Add(uneActivite);
 				}
 			}
 			return lst_periode;
 		}
-        public List<Activite> rechercheLieuExploration(Point hg, Point bd, int heureDeb, int heureFin)
-            // hg : point en haut à gauche du rectangle dans lequel on veut chercher
-            // bd : point en bas à droite du rectangle dans lequel on veut chercher
-        {
-            List<Activite> listPeriode=selectionPeriode(heureDeb, heureFin);
-            List<Activite>  listResult = listPeriode.FindAll(
-            delegate(Activite act)
-            {
-                return (act.Lieu.Position.X>=hg.X && act.Lieu.Position.X<=bd.X && act.Lieu.Position.Y<=hg.Y && act.Lieu.Position.Y>=bd.Y);
-            }
-            );
-            return listResult;
-        }
+
+
+		public List<Activite> selectionPeriode(int heureDeb, int heureFin)
+		{
+			var datesDuree = this.duree(heureDeb, heureFin);
+			return selectionPeriode(datesDuree.Item1, datesDuree.Item2);
+		}
+		public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates heureDeb, Dates heureFin)
+		// hg : point en haut à gauche du rectangle dans lequel on veut chercher
+		// bd : point en bas à droite du rectangle dans lequel on veut chercher
+		{
+			List<Activite> listPeriode = selectionPeriode(heureDeb, heureFin);
+			List<Activite> listResult = listPeriode.FindAll(
+			delegate(Activite act)
+			{
+				return (act.Lieu.Position.X >= hg.X && act.Lieu.Position.X <= bd.X && act.Lieu.Position.Y <= hg.Y && act.Lieu.Position.Y >= bd.Y);
+			}
+			);
+			return listResult;
+		}
+		public List<Activite> rechercheLieuExploration(Point hg, Point bd, int heureDeb, int heureFin)
+		{
+			var datesDuree = this.duree(heureDeb, heureFin);
+			return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
+		}
+		private Tuple<Dates, Dates> duree(int heureDeb, int heureFin)
+		{
+			Dates dateDeb = new Dates(this.NumJour, heureDeb, 0);
+			Dates dateFin;
+			if (heureFin == 24) dateFin = new Dates(this.NumJour, heureFin, 40);
+			else dateFin = new Dates(this.NumJour, heureFin, 0);
+			return Tuple.Create(dateDeb, dateFin);
+		}
 		        
     }
 }

@@ -15,7 +15,7 @@ namespace PI_Mars_Mission_Control
         {
             InitializeComponent();
             this.labelJ.Text = jourActuel.ToString();
-            this.labelActi.Text = actiActuelle.TexteDescritpif.ToString();
+            this.labelActi.Text = actiActuelle.Descritpion.ToString();
             
         }
 

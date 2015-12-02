@@ -117,7 +117,7 @@ namespace PI_Mars_Mission_Control
             {
                 Button BtnActi = new Button();
                 BtnActi.Size = new Size(200, listTailles[i]);
-                BtnActi.Text = (jourActuel.ListActiviteJournee[i].TexteDescritpif);
+                BtnActi.Text = (jourActuel.ListActiviteJournee[i].Descritpion);
                 BtnActi.Location = (new Point(posX, posY + (jourActuel.ListActiviteJournee[i].HeureDebut.heure * 6 + jourActuel.ListActiviteJournee[i].HeureDebut.minute / 10) * _taille10minPixel));
                 BtnActi.Tag = jourActuel.ListActiviteJournee[i];                
                 BtnActi.Name = jourActuel.ListActiviteJournee[i].HeureDebut.ToString();
