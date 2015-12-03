@@ -124,14 +124,14 @@ namespace PI_Mars_Mission_Control
             }
             return listResult;
         }
-        public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates jourdeb, Dates jourfin)
+        /*public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates jourdeb, Dates jourfin)
         {
             return rechercheLieuExploration(hg, bd, jourdeb.heure, jourfin.heure);
         }
         public List<Activite> rechercheLieuExploration(Point pt, Dates jourdeb, Dates jourfin)
         {
             return rechercheLieuExploration(pt, pt, jourdeb.heure, jourfin.heure);
-        }
+        }*/
 
 #endregion
 

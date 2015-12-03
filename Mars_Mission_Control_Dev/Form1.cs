@@ -48,7 +48,7 @@ namespace PI_Mars_Mission_Control
         public Form1()
         {
             InitializeComponent();
-						
+		
             Cal = new Calendrier();            
 				
 			for (int i = 0; i < 500; i++)
@@ -74,7 +74,7 @@ namespace PI_Mars_Mission_Control
 
 				// Pour le chargement de la 1ère page du calendrier : on sait que le numéro du jour va de 1 à 50
 				btn_jour.Text = btn_jour.Name = i.ToString();                 
-                btn_jour.Location = new Point(60 + (posX * 50), 60 + (posY * 50));
+                btn_jour.Location = new Point(60 + (posX * 50), 160 + (posY * 50));
                 posX++;
 				
 
