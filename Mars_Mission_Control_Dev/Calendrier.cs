@@ -80,7 +80,29 @@ namespace Mars_Mission_Control_Dev
         #endregion
 
         #region	Méthodes
+        //public void initialiser(string chemin)
+        //{
+        //    if (File.Exists(chemin))
+        //    {
+        //        XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
+        //        using (StreamReader sr = new StreamReader(chemin))
+        //        {
+        //            this = xs.Deserialize(sr) as Calendrier;
+        //        }
+        //    }
+        //}
+        public void enregistrer()
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
+            Console.WriteLine(string.Format("Calendrier : enregistrement en cours..."));
+            // Ouverture de l'instance d'écriture en précisant le chemin du fichier
+            using (TextWriter writer = new StreamWriter("./..//..//InfoGenerales.xml"))
+            {
+                xs.Serialize(writer, this);
+            }
 
+            Console.WriteLine(string.Format("Calendrier : enregistrement réussi"));
+        }
         public List<Activite> checkActivite(Activite newActivite)
         //on verifie si une activite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
         {
@@ -105,8 +127,6 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_ActiviteConflit;
         }
-
-
         public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         {
             List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
@@ -118,7 +138,7 @@ namespace Mars_Mission_Control_Dev
             );
             return listResult;
         }
-        public List<Activite> rechercheTexteActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
+        public List<Activite> rechercheDescActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         {
             List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
             List<Activite> listResult = listPeriode.FindAll(
@@ -129,8 +149,6 @@ namespace Mars_Mission_Control_Dev
             );
             return listResult;
         }
-
-
         public List<Activite> selectionPeriodeAct(Dates HeureDeb, Dates HeureFin)
         {
             List<Activite> lst_periode = new List<Activite>();
@@ -181,7 +199,7 @@ namespace Mars_Mission_Control_Dev
             List<Activite> listSortiesJour;
             foreach (Journee jour in listPeriode)
             {
-                listSortiesJour = jour.rechercheSortieJour(dateDeb, dateFin);
+                listSortiesJour = jour.rechercheSorties(dateDeb, dateFin);
                 if (listSortiesJour.Count() != 0) activitesDehors.AddRange(listSortiesJour);
             }
             return activitesDehors;
@@ -201,6 +219,16 @@ namespace Mars_Mission_Control_Dev
             else dateFin = new Dates(this.NumJour, HeureFin, 0);
             return Tuple.Create(dateDeb, dateFin);
         }*/
+        public Dates conversionHeureMartienne(DateTime HeureTerre)
+        {
+            TimeSpan DureeMissionT = HeureTerre - JourDebutMission;
+            int DureeMissionMin = (DureeMissionT.Days * 24 + DureeMissionT.Hours) * 60 + DureeMissionT.Minutes;
+            int minuteM = DureeMissionMin % (60 * 24);
+            int heureM = DureeMissionMin % 60;
+            int joursM = DureeMissionMin / (24 * 60);
+            Dates DateM = new Dates(joursM, heureM, minuteM);
+            return DateM;
+        }
         #endregion
     }
 }

@@ -75,6 +75,10 @@ namespace Mars_Mission_Control_Dev
             Dates ecartTps = new Dates(ecartJour, ecartH, ecartMin);
             return ecartTps;
         }
+        public override string ToString()
+        {
+            return String.Format("{0}:{1}", this.Heure, this.Minute);
+        }
         #endregion
     }
 }

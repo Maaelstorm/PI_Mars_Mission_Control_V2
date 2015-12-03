@@ -101,7 +101,7 @@ namespace Mars_Mission_Control_Dev
 			}
 			);
 		}
-		public void rechercheTexteActivite(string mot, Dates dateDeb, Dates dateFin)
+		public void rechercheDescActivite(string mot, Dates dateDeb, Dates dateFin)
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
 			List<Activite> listResult = listPeriode.FindAll(
@@ -150,7 +150,7 @@ namespace Mars_Mission_Control_Dev
 			var datesDuree = this.int2Dates(HeureDeb, HeureFin);
 			return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
 		}
-        internal List<Activite> rechercheSortieJour(Dates HeureDeb, Dates HeureFin)
+        internal List<Activite> rechercheSorties(Dates HeureDeb, Dates HeureFin)
         {
             List<Activite> activitesDehors = new List<Activite>();
             foreach (Activite act in ListActiviteJournee)
@@ -159,10 +159,10 @@ namespace Mars_Mission_Control_Dev
             }
             return activitesDehors;
         }
-        internal List<Activite> rechercheSortieJour(int HeureDeb, int HeureFin)
+        internal List<Activite> rechercheSorties(int HeureDeb, int HeureFin)
         {
             var datesDuree = this.int2Dates(HeureDeb, HeureFin);
-            return rechercheSortieJour(datesDuree.Item1, datesDuree.Item2);
+            return rechercheSorties(datesDuree.Item1, datesDuree.Item2);
         }
 		private Tuple<Dates, Dates> int2Dates(int HeureDeb, int HeureFin)
         //converti 2 int en dates.

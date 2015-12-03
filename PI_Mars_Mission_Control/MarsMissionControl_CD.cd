@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+<<<<<<< HEAD
   <Class Name="Mars_Mission_Control_Dev.Dates">
     <Position X="2.75" Y="4" Width="2" />
+=======
+  <Class Name="PI_Mars_Mission_Control.Dates">
+    <Position X="2.75" Y="4.5" Width="2" />
+>>>>>>> origin/master
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAEAAAAAIAAAAEEAAAAACAAAAAQAAAAAAA=</HashCode>
       <FileName>Dates.cs</FileName>
@@ -11,7 +16,7 @@
   <Class Name="Mars_Mission_Control_Dev.Calendrier">
     <Position X="0.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAQAAAAAgAAQAACAQAQAAAAAIAAAAEAABAEA=</HashCode>
+      <HashCode>AAAAABCCAQAAAAAgAAQAACAAAQACAAAIAAgAAAABAEA=</HashCode>
       <FileName>Calendrier.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,10 +27,15 @@
       <FileName>Activite.cs</FileName>
     </TypeIdentifier>
   </Class>
+<<<<<<< HEAD
   <Class Name="Mars_Mission_Control_Dev.Journee">
     <Position X="0.5" Y="4" Width="2" />
+=======
+  <Class Name="PI_Mars_Mission_Control.Journee">
+    <Position X="0.5" Y="4.5" Width="2" />
+>>>>>>> origin/master
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAgAAAQAAABAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAABAAAAgAAEQgAABAAAAAAAQCAAAAAAAAEQAAAAA=</HashCode>
       <FileName>Journee.cs</FileName>
     </TypeIdentifier>
   </Class>
