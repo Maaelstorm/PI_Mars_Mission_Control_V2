@@ -26,7 +26,7 @@ namespace PI_Mars_Mission_Control
             calendrierActuel = calendrier;
             this.tagJourActuel.Text = jour.NumJour.ToString();
             this.tagJourActuel2.Text = jour.NumJour.ToString();            
-            _taille10minPixel = 5; // 10 minutes = 5 pixel
+            _taille10minPixel = 5; // 10 Minutes = 5 pixel
             this.richTextBox2.Text = jourActuel.CompteRendu;
 
             afficheBoutons();
@@ -84,7 +84,7 @@ namespace PI_Mars_Mission_Control
 
         private int tailleActivite(Activite Activitee)
         {
-            return ((Activitee.HeureFin.heure - Activitee.HeureDebut.heure) * 60 + (Activitee.HeureFin.minute - Activitee.HeureDebut.minute)) / 10 * _taille10minPixel;
+            return ((Activitee.HeureFin.Heure - Activitee.HeureDebut.Heure) * 60 + (Activitee.HeureFin.Minute - Activitee.HeureDebut.Minute)) / 10 * _taille10minPixel;
         }
 
         private void tailleChaqueCreneaux()
@@ -97,14 +97,14 @@ namespace PI_Mars_Mission_Control
                 listTailles.Add(tailleActivite(i));
             }
 
-            listEcart.Add(((jourActuel.ListActiviteJournee[0].HeureDebut.heure * 60 + jourActuel.ListActiviteJournee[0].HeureDebut.minute) - 0) / 10 * _taille10minPixel); // écart entre heure 0 et première activité
+            listEcart.Add(((jourActuel.ListActiviteJournee[0].HeureDebut.Heure * 60 + jourActuel.ListActiviteJournee[0].HeureDebut.Minute) - 0) / 10 * _taille10minPixel); // écart entre Heure 0 et première activité
 
             for (int j = 0; j < jourActuel.ListActiviteJournee.Count() - 1; j++)
             {
-                listEcart.Add(((jourActuel.ListActiviteJournee[j + 1].HeureDebut.heure * 60 + jourActuel.ListActiviteJournee[j + 1].HeureDebut.minute) - (jourActuel.ListActiviteJournee[j].HeureFin.heure * 60 + jourActuel.ListActiviteJournee[j].HeureFin.minute)) / 10 * _taille10minPixel); // écart entre 2 activités
+                listEcart.Add(((jourActuel.ListActiviteJournee[j + 1].HeureDebut.Heure * 60 + jourActuel.ListActiviteJournee[j + 1].HeureDebut.Minute) - (jourActuel.ListActiviteJournee[j].HeureFin.Heure * 60 + jourActuel.ListActiviteJournee[j].HeureFin.Minute)) / 10 * _taille10minPixel); // écart entre 2 activités
             }
 
-            listEcart.Add(((24 * 60 + 40 - (jourActuel.ListActiviteJournee[jourActuel.ListActiviteJournee.Count - 1].HeureFin.heure * 60 + jourActuel.ListActiviteJournee[jourActuel.ListActiviteJournee.Count - 1].HeureFin.minute))) / 10 * _taille10minPixel); // écart entre dernière activité et 24h40
+            listEcart.Add(((24 * 60 + 40 - (jourActuel.ListActiviteJournee[jourActuel.ListActiviteJournee.Count - 1].HeureFin.Heure * 60 + jourActuel.ListActiviteJournee[jourActuel.ListActiviteJournee.Count - 1].HeureFin.Minute))) / 10 * _taille10minPixel); // écart entre dernière activité et 24h40
         }
         
         private void afficheBoutons()
@@ -118,13 +118,13 @@ namespace PI_Mars_Mission_Control
                 Button BtnActi = new Button();
                 BtnActi.Size = new Size(200, listTailles[i]);
                 BtnActi.Text = (jourActuel.ListActiviteJournee[i].Descritpion);
-                BtnActi.Location = (new Point(posX, posY + (jourActuel.ListActiviteJournee[i].HeureDebut.heure * 6 + jourActuel.ListActiviteJournee[i].HeureDebut.minute / 10) * _taille10minPixel));
+                BtnActi.Location = (new Point(posX, posY + (jourActuel.ListActiviteJournee[i].HeureDebut.Heure * 6 + jourActuel.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel));
                 BtnActi.Tag = jourActuel.ListActiviteJournee[i];                
                 BtnActi.Name = jourActuel.ListActiviteJournee[i].HeureDebut.ToString();
 
                 Label label = new Label();
                 label.Name = "labelActivites";
-                label.Location = new Point(posX + 210, posY + (jourActuel.ListActiviteJournee[i].HeureDebut.heure * 6 + jourActuel.ListActiviteJournee[i].HeureDebut.minute / 10) * _taille10minPixel);
+                label.Location = new Point(posX + 210, posY + (jourActuel.ListActiviteJournee[i].HeureDebut.Heure * 6 + jourActuel.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel);
                 label.Text = jourActuel.ListActiviteJournee[i].HeureDebut.ToString();                
 
                 this.panelActivites.Controls.Add(BtnActi);

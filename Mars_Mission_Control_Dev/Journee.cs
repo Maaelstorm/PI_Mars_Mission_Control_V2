@@ -73,7 +73,7 @@ namespace PI_Mars_Mission_Control
             List<Activite> lst_ActiviteConflit = new List<Activite>();
             foreach (Activite activite in ListActiviteJournee)
             {
-                if (activite.HeureFin.heure>=newActivite.HeureDebut.heure && activite.HeureFin.minute>=newActivite.HeureDebut.minute)
+                if (activite.HeureFin.Heure>=newActivite.HeureDebut.Heure && activite.HeureFin.Minute>=newActivite.HeureDebut.Minute)
                 {
                     foreach (Spationaute spatioOccupe in activite.ListSpationaute)
                     {
@@ -113,12 +113,12 @@ namespace PI_Mars_Mission_Control
 		}
 
 
-		public List<Activite> selectionPeriode(Dates heureDeb, Dates heureFin)
+		public List<Activite> selectionPeriode(Dates HeureDeb, Dates HeureFin)
 		{
 			List<Activite> lst_periode = new List<Activite>();
 			foreach (Activite uneActivite in ListActiviteJournee)
 			{
-				if (uneActivite.HeureFin.heure > heureDeb.heure || uneActivite.HeureDebut.heure < heureFin.heure)
+				if (uneActivite.HeureFin.Heure > HeureDeb.Heure || uneActivite.HeureDebut.Heure < HeureFin.Heure)
 				{
 					lst_periode.Add(uneActivite);
 				}
@@ -127,16 +127,16 @@ namespace PI_Mars_Mission_Control
 		}
 
 
-		public List<Activite> selectionPeriode(int heureDeb, int heureFin)
+		public List<Activite> selectionPeriode(int HeureDeb, int HeureFin)
 		{
-			var datesDuree = this.int2Dates(heureDeb, heureFin);
+			var datesDuree = this.int2Dates(HeureDeb, HeureFin);
 			return selectionPeriode(datesDuree.Item1, datesDuree.Item2);
 		}
-		public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates heureDeb, Dates heureFin)
+		public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
 		// hg : point en haut à gauche du rectangle dans lequel on veut chercher
 		// bd : point en bas à droite du rectangle dans lequel on veut chercher
 		{
-			List<Activite> listPeriode = selectionPeriode(heureDeb, heureFin);
+			List<Activite> listPeriode = selectionPeriode(HeureDeb, HeureFin);
 			List<Activite> listResult = listPeriode.FindAll(
 			delegate(Activite act)
 			{
@@ -145,12 +145,12 @@ namespace PI_Mars_Mission_Control
 			);
 			return listResult;
 		}
-		public List<Activite> rechercheLieuExploration(Point hg, Point bd, int heureDeb, int heureFin)
+		public List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
 		{
-			var datesDuree = this.int2Dates(heureDeb, heureFin);
+			var datesDuree = this.int2Dates(HeureDeb, HeureFin);
 			return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
 		}
-        internal List<Activite> rechercheSortieJour(Dates heureDeb, Dates heureFin)
+        internal List<Activite> rechercheSortieJour(Dates HeureDeb, Dates HeureFin)
         {
             List<Activite> activitesDehors = new List<Activite>();
             foreach (Activite act in ListActiviteJournee)
@@ -159,18 +159,18 @@ namespace PI_Mars_Mission_Control
             }
             return activitesDehors;
         }
-        internal List<Activite> rechercheSortieJour(int heureDeb, int heureFin)
+        internal List<Activite> rechercheSortieJour(int HeureDeb, int HeureFin)
         {
-            var datesDuree = this.int2Dates(heureDeb, heureFin);
+            var datesDuree = this.int2Dates(HeureDeb, HeureFin);
             return rechercheSortieJour(datesDuree.Item1, datesDuree.Item2);
         }
-		private Tuple<Dates, Dates> int2Dates(int heureDeb, int heureFin)
+		private Tuple<Dates, Dates> int2Dates(int HeureDeb, int HeureFin)
         //converti 2 int en dates.
 		{
-			Dates dateDeb = new Dates(this.NumJour, heureDeb, 0);
+			Dates dateDeb = new Dates(this.NumJour, HeureDeb, 0);
 			Dates dateFin;
-			if (heureFin == 24) dateFin = new Dates(this.NumJour, heureFin, 40);
-			else dateFin = new Dates(this.NumJour, heureFin, 0);
+			if (HeureFin == 24) dateFin = new Dates(this.NumJour, HeureFin, 40);
+			else dateFin = new Dates(this.NumJour, HeureFin, 0);
 			return Tuple.Create(dateDeb, dateFin);
         }
         #endregion
