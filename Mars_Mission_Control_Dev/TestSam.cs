@@ -18,9 +18,7 @@ namespace Mars_Mission_Control_Dev
 		{
 			InitializeComponent();
 
-
-			
-			
+			this.lbTailleImage.Text = "Taille : " + carte.ImageZone.Width + " par " + carte.ImageZone.Height + "pixesl";						
 		}
 
 		private void label1_Click(object sender, EventArgs e)
@@ -35,7 +33,7 @@ namespace Mars_Mission_Control_Dev
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			
+			carte.selectCoord(int.Parse(tbX.Text), int.Parse(tbY.Text));
 		}
 	}
 }
