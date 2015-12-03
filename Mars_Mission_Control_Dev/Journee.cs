@@ -54,8 +54,9 @@ namespace PI_Mars_Mission_Control
 		
 #endregion
 
- 
-		// NE PAS TOUCHER AU CONSTRUCTEUR (pour l'instant)
+        #region constructeurs
+
+        // NE PAS TOUCHER AU CONSTRUCTEUR (pour l'instant)
 		public Journee(int nJour)
 		{			
 			NumJour = nJour;
@@ -63,8 +64,7 @@ namespace PI_Mars_Mission_Control
 			this.ListActiviteJournee = new List<Activite>();
 		}
 
-
-
+        #endregion
 
         #region methodes
         public List<Activite> checkActivite(Activite newActivite)
