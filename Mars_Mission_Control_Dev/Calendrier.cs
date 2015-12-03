@@ -17,7 +17,7 @@ namespace PI_Mars_Mission_Control
     {
 
 
-#region Accesseurs & Propriétés
+    #region Accesseurs & Propriétés
 
                 
         private DateTime _jourDebutMission;
@@ -57,17 +57,22 @@ namespace PI_Mars_Mission_Control
 
 #endregion
 
-
+    #region constructeurs
         public Calendrier()
         {
             this.ListJournees = new List<Journee>();
             this.ListActivite = new List<Activite>();
             this.ListSpationaute = new List<Spationaute>();
         }
+        public Calendrier(List<Journee> listeJournees, List<Activite> listeActivites, List<Spationaute> listeSpationautes)
+        {
+            ListJournees = listeJournees;
+            ListActivite = listeActivites;
+            ListSpationaute = listeSpationautes;
+        }
+        #endregion
 
-
-
-#region méthodes
+    #region méthodes
 
 
         public List<Journee> selectionPeriode(int jourDeb, int jourFin)
@@ -119,10 +124,16 @@ namespace PI_Mars_Mission_Control
             }
             return listResult;
         }
-
+        public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates jourdeb, Dates jourfin)
+        {
+            return rechercheLieuExploration(hg, bd, jourdeb.heure, jourfin.heure);
+        }
+        public List<Activite> rechercheLieuExploration(Point pt, Dates jourdeb, Dates jourfin)
+        {
+            return rechercheLieuExploration(pt, pt, jourdeb.heure, jourfin.heure);
+        }
 
 #endregion
-
 
     }
 }

@@ -63,10 +63,10 @@ namespace PI_Mars_Mission_Control
 			this.ListActiviteJournee = new List<Activite>();
 		}
 
-		
 
-		
 
+
+        #region methodes
         public List<Activite> checkActivite(Activite newActivite)
         //on verifie si une activite empiète sur d'autres.
         {
@@ -91,8 +91,6 @@ namespace PI_Mars_Mission_Control
             }
             return lst_ActiviteConflit;
         }
-
-
 		public void rechercheNomActivite(string mot, Dates dateDeb, Dates dateFin)
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
@@ -159,7 +157,7 @@ namespace PI_Mars_Mission_Control
 			if (heureFin == 24) dateFin = new Dates(this.NumJour, heureFin, 40);
 			else dateFin = new Dates(this.NumJour, heureFin, 0);
 			return Tuple.Create(dateDeb, dateFin);
-		}
-		        
+        }
+        #endregion
     }
 }
