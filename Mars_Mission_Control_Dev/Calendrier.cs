@@ -108,29 +108,31 @@ namespace PI_Mars_Mission_Control
         }
 
 
-        public void rechercheNomActivite(string mot, Dates dateDeb, Dates dateFin)
+        public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         {
-            List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
+            List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
             List<Activite> listResult = listPeriode.FindAll(
             delegate(Activite act)
             {
                 return (act.Nom == mot);
             }
             );
+            return listResult;
         }
-        public void rechercheTexteActivite(string mot, Dates dateDeb, Dates dateFin)
+        public List<Activite> rechercheTexteActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         {
-            List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
+            List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
             List<Activite> listResult = listPeriode.FindAll(
             delegate(Activite act)
             {
                 return (act.Descritpion.Contains(mot));
             }
             );
+            return listResult;
         }
 
 
-        public List<Activite> selectionPeriode(Dates heureDeb, Dates heureFin)
+        public List<Activite> selectionPeriodeAct(Dates heureDeb, Dates heureFin)
         {
             List<Activite> lst_periode = new List<Activite>();
             foreach (Activite uneActivite in ListActivite)
@@ -142,7 +144,18 @@ namespace PI_Mars_Mission_Control
             }
             return lst_periode;
         }
-
+        public List<Journee> selectionPeriodeJour(Dates dateDeb, Dates dateFin)
+        {
+            List<Journee> lst_periode = new List<Journee>();
+            foreach (Journee uneJournee in ListJournees)
+            {
+                if (uneJournee.NumJour > dateDeb.heure || uneJournee.NumJour < dateFin.jour)
+                {
+                    lst_periode.Add(uneJournee);
+                }
+            }
+            return lst_periode;
+        }
         //public List<Activite> selectionPeriode(int heureDeb, int heureFin)
         //{
         //    var datesDuree = this.int2dates(heureDeb, heureFin);
@@ -152,7 +165,7 @@ namespace PI_Mars_Mission_Control
         // hg : point en haut à gauche du rectangle dans lequel on veut chercher
         // bd : point en bas à droite du rectangle dans lequel on veut chercher
         {
-            List<Activite> listPeriode = selectionPeriode(heureDeb, heureFin);
+            List<Activite> listPeriode = selectionPeriodeAct(heureDeb, heureFin);
             List<Activite> listResult = listPeriode.FindAll(
             delegate(Activite act)
             {
@@ -161,21 +174,34 @@ namespace PI_Mars_Mission_Control
             );
             return listResult;
         }
-        //public List<Activite> rechercheLieuExploration(Point hg, Point bd, int heureDeb, int heureFin)
-        //{
-        //    var datesDuree = this.int2dates(heureDeb, heureFin);
-        //    return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
-        //}
-        //private Tuple<Dates, Dates> int2dates(int heureDeb, int heureFin)
-        ////converti deux int en dates, en considér. Si l'heure de fin vaut 24, la date convertie correspond à 24 h et 40 min. 
-        ////Cette fonction sert juste pour le confort de codage.
-        //{
-        //    Dates dateDeb = new Dates(this.NumJour, heureDeb, 0);
-        //    Dates dateFin;
-        //    if (heureFin == 24) dateFin = new Dates(this.NumJour, heureFin, 40);
-        //    else dateFin = new Dates(this.NumJour, heureFin, 0);
-        //    return Tuple.Create(dateDeb, dateFin);
-        //}
+        public List<Activite> rechercheSorties(Dates dateDeb, Dates dateFin)
+        {
+
+            List<Activite> activitesDehors = new List<Activite>();
+            List<Journee> listPeriode = selectionPeriodeJour(dateDeb, dateFin);
+            List<Activite> listSortiesJour;
+            foreach (Journee jour in listPeriode)
+            {
+                listSortiesJour = jour.rechercheSortieJour(dateDeb, dateFin);
+                if (listSortiesJour.Count() != 0) activitesDehors.AddRange(listSortiesJour);
+            }
+            return activitesDehors;
+        }
+        /*public List<Activite> rechercheLieuExploration(Point hg, Point bd, int heureDeb, int heureFin)
+        {
+            var datesDuree = this.int2dates(heureDeb, heureFin);
+            return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
+        }
+        private Tuple<Dates, Dates> int2dates(int heureDeb, int heureFin)
+        //converti deux int en dates, en considér. Si l'heure de fin vaut 24, la date convertie correspond à 24 h et 40 min. 
+        //Cette fonction sert juste pour le confort de codage.
+        {
+            Dates dateDeb = new Dates(this.NumJour, heureDeb, 0);
+            Dates dateFin;
+            if (heureFin == 24) dateFin = new Dates(this.NumJour, heureFin, 40);
+            else dateFin = new Dates(this.NumJour, heureFin, 0);
+            return Tuple.Create(dateDeb, dateFin);
+        }*/
         #endregion
     }
 }

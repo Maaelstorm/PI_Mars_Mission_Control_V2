@@ -107,11 +107,6 @@ namespace PI_Mars_Mission_Control
             throw new System.NotImplementedException();
         }
 
-        public void rechercheLieuExploration()
-        {
-            throw new System.NotImplementedException();
-		}
-
 #endregion
 
 
