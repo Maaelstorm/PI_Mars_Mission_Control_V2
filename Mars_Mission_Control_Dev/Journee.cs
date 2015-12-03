@@ -17,7 +17,7 @@ namespace PI_Mars_Mission_Control
     public class Journee
     {		
 
-#region Accesseurs & Propriétés
+    #region Accesseurs & Propriétés
 
 		private int _numJour;
 		[XmlElement("N°Jour")]
