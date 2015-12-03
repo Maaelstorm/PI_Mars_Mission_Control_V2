@@ -106,14 +106,15 @@ namespace PI_Mars_Mission_Control
             int index = 0;
             foreach (var item in Cal.ListJournees)
             {
-				Activite Sleeping1 = new Activite("Sleeping", new Dates(item.NumJour, 0, 0), new Dates(item.NumJour, 7, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Sleeping2 = new Activite("Sleeping", new Dates(item.NumJour, 23, 0), new Dates(item.NumJour, 24, 40), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Eating1 = new Activite("Eating", new Dates(item.NumJour, 7, 0), new Dates(item.NumJour, 8, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Eating2 = new Activite("Eating", new Dates(item.NumJour, 12, 0), new Dates(item.NumJour, 14, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Eating3 = new Activite("Eating", new Dates(item.NumJour, 19, 0), new Dates(item.NumJour, 21, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/"COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Private1 = new Activite("Eating", new Dates(item.NumJour, 8, 0), new Dates(item.NumJour, 12, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Private2 = new Activite("Private", new Dates(item.NumJour, 14, 0), new Dates(item.NumJour, 19, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Private3 = new Activite("Private", new Dates(item.NumJour, 21, 0), new Dates(item.NumJour, 23, 0), new Coordonnees(new Point(), /* pictureBox1.Image,*/ "COUCOU"), "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
+				Activite Sleeping1 = new Activite("Sleeping", new Dates(item.NumJour, 0, 0), new Dates(item.NumJour, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Sleeping2 = new Activite("Sleeping", new Dates(item.NumJour, 23, 0), new Dates(item.NumJour, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Eating1 = new Activite("Eating", new Dates(item.NumJour, 7, 0), new Dates(item.NumJour, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Eating2 = new Activite("Eating", new Dates(item.NumJour, 12, 0), new Dates(item.NumJour, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Eating3 = new Activite("Eating", new Dates(item.NumJour, 19, 0), new Dates(item.NumJour, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Private1 = new Activite("Eating", new Dates(item.NumJour, 8, 0), new Dates(item.NumJour, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Private2 = new Activite("Private", new Dates(item.NumJour, 14, 0), new Dates(item.NumJour, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				Activite Private3 = new Activite("Private", new Dates(item.NumJour, 21, 0), new Dates(item.NumJour, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
 
                 item.ListActiviteJournee.Add(Sleeping1);
 

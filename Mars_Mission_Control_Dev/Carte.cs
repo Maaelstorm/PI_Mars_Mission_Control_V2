@@ -55,13 +55,14 @@ namespace PI_Mars_Mission_Control
 			this.ListCoordonnees = new List<Coordonnees>();
 		}
 
-		// Méthode d'ouverture de fichier à faire à partir du Form si choix de la carte de la zone par l'utilisateur
+		// Méthode d'ouverture de fichier A FAIRE DANS LE FORM si choix de la carte de la zone par l'utilisateur
 		public Carte(string path)
 		{
 			this.ImageZone = Image.FromFile(path);
 			this.ListIcone = new List<Image>();
 			this.ListCoordonnees = new List<Coordonnees>();
 		}
+
 #endregion
 
 
@@ -79,9 +80,11 @@ namespace PI_Mars_Mission_Control
 			Console.WriteLine(string.Format("Carte : enregistrement réussi"));
 		}
 
-		public void ajouterCoord(int x, int y)
+		public void ajouterCoord(string nom, int x, int y)
 		{
-			throw new System.NotImplementedException();
+			Point pt = new Point(x,y);
+			Coordonnees cord = new Coordonnees(nom, pt);
+			this.ListCoordonnees.Add(cord);
 		}
 
 		public void selectCoord(int x, int y)

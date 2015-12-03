@@ -17,6 +17,14 @@ namespace PI_Mars_Mission_Control
 
 #region accesseurs & proprietés
 
+		private string _nom;
+		[XmlElement("Nom")]
+		public string Nom
+		{
+			get { return _nom; }
+			set { _nom = value; }
+		}
+		
 		private Point _position;
 		[XmlElement("Point")]
 		public Point Position
@@ -45,25 +53,21 @@ namespace PI_Mars_Mission_Control
 
 #region constructeurs
 
-		public Coordonnees()
+		public Coordonnees(string nom, Point point)
 		{
-			Position = new Point();
-			Icone = null;
-			Descriptif = "";
+			this.Nom = nom;
+			this.Position = point;
+			this.Icone = null;
+			this.Descriptif = "";
 		}
 
-		public Coordonnees(Point point) : this()
-		{
-			Position = point;
-		}
-
-		public Coordonnees(Point point, string descriptif) : this()
+		public Coordonnees(string nom, Point point, string descriptif) : this(nom, point)
 		{
 			this.Position = point;
 			this.Descriptif = descriptif;
 		}
 
-		public Coordonnees(Point point, Image Icone, string descriptif)	: this(point, descriptif)
+		public Coordonnees(string nom, Point point, Image Icone, string descriptif)	: this(nom, point, descriptif)
 		{
 			this.Icone = Icone;
 		}
