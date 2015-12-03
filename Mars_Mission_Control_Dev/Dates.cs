@@ -18,8 +18,8 @@ namespace PI_Mars_Mission_Control
                 else throw new System.ArgumentException("le numero du jour doit être compris entre 0 et 500 inclus");
             }
         }
-        private int _heure;
 
+        private int _heure;
         public int Heure
         {
             get { return _heure; }
@@ -29,6 +29,7 @@ namespace PI_Mars_Mission_Control
                 else throw new System.ArgumentException("la valeur de l'heure doit être comprise entre 0 et 24 inclus");
             }
         }
+        
         private int _minute;
         public int Minute
         {
