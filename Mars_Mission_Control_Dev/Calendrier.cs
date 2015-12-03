@@ -136,7 +136,7 @@ namespace PI_Mars_Mission_Control
             List<Activite> lst_periode = new List<Activite>();
             foreach (Activite uneActivite in ListActivite)
             {
-                if (uneActivite.HeureFin.heure > heureDeb.heure || uneActivite.HeureDebut.heure < heureFin.heure)
+                if (uneActivite.HeureFin.Heure > heureDeb.Heure || uneActivite.HeureDebut.Heure < heureFin.Heure)
                 {
                     lst_periode.Add(uneActivite);
                 }
@@ -148,7 +148,7 @@ namespace PI_Mars_Mission_Control
             List<Journee> lst_periode = new List<Journee>();
             foreach (Journee uneJournee in ListJournees)
             {
-                if (uneJournee.NumJour > dateDeb.heure || uneJournee.NumJour < dateFin.jour)
+                if (uneJournee.NumJour > dateDeb.Heure || uneJournee.NumJour < dateFin.Jour)
                 {
                     lst_periode.Add(uneJournee);
                 }
