@@ -77,7 +77,7 @@ namespace PI_Mars_Mission_Control
         }
         public override string ToString()
         {
-            return String.Format("{0}:{1}", this.heure, this.minute);
+            return String.Format("{0}:{1}", this.Heure, this.Minute);
         }
         #endregion
     }
