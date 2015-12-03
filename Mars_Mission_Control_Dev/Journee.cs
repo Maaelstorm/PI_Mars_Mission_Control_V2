@@ -54,8 +54,9 @@ namespace PI_Mars_Mission_Control
 		
 #endregion
 
- 
-		// NE PAS TOUCHER AU CONSTRUCTEUR (pour l'instant)
+        #region constructeurs
+
+        // NE PAS TOUCHER AU CONSTRUCTEUR (pour l'instant)
 		public Journee(int nJour)
 		{			
 			NumJour = nJour;
@@ -63,8 +64,7 @@ namespace PI_Mars_Mission_Control
 			this.ListActiviteJournee = new List<Activite>();
 		}
 
-
-
+        #endregion
 
         #region methodes
         public List<Activite> checkActivite(Activite newActivite)
@@ -129,7 +129,7 @@ namespace PI_Mars_Mission_Control
 
 		public List<Activite> selectionPeriode(int heureDeb, int heureFin)
 		{
-			var datesDuree = this.duree(heureDeb, heureFin);
+			var datesDuree = this.int2Dates(heureDeb, heureFin);
 			return selectionPeriode(datesDuree.Item1, datesDuree.Item2);
 		}
 		public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates heureDeb, Dates heureFin)
@@ -147,10 +147,25 @@ namespace PI_Mars_Mission_Control
 		}
 		public List<Activite> rechercheLieuExploration(Point hg, Point bd, int heureDeb, int heureFin)
 		{
-			var datesDuree = this.duree(heureDeb, heureFin);
+			var datesDuree = this.int2Dates(heureDeb, heureFin);
 			return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
 		}
-		private Tuple<Dates, Dates> duree(int heureDeb, int heureFin)
+        internal List<Activite> rechercheSortieJour(Dates heureDeb, Dates heureFin)
+        {
+            List<Activite> activitesDehors = new List<Activite>();
+            foreach (Activite act in ListActiviteJournee)
+            {
+                if (act.Lieu.Position.X != 0 || act.Lieu.Position.Y != 0) activitesDehors.Add(act);
+            }
+            return activitesDehors;
+        }
+        internal List<Activite> rechercheSortieJour(int heureDeb, int heureFin)
+        {
+            var datesDuree = this.int2Dates(heureDeb, heureFin);
+            return rechercheSortieJour(datesDuree.Item1, datesDuree.Item2);
+        }
+		private Tuple<Dates, Dates> int2Dates(int heureDeb, int heureFin)
+        //convertie 2 int en dates.
 		{
 			Dates dateDeb = new Dates(this.NumJour, heureDeb, 0);
 			Dates dateFin;
