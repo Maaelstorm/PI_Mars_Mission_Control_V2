@@ -165,7 +165,7 @@ namespace PI_Mars_Mission_Control
             return rechercheSortieJour(datesDuree.Item1, datesDuree.Item2);
         }
 		private Tuple<Dates, Dates> int2Dates(int heureDeb, int heureFin)
-        //convertie 2 int en dates.
+        //converti 2 int en dates.
 		{
 			Dates dateDeb = new Dates(this.NumJour, heureDeb, 0);
 			Dates dateFin;
