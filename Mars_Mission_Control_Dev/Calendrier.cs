@@ -87,7 +87,7 @@ namespace PI_Mars_Mission_Control
             List<Activite> lst_ActiviteConflit = new List<Activite>();
             foreach (Activite activite in ListActivite)
             {
-                if (activite.HeureFin.heure >= newActivite.HeureDebut.heure && activite.HeureFin.minute >= newActivite.HeureDebut.minute)
+                if (activite.HeureFin.Heure >= newActivite.HeureDebut.Heure && activite.HeureFin.Minute >= newActivite.HeureDebut.Minute)
                 {
                     foreach (Spationaute spatioOccupe in activite.ListSpationaute)
                     {
