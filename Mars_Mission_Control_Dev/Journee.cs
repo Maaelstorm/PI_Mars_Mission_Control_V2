@@ -73,7 +73,7 @@ namespace PI_Mars_Mission_Control
             List<Activite> lst_ActiviteConflit = new List<Activite>();
             foreach (Activite activite in ListActiviteJournee)
             {
-                if (activite.HeureFin.Heure>=newActivite.HeureDebut.Heure && activite.HeureFin.Minute>=newActivite.HeureDebut.Minute)
+                if (activite.HeureFin.heure>=newActivite.HeureDebut.heure && activite.HeureFin.minute>=newActivite.HeureDebut.minute)
                 {
                     foreach (Spationaute spatioOccupe in activite.ListSpationaute)
                     {
@@ -118,7 +118,7 @@ namespace PI_Mars_Mission_Control
 			List<Activite> lst_periode = new List<Activite>();
 			foreach (Activite uneActivite in ListActiviteJournee)
 			{
-				if (uneActivite.HeureFin.Heure > heureDeb.Heure || uneActivite.HeureDebut.Heure < heureFin.Heure)
+				if (uneActivite.HeureFin.heure > heureDeb.heure || uneActivite.HeureDebut.heure < heureFin.heure)
 				{
 					lst_periode.Add(uneActivite);
 				}
