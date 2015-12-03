@@ -45,7 +45,7 @@ namespace PI_Mars_Mission_Control
             }
         }
 
-		public string TexteDescriptif
+		public string Description
         {
             get
             {
@@ -70,26 +70,6 @@ namespace PI_Mars_Mission_Control
         public void enregister()
         {
             throw new System.NotImplementedException();
-        }
-
-        public void rechercheJourActivite(string mot)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void rechercheJourActivite(int numJour)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void rechercheLieuExploration()
-        {
-            throw new System.NotImplementedException();
-        }
-
-		public List<Activite> rechercheActiviteSpationaute()
-		{
-			throw new System.NotImplementedException();
 		}
     }
 }

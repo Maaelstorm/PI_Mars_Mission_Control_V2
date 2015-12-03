@@ -49,5 +49,10 @@ namespace PI_Mars_Mission_Control
         {
             throw new System.NotImplementedException();
         }
+
+		public List<Activite> rechercheActiviteSpationaute()
+		{
+			throw new System.NotImplementedException();
+		}
     }
 }

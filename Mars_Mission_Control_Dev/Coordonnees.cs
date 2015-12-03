@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using System.Drawing;
 
+using System.Xml.Serialization;
+
+
+// SAM
 namespace PI_Mars_Mission_Control
 {
+	[XmlRoot("Coordonnees")]
 	public class Coordonnees
 	{
 
-		#region accesseurs & proprietés
+#region accesseurs & proprietés
 
 		private Point _position;
+		[XmlElement("Point")]
 		public Point Position
 		{
 			get { return _position; }
@@ -19,6 +26,7 @@ namespace PI_Mars_Mission_Control
 		}
 
 		private Image _icone;
+		[XmlElement("Icone")]
 		public Image Icone
 		{
 			get { return _icone; }
@@ -26,15 +34,16 @@ namespace PI_Mars_Mission_Control
 		}
 
 		private string _descriptif;
+		[XmlElement("Descriptif")]
 		public string Descriptif
 		{
 			get { return _descriptif; }
 			set { _descriptif = value; }
 		}
 
-		#endregion
+#endregion
 
-		#region constructeurs
+#region constructeurs
 
 		public Coordonnees()
 		{
@@ -42,27 +51,28 @@ namespace PI_Mars_Mission_Control
 			Icone = null;
 			Descriptif = "";
 		}
-		public Coordonnees(Point point)
-			: this()
+
+		public Coordonnees(Point point) : this()
 		{
 			Position = point;
 		}
-		public Coordonnees(Point point, string descriptif)
-			: this()
+
+		public Coordonnees(Point point, string descriptif) : this()
 		{
 			this.Position = point;
 			this.Descriptif = descriptif;
 		}
-		public Coordonnees(Point point, Image Icone, string descriptif)
-			: this(point, descriptif)
+
+		public Coordonnees(Point point, Image Icone, string descriptif)	: this(point, descriptif)
 		{
 			this.Icone = Icone;
 		}
 
-		#endregion
+#endregion
 
-		#region methodes
+#region methodes
 
+		// La fonction distance renvoie la distance (sous forme d'un réel) entre 2 points 
 		public double distance(Point point)
 		{
 			double ecartX = this.Position.X - point.X;
@@ -70,7 +80,7 @@ namespace PI_Mars_Mission_Control
 			return Math.Sqrt(ecartX * ecartX + ecartY * ecartY);
 		}
 
-		#endregion
+#endregion
 
 	}
 }

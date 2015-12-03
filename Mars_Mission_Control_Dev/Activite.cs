@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using System.IO;
 using System.Xml.Serialization;
 
 using System.Text.RegularExpressions;
+
 
 // SAM
 namespace PI_Mars_Mission_Control
@@ -25,15 +25,13 @@ namespace PI_Mars_Mission_Control
 			set
 			{
 				// La chaine de caractère en entrée va être comparée à l'expression régulière regex
-				//Regex regex = new Regex(@"[A-Za-z]");
-				//Match match = regex.Match(NomActivite);
-				//if (match.Success)
-				//{
-				//    _nomActivite = value;
-				//}
-				//else throw new System.ArgumentException("le nom de l'activité ne doit être composé que de caractère alphabétique");		
-
-				_nom = value;
+				Regex regex = new Regex(@"[A-Za-z]");
+				Match match = regex.Match(value);
+				if (match.Success)
+				{
+					_nom = value;
+				}
+				else throw new System.ArgumentException("le nom de l'activité ne doit être composé que de caractère alphabétique");						
 			}
 		}
 
@@ -102,15 +100,7 @@ namespace PI_Mars_Mission_Control
 
 #region méthodes
 		
-		public void enregister()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void rechercheLieuExploration()
-        {
-            throw new System.NotImplementedException();
-		}
+		
 
 #endregion
 

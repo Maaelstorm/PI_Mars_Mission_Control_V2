@@ -56,17 +56,37 @@ namespace PI_Mars_Mission_Control
 			}
 		}
 
-        public void selectionPeriode()
+		public List<Activite> selectionPeriode()
         {
             throw new System.NotImplementedException();
         }
 
-		public System.Collections.Generic.List<PI_Mars_Mission_Control.Journee> extraireJourSortie()
+		public System.Collections.Generic.List<PI_Mars_Mission_Control.Journee> rechercheJourSortie()
 		{
 			throw new System.NotImplementedException();
 		}
 
 		public void conversionHeureMartienne()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public List<Activite> rechercheLieuExploration()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public List<Activite> rechercheNomActivitePeriode(string mot)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public List<Activite> rechercheDescActivitePeriode(int numJour)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public void enregistrer()
 		{
 			throw new System.NotImplementedException();
 		}
