@@ -135,8 +135,8 @@ namespace PI_Mars_Mission_Control
                 item.ListActiviteJournee.Sort(
                     delegate(Activite a1, Activite a2) // Et on les ordonne
                     {
-                        int HA1 = a1.HeureDebut.heure * 60 + a1.HeureDebut.minute;
-                        int HA2 = a2.HeureDebut.heure * 60 + a2.HeureDebut.minute;
+                        int HA1 = a1.HeureDebut.Heure * 60 + a1.HeureDebut.Minute;
+                        int HA2 = a2.HeureDebut.Heure * 60 + a2.HeureDebut.Minute;
                         return HA1.CompareTo(HA2);
                     });
 
