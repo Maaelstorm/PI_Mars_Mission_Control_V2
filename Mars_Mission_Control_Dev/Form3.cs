@@ -178,9 +178,11 @@ namespace Mars_Mission_Control_Dev
             patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
             Point p = new Point(eM.Location.X - taille / 2, eM.Location.Y - taille / 2);
 
+            double vraiCoordX = Math.Round(((((double)(eM.Location.X) / (double)(pictureBox1.Size.Width)) * 1095) - 700) / 5,2);
+            double vraiCoordY = Math.Round(((((double)(eM.Location.Y) / (double)(pictureBox1.Size.Height)) * 2053) - 1000) / 5,2);
 
-            textBoxX.Text = string.Format("{0}", eM.Location.X - taille / 2);
-            textBoxY.Text = string.Format("{0}", eM.Location.Y - taille / 2);
+            textBoxX.Text = string.Format("{0}", vraiCoordX);
+            textBoxY.Text = string.Format("{0}", vraiCoordY);
             graphics.DrawImage(patate, p);
         }
 
@@ -200,6 +202,26 @@ namespace Mars_Mission_Control_Dev
             parent.journee = this.jourActuel;
             parent.rafraichirPage(jourActuel.NumJour);
         }
+
+        private void textBoxXY_TextChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Refresh();
+            int taille = 50;
+            Image patate = Image.FromFile("../../../patate.png");
+            patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
+            int cooX = 0, cooY = 0;
+            int.TryParse(textBoxX.Text, out cooX);
+            int.TryParse(textBoxY.Text, out cooY);
+
+            int positionX = (int)((((((double)(cooX) * 5) + 700) / 1095) * pictureBox1.Size.Width));
+            int positionY = (int)((((((double)(cooY) * 5) + 1000) / 2053) * pictureBox1.Size.Height));
+
+            Point p = new Point(positionX - taille / 2, positionY - taille / 2);
+            if (graphics == null)
+                graphics = pictureBox1.CreateGraphics();
+            graphics.DrawImage(patate, p);
+        }
         #endregion
+
     }
 }

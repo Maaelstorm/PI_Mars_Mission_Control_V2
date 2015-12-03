@@ -28,70 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Eating");
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Slepping");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Entertainment");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Private");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Health control");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Medical act");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Living", new System.Windows.Forms.TreeNode[] {
-            treeNode71,
-            treeNode72,
-            treeNode73,
-            treeNode74,
-            treeNode75,
-            treeNode76});
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Space suit");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Vehicule");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Exploration", new System.Windows.Forms.TreeNode[] {
-            treeNode78,
-            treeNode79});
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Briefing");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Debriefing");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Inside experiment");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Outside experiment");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Science", new System.Windows.Forms.TreeNode[] {
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84});
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Cleaning");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("LSS air system");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("LSS water system");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("LSS food system");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Power system");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Space suit");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Other");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Maintenance", new System.Windows.Forms.TreeNode[] {
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90,
-            treeNode91,
-            treeNode92});
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Sending message");
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("Receiving message");
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("Communication", new System.Windows.Forms.TreeNode[] {
-            treeNode94,
-            treeNode95});
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("LSS");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("Power systems");
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("Communication systems");
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("Propulsion systems");
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("Habitat");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("Space suit");
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("Vehicule");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("Repair", new System.Windows.Forms.TreeNode[] {
-            treeNode97,
-            treeNode98,
-            treeNode99,
-            treeNode100,
-            treeNode101,
-            treeNode102,
-            treeNode103});
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Emergency");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Eating");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Slepping");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Entertainment");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Private");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Health control");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Medical act");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Living", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Space suit");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Vehicule");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Exploration", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Briefing");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Debriefing");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Inside experiment");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Outside experiment");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Science", new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Cleaning");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("LSS air system");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("LSS water system");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("LSS food system");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Power system");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Space suit");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Other");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Maintenance", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Sending message");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Receiving message");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Communication", new System.Windows.Forms.TreeNode[] {
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("LSS");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Power systems");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Communication systems");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Propulsion systems");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Habitat");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Space suit");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Vehicule");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Repair", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33});
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Emergency");
             this.label_acti = new System.Windows.Forms.Label();
             this.labelActi = new System.Windows.Forms.Label();
             this.jour_actuel = new System.Windows.Forms.Label();
@@ -227,83 +227,83 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(101, 101);
             this.treeView1.Name = "treeView1";
-            treeNode71.Name = "Eating";
-            treeNode71.Text = "Eating";
-            treeNode72.Name = "Slepping";
-            treeNode72.Text = "Slepping";
-            treeNode73.Name = "Entertainment";
-            treeNode73.Text = "Entertainment";
-            treeNode74.Name = "Private";
-            treeNode74.Text = "Private";
-            treeNode75.Name = "Health control";
-            treeNode75.Text = "Health control";
-            treeNode76.Name = "Medical act";
-            treeNode76.Text = "Medical act";
-            treeNode77.Name = "Living";
-            treeNode77.Text = "Living";
-            treeNode78.Name = "Space suit";
-            treeNode78.Text = "Space suit";
-            treeNode79.Name = "Vehicule";
-            treeNode79.Text = "Vehicule";
-            treeNode80.Name = "Exploration";
-            treeNode80.Text = "Exploration";
-            treeNode81.Name = "Briefing";
-            treeNode81.Text = "Briefing";
-            treeNode82.Name = "Debriefing";
-            treeNode82.Text = "Debriefing";
-            treeNode83.Name = "Inside experiment";
-            treeNode83.Text = "Inside experiment";
-            treeNode84.Name = "Outside experiment";
-            treeNode84.Text = "Outside experiment";
-            treeNode85.Name = "Science";
-            treeNode85.Text = "Science";
-            treeNode86.Name = "Cleaning";
-            treeNode86.Text = "Cleaning";
-            treeNode87.Name = "LSS air system";
-            treeNode87.Text = "LSS air system";
-            treeNode88.Name = "LSS water system";
-            treeNode88.Text = "LSS water system";
-            treeNode89.Name = "LSS food system";
-            treeNode89.Text = "LSS food system";
-            treeNode90.Name = "Power system";
-            treeNode90.Text = "Power system";
-            treeNode91.Name = "Space suit";
-            treeNode91.Text = "Space suit";
-            treeNode92.Name = "Other";
-            treeNode92.Text = "Other";
-            treeNode93.Name = "Maintenance";
-            treeNode93.Text = "Maintenance";
-            treeNode94.Name = "Sending message";
-            treeNode94.Text = "Sending message";
-            treeNode95.Name = "Receiving message";
-            treeNode95.Text = "Receiving message";
-            treeNode96.Name = "Communication";
-            treeNode96.Text = "Communication";
-            treeNode97.Name = "LSS";
-            treeNode97.Text = "LSS";
-            treeNode98.Name = "Power systems";
-            treeNode98.Text = "Power systems";
-            treeNode99.Name = "Communication systems";
-            treeNode99.Text = "Communication systems";
-            treeNode100.Name = "Propulsion systems";
-            treeNode100.Text = "Propulsion systems";
-            treeNode101.Name = "Habitat";
-            treeNode101.Text = "Habitat";
-            treeNode102.Name = "Space suit";
-            treeNode102.Text = "Space suit";
-            treeNode103.Name = "Vehicule";
-            treeNode103.Text = "Vehicule";
-            treeNode104.Name = "Repair";
-            treeNode104.Text = "Repair";
-            treeNode105.Name = "Emergency";
-            treeNode105.Text = "Emergency";
+            treeNode1.Name = "Eating";
+            treeNode1.Text = "Eating";
+            treeNode2.Name = "Slepping";
+            treeNode2.Text = "Slepping";
+            treeNode3.Name = "Entertainment";
+            treeNode3.Text = "Entertainment";
+            treeNode4.Name = "Private";
+            treeNode4.Text = "Private";
+            treeNode5.Name = "Health control";
+            treeNode5.Text = "Health control";
+            treeNode6.Name = "Medical act";
+            treeNode6.Text = "Medical act";
+            treeNode7.Name = "Living";
+            treeNode7.Text = "Living";
+            treeNode8.Name = "Space suit";
+            treeNode8.Text = "Space suit";
+            treeNode9.Name = "Vehicule";
+            treeNode9.Text = "Vehicule";
+            treeNode10.Name = "Exploration";
+            treeNode10.Text = "Exploration";
+            treeNode11.Name = "Briefing";
+            treeNode11.Text = "Briefing";
+            treeNode12.Name = "Debriefing";
+            treeNode12.Text = "Debriefing";
+            treeNode13.Name = "Inside experiment";
+            treeNode13.Text = "Inside experiment";
+            treeNode14.Name = "Outside experiment";
+            treeNode14.Text = "Outside experiment";
+            treeNode15.Name = "Science";
+            treeNode15.Text = "Science";
+            treeNode16.Name = "Cleaning";
+            treeNode16.Text = "Cleaning";
+            treeNode17.Name = "LSS air system";
+            treeNode17.Text = "LSS air system";
+            treeNode18.Name = "LSS water system";
+            treeNode18.Text = "LSS water system";
+            treeNode19.Name = "LSS food system";
+            treeNode19.Text = "LSS food system";
+            treeNode20.Name = "Power system";
+            treeNode20.Text = "Power system";
+            treeNode21.Name = "Space suit";
+            treeNode21.Text = "Space suit";
+            treeNode22.Name = "Other";
+            treeNode22.Text = "Other";
+            treeNode23.Name = "Maintenance";
+            treeNode23.Text = "Maintenance";
+            treeNode24.Name = "Sending message";
+            treeNode24.Text = "Sending message";
+            treeNode25.Name = "Receiving message";
+            treeNode25.Text = "Receiving message";
+            treeNode26.Name = "Communication";
+            treeNode26.Text = "Communication";
+            treeNode27.Name = "LSS";
+            treeNode27.Text = "LSS";
+            treeNode28.Name = "Power systems";
+            treeNode28.Text = "Power systems";
+            treeNode29.Name = "Communication systems";
+            treeNode29.Text = "Communication systems";
+            treeNode30.Name = "Propulsion systems";
+            treeNode30.Text = "Propulsion systems";
+            treeNode31.Name = "Habitat";
+            treeNode31.Text = "Habitat";
+            treeNode32.Name = "Space suit";
+            treeNode32.Text = "Space suit";
+            treeNode33.Name = "Vehicule";
+            treeNode33.Text = "Vehicule";
+            treeNode34.Name = "Repair";
+            treeNode34.Text = "Repair";
+            treeNode35.Name = "Emergency";
+            treeNode35.Text = "Emergency";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode77,
-            treeNode85,
-            treeNode93,
-            treeNode96,
-            treeNode104,
-            treeNode105});
+            treeNode7,
+            treeNode15,
+            treeNode23,
+            treeNode26,
+            treeNode34,
+            treeNode35});
             this.treeView1.Size = new System.Drawing.Size(163, 369);
             this.treeView1.TabIndex = 22;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -427,6 +427,7 @@
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(67, 20);
             this.textBoxX.TabIndex = 28;
+            this.textBoxX.TextChanged += new System.EventHandler(this.textBoxXY_TextChanged);
             // 
             // textBoxY
             // 
@@ -434,6 +435,7 @@
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(63, 20);
             this.textBoxY.TabIndex = 29;
+            this.textBoxY.TextChanged += new System.EventHandler(this.textBoxXY_TextChanged);
             // 
             // X
             // 
@@ -545,7 +547,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 912);
+            this.ClientSize = new System.Drawing.Size(984, 750);
             this.Controls.Add(this.btn_suppr);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.niveau3);

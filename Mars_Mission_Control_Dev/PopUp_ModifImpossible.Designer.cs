@@ -1,4 +1,4 @@
-﻿namespace PI_Mars_Mission_Control
+﻿namespace Mars_Mission_Control_Dev
 {
     partial class PopUp_ModifImpossible
     {
