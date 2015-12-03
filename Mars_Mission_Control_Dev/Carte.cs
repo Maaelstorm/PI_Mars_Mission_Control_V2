@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 
 // SAM
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
 	[XmlRoot("Carte")]
 	public class Carte

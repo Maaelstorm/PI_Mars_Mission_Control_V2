@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
     public class Calendrier
     {
@@ -61,7 +61,7 @@ namespace PI_Mars_Mission_Control
             throw new System.NotImplementedException();
         }
 
-		public System.Collections.Generic.List<PI_Mars_Mission_Control.Journee> rechercheJourSortie()
+		public System.Collections.Generic.List<Mars_Mission_Control_Dev.Journee> rechercheJourSortie()
 		{
 			throw new System.NotImplementedException();
 		}

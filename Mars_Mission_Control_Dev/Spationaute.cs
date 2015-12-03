@@ -6,7 +6,7 @@ using System.Text;
 using System.Xml.Serialization;
 
 
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
     [XmlRoot("Spationaute")]
 	public class Spationaute

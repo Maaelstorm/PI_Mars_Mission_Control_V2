@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 
 // SAM
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
 	[XmlRoot("activite")]
 	public class Activite

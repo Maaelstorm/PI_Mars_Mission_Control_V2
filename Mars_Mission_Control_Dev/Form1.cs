@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
     public partial class Form1 : Form
 	{

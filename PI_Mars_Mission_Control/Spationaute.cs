@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
 	public class Spationaute
 	{

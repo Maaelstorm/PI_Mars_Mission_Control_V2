@@ -8,7 +8,7 @@
     <ProjectGuid>{EB4FFDD6-D5D8-4F30-AAB8-9A5FA564ABBD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PI_Mars_Mission_Control</RootNamespace>
+    <RootNamespace>Mars_Mission_Control_Dev</RootNamespace>
     <AssemblyName>PI_Mars_Mission_Control</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -69,6 +69,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="MarsMissionControl_CD.cd" />
     <None Include="Properties\Settings.settings">

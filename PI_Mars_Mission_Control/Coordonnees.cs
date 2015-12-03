@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
 	public class Coordonnees
 	{
