@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btn_jour_precedents = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -79,12 +80,27 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Une mission avec :";
             // 
+            // listBox1
+            // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "pop",
+            "pip",
+            "pup",
+            "pap"});
+            this.listBox1.Location = new System.Drawing.Point(235, 56);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 52);
+            this.listBox1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(984, 912);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_jour_precedents);
@@ -103,6 +119,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_jour_precedents;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

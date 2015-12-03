@@ -14,12 +14,22 @@ namespace Mars_Mission_Control_Dev
         public Form3(Calendrier calendrier, Journee jourActuel, Activite actiActuelle)
         {
             InitializeComponent();
-            this.labelJ.Text = jourActuel.ToString();
-            this.labelActi.Text = actiActuelle.Descritpion.ToString();
+            this.labelJ.Text = jourActuel.NumJour.ToString();
+            this.labelActi.Text = actiActuelle.Descritpion;
             
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelJ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
         {
 
         }

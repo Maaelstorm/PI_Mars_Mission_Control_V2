@@ -87,6 +87,7 @@
             this.labelJ.Size = new System.Drawing.Size(12, 13);
             this.labelJ.TabIndex = 14;
             this.labelJ.Text = "J";
+            this.labelJ.Click += new System.EventHandler(this.labelJ_Click);
             // 
             // label4
             // 
@@ -171,6 +172,7 @@
             this.Controls.Add(this.button3);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
