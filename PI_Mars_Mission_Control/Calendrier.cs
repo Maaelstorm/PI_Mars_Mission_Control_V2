@@ -56,12 +56,12 @@ namespace PI_Mars_Mission_Control
 			}
 		}
 
-		public List<Activite> selectionPeriode()
+		public List<Activite> selectionPeriodeAct()
         {
             throw new System.NotImplementedException();
         }
 
-		public System.Collections.Generic.List<PI_Mars_Mission_Control.Journee> rechercheJourSortie()
+        public System.Collections.Generic.List<PI_Mars_Mission_Control.Activite> rechercheSorties()
 		{
 			throw new System.NotImplementedException();
 		}
@@ -90,5 +90,15 @@ namespace PI_Mars_Mission_Control
 		{
 			throw new System.NotImplementedException();
 		}
+
+        public List<Journee> selectionPeriodeJour()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Activite> checkActivite()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
