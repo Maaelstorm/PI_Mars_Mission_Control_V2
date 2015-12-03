@@ -34,14 +34,17 @@ namespace Mars_Mission_Control_Dev
 
 #region Méthodes
 
-        public Journee journee { get; set; }
+        public Journee journee { 
+            get {return jourActuel;}
+            set { jourActuel = value; } 
+        }
 
         private void retourCalendrier_Click(object sender, EventArgs e)
         {            
             this.Close();
         }
 
-        private void rafraichirPage(int jour)
+        public void rafraichirPage(int jour)
         {               
             jourActuel = calendrierActuel.ListJournees.ElementAt(jour);       
 
@@ -69,7 +72,9 @@ namespace Mars_Mission_Control_Dev
 
         private void inserer_Click(object sender, EventArgs e)
         {
-
+            Form3 f3 = new Form3(this, this.calendrierActuel, this.jourActuel, null);
+            DialogResult dialogresult = f3.ShowDialog();
+            f3.Dispose();
         }
 
         private void modifier_Click(object sender, EventArgs e)
@@ -144,11 +149,8 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void activite_Click(object sender, EventArgs e)
-        {
-            //string DebutActi = ((Button)sender).Name.ToString();
-            Activite btn_acti = ((Button)sender).Tag as Activite;
-
-            Form3 f3 = new Form3(this.calendrierActuel, this.calendrierActuel.ListJournees.ElementAt(jourActuel.NumJour), btn_acti);            
+        {            
+            Form3 f3 = new Form3(this, this.calendrierActuel, this.jourActuel, (Activite)((Button)sender).Tag);            
             DialogResult dialogresult = f3.ShowDialog();
             f3.Dispose();
         }
