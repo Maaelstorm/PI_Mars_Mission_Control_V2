@@ -37,7 +37,7 @@ namespace Mars_Mission_Control_Dev
             set
             {
                 if (value >= 0 && value <= 60) _minute = value;
-                else throw new System.ArgumentException("la valeur de la minute doit être comprise entre 0 et 24 inclus");
+                else throw new System.ArgumentException("la valeur de la minute doit être comprise entre 0 et 60 inclus");
             }
         }
 

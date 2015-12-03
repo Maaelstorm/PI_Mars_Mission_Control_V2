@@ -80,17 +80,6 @@ namespace Mars_Mission_Control_Dev
         #endregion
 
         #region	Méthodes
-        //public void initialiser(string chemin)
-        //{
-        //    if (File.Exists(chemin))
-        //    {
-        //        XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
-        //        using (StreamReader sr = new StreamReader(chemin))
-        //        {
-        //            this = xs.Deserialize(sr) as Calendrier;
-        //        }
-        //    }
-        //}
         public void enregistrer()
         {
             XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
