@@ -100,14 +100,7 @@ namespace PI_Mars_Mission_Control
 
 #region méthodes
 		
-<<<<<<< HEAD
-		
-=======
-		public void enregister()
-        {
-            throw new System.NotImplementedException();
-        }
->>>>>>> origin/master
+
 
 #endregion
 
