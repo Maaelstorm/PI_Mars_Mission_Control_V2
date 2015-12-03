@@ -16,7 +16,7 @@ namespace PI_Mars_Mission_Control
 	public class Carte
 	{
 
-		#region Accesseurs & Propriétés
+#region Accesseurs & Propriétés
 
 		private List<Image> _listIcone;
 		[XmlArray("ListeIcone")]
@@ -43,17 +43,29 @@ namespace PI_Mars_Mission_Control
 			set { _listCoordonnees = value; }
 		}
 
-		#endregion
+#endregion
 
+#region Constructeur
 
 		// Constructeur
 		public Carte()
 		{
-			throw new System.NotImplementedException();
+			this.ImageZone = Image.FromFile("./..//..//nanedi_valles.jpg");
+			this.ListIcone = new List<Image>();
+			this.ListCoordonnees = new List<Coordonnees>();
 		}
 
+		// Méthode d'ouverture de fichier à faire à partir du Form si choix de la carte de la zone par l'utilisateur
+		public Carte(string path)
+		{
+			this.ImageZone = Image.FromFile(path);
+			this.ListIcone = new List<Image>();
+			this.ListCoordonnees = new List<Coordonnees>();
+		}
+#endregion
 
-		#region Méthodes
+
+#region Méthodes
 
 		public void serializer()
 		{
@@ -77,7 +89,7 @@ namespace PI_Mars_Mission_Control
 			throw new System.NotImplementedException();
 		}
 
-		#endregion
+#endregion
 
 	}
 }

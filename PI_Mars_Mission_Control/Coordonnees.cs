@@ -45,5 +45,10 @@ namespace PI_Mars_Mission_Control
 			{
 			}
 		}
+
+		public double distance()
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }
