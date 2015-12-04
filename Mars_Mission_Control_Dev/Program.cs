@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
 
+using System.Drawing;
+
 namespace Mars_Mission_Control_Dev
 {
     static class Program
@@ -47,8 +49,40 @@ namespace Mars_Mission_Control_Dev
 
 #region ANTOINE
 
+            Calendrier cal = new Calendrier();
+            cal.JourDebutMission = new DateTime(2015, 10, 01);
+            Dates h0 = new Dates(0, 0, 0);
+			Dates h7 = new Dates(0, 7, 0);
+			Dates h8 = new Dates(0, 8, 0);
+			Dates h12 = new Dates(0, 12, 0);
+			Dates h14 = new Dates(0, 14, 0);
+			Dates h19 = new Dates(0, 19, 0);
+			Dates h21 = new Dates(0, 21, 0);
+			Dates h23 = new Dates(0, 23, 0);
+			Dates h24_40 = new Dates(0, 24, 40);
 
+			Coordonnees baseMission = new Coordonnees("base",new Point(0,0));
+			string sleeping = "Sleeping";
+			string eating = "Eating";
+			string prive = "Private";
+            string CompteRendu = "";
+            List<Spationaute> listeSpationaute = new List<Spationaute>();
 
+			//on ajoute les activites par defaut de la journee.
+            
+            for (int i = 0; i < 20; i++)
+            {
+                cal.ListJournees.Add(new Journee(i));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(sleeping, h0, h7, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(eating, h7, h8, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(prive, h8, h12, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(eating, h12, h14, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(prive, h14, h19, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(eating, h19, h21, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(prive, h21, h23, baseMission, CompteRendu, listeSpationaute));
+                cal.ListJournees[i].ListActiviteJournee.Add(new Activite(sleeping, h23, h24_40, baseMission, CompteRendu, listeSpationaute));
+            }
+            
 
 #endregion
 
