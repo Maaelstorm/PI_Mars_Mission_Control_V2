@@ -99,7 +99,7 @@ namespace Mars_Mission_Control_Dev
 #region SAM
 
 
-			//Application.Run(new TestSam());
+			// Application.Run(new TestSam());
 
 
 #endregion
