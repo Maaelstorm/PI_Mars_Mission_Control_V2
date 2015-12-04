@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace TestCalendrier
+namespace PI_Mars_Mission_Control
 {
     
     
@@ -70,16 +70,35 @@ namespace TestCalendrier
         ///Test pour checkActivite
         ///</summary>
         [TestMethod()]
-        public void checkActiviteTest(Calendrier cal)
+        public void checkActiviteTest()
         {
-            Calendrier target = cal;
-            Activite newActivite = new Activite("eating", new Dates(5, 3), new Dates(5, 9), new Coordonnees("base", new Point(0, 0)), "toto", cal.ListSpationaute); // TODO: initialisez à une valeur appropriée
+            //on créé un calendrier
+            List<Activite> listeActivite = new List<Activite>();
+            List<Journee> listeJournee = new List<Journee>();
+            List<Spationaute> listeSpationaute = new List<Spationaute>();
+            listeSpationaute.Add(new Spationaute("bobby"));
+            listeSpationaute.Add(new Spationaute("John"));
+            listeSpationaute.Add(new Spationaute("William"));
+
+            //on remplit les journees
+            for (int i = 0; i < 20; i++)
+            {
+                listeJournee.Add(new Journee(i, listeSpationaute));
+            }
+            listeJournee[2].ListActiviteJournee[1].Lieu.Position = new Point(30, 40);
+            listeJournee[5].ListActiviteJournee[3].Lieu.Position = new Point(20, 50);
+            listeJournee[10].ListActiviteJournee[6].Lieu.Position = new Point(-15, 70);
+            listeJournee[17].ListActiviteJournee[2].Lieu.Position = new Point(-60, -10);
+            DateTime jourDebMission = new DateTime(2015, 11, 15);
+            Calendrier leCalendrier = new Calendrier(listeJournee, listeActivite, listeSpationaute);
+
+            Activite newActivite = new Activite("eating", new Dates(5, 3), new Dates(5, 9), new Coordonnees("base", new Point(0, 0)), "toto", leCalendrier.ListSpationaute); // TODO: initialisez à une valeur appropriée
             List<Activite> expected = new List<Activite>();
-            expected.Add(cal.ListJournees[5].ListActiviteJournee[0]);
-            expected.Add(cal.ListJournees[5].ListActiviteJournee[1]);
-            expected.Add(cal.ListJournees[5].ListActiviteJournee[2]);
+            expected.Add(leCalendrier.ListJournees[5].ListActiviteJournee[0]);
+            expected.Add(leCalendrier.ListJournees[5].ListActiviteJournee[1]);
+            expected.Add(leCalendrier.ListJournees[5].ListActiviteJournee[2]);
             List<Activite> actual;
-            actual = target.checkActivite(newActivite);
+            actual = leCalendrier.checkActivite(newActivite);
             Assert.AreEqual(expected, actual);
         }
 
@@ -87,35 +106,65 @@ namespace TestCalendrier
         ///Test pour conversionHeureMartienne
         ///</summary>
         [TestMethod()]
-        public void conversionHeureMartienneTest(Calendrier cal)
+        public void conversionHeureMartienneTest()
         {
-            Calendrier target = cal; 
-            DateTime HeureTerre = new DateTime(2015, 01, 10); // TODO: initialisez à une valeur appropriée
-            Dates expected = new Dates(); // TODO: initialisez à une valeur appropriée
+            //on créé un calendrier
+            List<Activite> listeActivite = new List<Activite>();
+            List<Journee> listeJournee = new List<Journee>();
+            List<Spationaute> listeSpationaute = new List<Spationaute>();
+            listeSpationaute.Add(new Spationaute("bobby"));
+            listeSpationaute.Add(new Spationaute("John"));
+            listeSpationaute.Add(new Spationaute("William"));
+
+            //on remplit les journees
+            for (int i = 0; i < 20; i++)
+            {
+                listeJournee.Add(new Journee(i, listeSpationaute));
+            }
+            listeJournee[2].ListActiviteJournee[1].Lieu.Position = new Point(30, 40);
+            listeJournee[5].ListActiviteJournee[3].Lieu.Position = new Point(20, 50);
+            listeJournee[10].ListActiviteJournee[6].Lieu.Position = new Point(-15, 70);
+            listeJournee[17].ListActiviteJournee[2].Lieu.Position = new Point(-60, -10);
+            DateTime jourDebMission = new DateTime(2015, 11, 15);
+            Calendrier leCalendrier = new Calendrier(listeJournee, listeActivite, listeSpationaute);
+            DateTime HeureTerre = new DateTime(2015, 12, 10); 
+            Dates expected = new Dates(34,1,20);
             Dates actual;
-            actual = target.conversionHeureMartienne(HeureTerre);
+            actual = leCalendrier.conversionHeureMartienne(HeureTerre);
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Vérifiez l\'exactitude de cette méthode de test.");
         }
 
-        /// <summary>
-        ///Test pour enregistrer
-        ///</summary>
         [TestMethod()]
         public void enregistrerTest()
         {
+            //on créé un calendrier
+            List<Activite> listeActivite = new List<Activite>();
+            List<Journee> listeJournee = new List<Journee>();
+            List<Spationaute> listeSpationaute = new List<Spationaute>();
+            listeSpationaute.Add(new Spationaute("bobby"));
+            listeSpationaute.Add(new Spationaute("John"));
+            listeSpationaute.Add(new Spationaute("William"));
+
+            //on remplit les journees
+            for (int i = 0; i < 20; i++)
+            {
+                listeJournee.Add(new Journee(i, listeSpationaute));
+            }
+            listeJournee[2].ListActiviteJournee[1].Lieu.Position = new Point(30, 40);
+            listeJournee[5].ListActiviteJournee[3].Lieu.Position = new Point(20, 50);
+            listeJournee[10].ListActiviteJournee[6].Lieu.Position = new Point(-15, 70);
+            listeJournee[17].ListActiviteJournee[2].Lieu.Position = new Point(-60, -10);
+            DateTime jourDebMission = new DateTime(2015, 11, 15);
+            Calendrier leCalendrier = new Calendrier(listeJournee, listeActivite, listeSpationaute);
             Calendrier target = new Calendrier(); // TODO: initialisez à une valeur appropriée
-            target.enregistrer();
+            leCalendrier.enregistrer();
             Assert.Inconclusive("Une méthode qui ne retourne pas une valeur ne peut pas être vérifiée.");
         }
 
-        /// <summary>
-        ///Test pour rechercheDescActivitePeriode
-        ///</summary>
         [TestMethod()]
-        public void rechercheDescActivitePeriodeTest()
+        public void rechercheDescActivitePeriodeTest(Calendrier cal)
         {
-            Calendrier target = new Calendrier(); // TODO: initialisez à une valeur appropriée
+            Calendrier target = cal;
             string mot = string.Empty; // TODO: initialisez à une valeur appropriée
             Dates dateDeb = null; // TODO: initialisez à une valeur appropriée
             Dates dateFin = null; // TODO: initialisez à une valeur appropriée
