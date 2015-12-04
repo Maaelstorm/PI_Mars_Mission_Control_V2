@@ -84,9 +84,9 @@ namespace Mars_Mission_Control_Dev
             return res;
         }
 
-        private bool testCoord(string coord, out int valeur, int coordMin, int coordMax)
+        private bool testCoord(string coord, out double valeur, int coordMin, int coordMax)
         {
-            bool res = int.TryParse(coord, out valeur);
+            bool res = double.TryParse(coord, out valeur);
             if (coordMin > valeur || coordMax < valeur)
                 res = false;
             return res;
@@ -94,7 +94,7 @@ namespace Mars_Mission_Control_Dev
 
         private bool testTreeView()
         {
-            return treeView1.SelectedNode.Nodes.Count == 0;
+            return treeView1.SelectedNode == null || treeView1.SelectedNode.Nodes.Count == 0;
         }
         #endregion
 
@@ -107,14 +107,19 @@ namespace Mars_Mission_Control_Dev
             Dates datesFin = new Dates(jourActuel.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
 
             //verif des coordonnées
-            int cooX, cooY;
-            if (!testCoord(textBoxX.Text, out cooX, 0, 1000))
+            double cooX, cooY;
+            if (!testCoord(textBoxX.Text, out cooX, -1000, 1000))
                 PossibleDeChanger = false;
-            if (!testCoord(textBoxY.Text, out cooY, 0, 1000))
+            if (!testCoord(textBoxY.Text, out cooY, -1000, 1000))
                 PossibleDeChanger = false;
 
-            Coordonnees coo = new Coordonnees(nom_position.Text, new Point(cooX, cooY));
-            Activite tmpActi = new Activite(treeView1.SelectedNode.Text, datesDebut, datesFin, coo, description.Text, jourActuel.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
+            Coordonnees coo = new Coordonnees(nom_position.Text, new Point((int)cooX, (int)cooY));
+            string nomActiTmp;
+            if (treeView1.SelectedNode == null)
+                nomActiTmp = actiActuelle.Nom;
+            else
+                nomActiTmp = treeView1.SelectedNode.Text;
+            Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, jourActuel.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
             //verif des données
             if (!verifieDonnees(jourActuel.ListActiviteJournee, tmpActi))
                 PossibleDeChanger = false;
@@ -205,21 +210,21 @@ namespace Mars_Mission_Control_Dev
 
         private void textBoxXY_TextChanged(object sender, EventArgs e)
         {
-            pictureBox1.Refresh();
-            int taille = 50;
-            Image patate = Image.FromFile("../../../patate.png");
-            patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
-            int cooX = 0, cooY = 0;
-            int.TryParse(textBoxX.Text, out cooX);
-            int.TryParse(textBoxY.Text, out cooY);
+            //pictureBox1.Refresh();
+            //int taille = 50;
+            //Image patate = Image.FromFile("../../../patate.png");
+            //patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
+            //int cooX = 0, cooY = 0;
+            //int.TryParse(textBoxX.Text, out cooX);
+            //int.TryParse(textBoxY.Text, out cooY);
 
-            int positionX = (int)((((((double)(cooX) * 5) + 700) / 1095) * pictureBox1.Size.Width));
-            int positionY = (int)((((((double)(cooY) * 5) + 1000) / 2053) * pictureBox1.Size.Height));
+            //int positionX = (int)((((((double)(cooX) * 5) + 700) / 1095) * pictureBox1.Size.Width));
+            //int positionY = (int)((((((double)(cooY) * 5) + 1000) / 2053) * pictureBox1.Size.Height));
 
-            Point p = new Point(positionX - taille / 2, positionY - taille / 2);
-            if (graphics == null)
-                graphics = pictureBox1.CreateGraphics();
-            graphics.DrawImage(patate, p);
+            //Point p = new Point(positionX - taille / 2, positionY - taille / 2);
+            //if (graphics == null)
+            //    graphics = pictureBox1.CreateGraphics();
+            //graphics.DrawImage(patate, p);
         }
         #endregion
 
