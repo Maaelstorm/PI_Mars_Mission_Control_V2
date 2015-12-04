@@ -67,6 +67,17 @@ namespace Mars_Mission_Control_Dev
 			}
 		}
 
+		public string Nom
+		{
+			get
+			{
+				throw new System.NotImplementedException();
+			}
+			set
+			{
+			}
+		}
+
         public void enregister()
         {
             throw new System.NotImplementedException();

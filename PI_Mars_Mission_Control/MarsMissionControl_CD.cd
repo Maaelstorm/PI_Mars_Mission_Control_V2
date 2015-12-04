@@ -1,63 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-<<<<<<< HEAD
-  <Class Name="Mars_Mission_Control_Dev.Dates">
-    <Position X="2.75" Y="4" Width="2" />
-=======
-  <Class Name="PI_Mars_Mission_Control.Dates">
-    <Position X="2.75" Y="4.5" Width="2" />
->>>>>>> origin/master
-    <TypeIdentifier>
-      <HashCode>AAAAAQAAAAAEAAAAAIAAAAEEAAAAACAAAAAQAAAAAAA=</HashCode>
-      <FileName>Dates.cs</FileName>
-      <NewMemberFileName>Date.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Mars_Mission_Control_Dev.Calendrier">
-    <Position X="0.5" Y="0.5" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAABCCAQAAAAAgAAQAACAAAQACAAAIAAgAAAABAEA=</HashCode>
-      <FileName>Calendrier.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Mars_Mission_Control_Dev.Activite">
-    <Position X="5.5" Y="0.5" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAACAAAAAAIAAAAAAAABAAAgE=</HashCode>
-      <FileName>Activite.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-<<<<<<< HEAD
-  <Class Name="Mars_Mission_Control_Dev.Journee">
-    <Position X="0.5" Y="4" Width="2" />
-=======
-  <Class Name="PI_Mars_Mission_Control.Journee">
-    <Position X="0.5" Y="4.5" Width="2" />
->>>>>>> origin/master
-    <TypeIdentifier>
-      <HashCode>AEAAABAAAAgAAEQgAABAAAAAAAQCAAAAAAAAEQAAAAA=</HashCode>
-      <FileName>Journee.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Mars_Mission_Control_Dev.Carte">
-    <Position X="9.5" Y="0.5" Width="2.75" />
+    <Position X="5.75" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAAAABAACAAAAAAAAAAAIAAAAQAA=</HashCode>
       <FileName>Carte.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mars_Mission_Control_Dev.Coordonnees">
-    <Position X="9.5" Y="3" Width="1.5" />
+    <Position X="5.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQgAAAAAAAAAkAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Coordonnees.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mars_Mission_Control_Dev.Spationaute">
-    <Position X="5.5" Y="4" Width="2.25" />
+    <Position X="7.75" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Spationaute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mars_Mission_Control_Dev.Activite">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAACAAACAAIAAAAAAAABAAAgE=</HashCode>
+      <FileName>Activite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mars_Mission_Control_Dev.Calendrier">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAQAAAAAgAAQAACAQAQAAAAAIAAAAEAABAEA=</HashCode>
+      <FileName>Calendrier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mars_Mission_Control_Dev.Journee">
+    <Position X="0.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAABAAAAgAAEQgAABAAAAAAAQCAAAAAAAAEQAAAAA=</HashCode>
+      <FileName>Journee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mars_Mission_Control_Dev.Dates">
+    <Position X="3.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAEAAAEAIAAAAEEAAAAACAAAAAQAAAAAAA=</HashCode>
+      <FileName>Dates.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -50,7 +50,7 @@ namespace Mars_Mission_Control_Dev
 		// Constructeur
 		public Carte()
 		{
-			this.ImageZone = Image.FromFile("./..//..//nanedi_valles.jpg");
+			this.ImageZone = Image.FromFile("nanedi_valles.jpg");
 			this.ListIcone = new List<Image>();
 			this.ListCoordonnees = new List<Coordonnees>();
 		}
