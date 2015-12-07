@@ -20,7 +20,7 @@ namespace Mars_Mission_Control_Dev
     #region Accesseurs & Propriétés
 
 		private int _numJour;
-		[XmlElement("N°Jour")]
+		[XmlElement("NumJour")]
 		public int NumJour
         {
             get { return _numJour; }
@@ -55,8 +55,15 @@ namespace Mars_Mission_Control_Dev
 #endregion
 
         #region constructeurs
+		
+        // Constructeur par défaut dont le num jour est égal à 0 (pour pouvoir sérialiser l'objet journée)
+		public Journee()
+		{
+			NumJour = 0;
+			CompteRendu = "";
+			this.ListActiviteJournee = new List<Activite>();
+		}
 
-        // NE PAS TOUCHER AU CONSTRUCTEUR (pour l'instant)
 		public Journee(int nJour)
 		{			
 			NumJour = nJour;

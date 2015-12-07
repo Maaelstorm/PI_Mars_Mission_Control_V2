@@ -83,14 +83,14 @@ namespace Mars_Mission_Control_Dev
         public void enregistrer()
         {
             XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
-            Console.WriteLine(string.Format("Calendrier : enregistrement en cours..."));
+            //Console.WriteLine(string.Format("Calendrier : enregistrement en cours..."));
             // Ouverture de l'instance d'écriture en précisant le chemin du fichier
-            using (TextWriter writer = new StreamWriter("./..//..//InfoGenerales.xml"))
+			using (TextWriter writer = new StreamWriter("./..//..//CalendrierListes.xml"))
             {
                 xs.Serialize(writer, this);
             }
 
-            Console.WriteLine(string.Format("Calendrier : enregistrement réussi"));
+            //Console.WriteLine(string.Format("Calendrier : enregistrement réussi"));
         }
         public List<Activite> checkActivite(Activite newActivite)
         //on verifie si une activite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
