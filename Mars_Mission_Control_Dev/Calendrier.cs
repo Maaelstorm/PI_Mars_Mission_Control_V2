@@ -52,9 +52,9 @@ namespace Mars_Mission_Control_Dev
             get { return _listActivite; }
             set { _listActivite = value; }
         }
-        private uint _jourActuel;
+        private int _jourActuel;
 
-        public uint JourActuel
+        public int JourActuel
         {
             get { return _jourActuel; }
             set { _jourActuel = value; }
