@@ -98,10 +98,8 @@
             this.affichage_jour_actuel = new System.Windows.Forms.Label();
             this.type = new System.Windows.Forms.Label();
             this.heure_debut = new System.Windows.Forms.Label();
-            this.minutes_debut = new System.Windows.Forms.Label();
             this.heure_fin = new System.Windows.Forms.Label();
             this.position = new System.Windows.Forms.Label();
-            this.minutes_fin = new System.Windows.Forms.Label();
             this.descriptif = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.H_debut = new System.Windows.Forms.ComboBox();
@@ -118,16 +116,22 @@
             this.niveau3 = new System.Windows.Forms.Panel();
             this.nom_coord = new System.Windows.Forms.Label();
             this.nom_position = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.minutes_debut = new System.Windows.Forms.Label();
+            this.minutes_fin = new System.Windows.Forms.Label();
             this.btn_suppr = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.niveau3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_acti
             // 
             this.label_acti.AutoSize = true;
-            this.label_acti.Location = new System.Drawing.Point(145, 55);
+            this.label_acti.Location = new System.Drawing.Point(18, 19);
             this.label_acti.Name = "label_acti";
             this.label_acti.Size = new System.Drawing.Size(45, 13);
             this.label_acti.TabIndex = 11;
@@ -136,7 +140,7 @@
             // labelActi
             // 
             this.labelActi.AutoSize = true;
-            this.labelActi.Location = new System.Drawing.Point(197, 55);
+            this.labelActi.Location = new System.Drawing.Point(70, 19);
             this.labelActi.Name = "labelActi";
             this.labelActi.Size = new System.Drawing.Size(35, 13);
             this.labelActi.TabIndex = 12;
@@ -145,7 +149,7 @@
             // jour_actuel
             // 
             this.jour_actuel.AutoSize = true;
-            this.jour_actuel.Location = new System.Drawing.Point(359, 55);
+            this.jour_actuel.Location = new System.Drawing.Point(232, 19);
             this.jour_actuel.Name = "jour_actuel";
             this.jour_actuel.Size = new System.Drawing.Size(12, 13);
             this.jour_actuel.TabIndex = 14;
@@ -154,7 +158,7 @@
             // affichage_jour_actuel
             // 
             this.affichage_jour_actuel.AutoSize = true;
-            this.affichage_jour_actuel.Location = new System.Drawing.Point(283, 55);
+            this.affichage_jour_actuel.Location = new System.Drawing.Point(156, 19);
             this.affichage_jour_actuel.Name = "affichage_jour_actuel";
             this.affichage_jour_actuel.Size = new System.Drawing.Size(69, 13);
             this.affichage_jour_actuel.TabIndex = 13;
@@ -163,7 +167,7 @@
             // type
             // 
             this.type.AutoSize = true;
-            this.type.Location = new System.Drawing.Point(13, 106);
+            this.type.Location = new System.Drawing.Point(13, 75);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(82, 13);
             this.type.TabIndex = 15;
@@ -172,25 +176,16 @@
             // heure_debut
             // 
             this.heure_debut.AutoSize = true;
-            this.heure_debut.Location = new System.Drawing.Point(283, 101);
+            this.heure_debut.Location = new System.Drawing.Point(186, 101);
             this.heure_debut.Name = "heure_debut";
             this.heure_debut.Size = new System.Drawing.Size(87, 13);
             this.heure_debut.TabIndex = 16;
             this.heure_debut.Text = "Heure de début :";
             // 
-            // minutes_debut
-            // 
-            this.minutes_debut.AutoSize = true;
-            this.minutes_debut.Location = new System.Drawing.Point(283, 131);
-            this.minutes_debut.Name = "minutes_debut";
-            this.minutes_debut.Size = new System.Drawing.Size(95, 13);
-            this.minutes_debut.TabIndex = 17;
-            this.minutes_debut.Text = "Minutes de début :";
-            // 
             // heure_fin
             // 
             this.heure_fin.AutoSize = true;
-            this.heure_fin.Location = new System.Drawing.Point(283, 161);
+            this.heure_fin.Location = new System.Drawing.Point(187, 135);
             this.heure_fin.Name = "heure_fin";
             this.heure_fin.Size = new System.Drawing.Size(71, 13);
             this.heure_fin.TabIndex = 18;
@@ -199,25 +194,16 @@
             // position
             // 
             this.position.AutoSize = true;
-            this.position.Location = new System.Drawing.Point(283, 226);
+            this.position.Location = new System.Drawing.Point(186, 214);
             this.position.Name = "position";
             this.position.Size = new System.Drawing.Size(50, 13);
             this.position.TabIndex = 20;
             this.position.Text = "Position :";
             // 
-            // minutes_fin
-            // 
-            this.minutes_fin.AutoSize = true;
-            this.minutes_fin.Location = new System.Drawing.Point(283, 191);
-            this.minutes_fin.Name = "minutes_fin";
-            this.minutes_fin.Size = new System.Drawing.Size(79, 13);
-            this.minutes_fin.TabIndex = 19;
-            this.minutes_fin.Text = "Minutes de fin :";
-            // 
             // descriptif
             // 
             this.descriptif.AutoSize = true;
-            this.descriptif.Location = new System.Drawing.Point(283, 287);
+            this.descriptif.Location = new System.Drawing.Point(186, 320);
             this.descriptif.Name = "descriptif";
             this.descriptif.Size = new System.Drawing.Size(66, 13);
             this.descriptif.TabIndex = 21;
@@ -225,7 +211,7 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(101, 101);
+            this.treeView1.Location = new System.Drawing.Point(16, 101);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Eating";
             treeNode1.Text = "Eating";
@@ -304,7 +290,7 @@
             treeNode26,
             treeNode34,
             treeNode35});
-            this.treeView1.Size = new System.Drawing.Size(163, 369);
+            this.treeView1.Size = new System.Drawing.Size(163, 450);
             this.treeView1.TabIndex = 1000;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -339,9 +325,9 @@
             "22",
             "23",
             "24"});
-            this.H_debut.Location = new System.Drawing.Point(424, 101);
+            this.H_debut.Location = new System.Drawing.Point(327, 98);
             this.H_debut.Name = "H_debut";
-            this.H_debut.Size = new System.Drawing.Size(121, 21);
+            this.H_debut.Size = new System.Drawing.Size(47, 21);
             this.H_debut.TabIndex = 23;
             this.H_debut.SelectedIndexChanged += new System.EventHandler(this.H_debut_SelectedIndexChanged);
             // 
@@ -355,9 +341,9 @@
             "20",
             "30",
             "40"});
-            this.M_debut.Location = new System.Drawing.Point(424, 129);
+            this.M_debut.Location = new System.Drawing.Point(401, 98);
             this.M_debut.Name = "M_debut";
-            this.M_debut.Size = new System.Drawing.Size(121, 21);
+            this.M_debut.Size = new System.Drawing.Size(47, 21);
             this.M_debut.TabIndex = 24;
             // 
             // H_fin
@@ -390,9 +376,9 @@
             "22",
             "23",
             "24"});
-            this.H_fin.Location = new System.Drawing.Point(424, 157);
+            this.H_fin.Location = new System.Drawing.Point(328, 131);
             this.H_fin.Name = "H_fin";
-            this.H_fin.Size = new System.Drawing.Size(121, 21);
+            this.H_fin.Size = new System.Drawing.Size(47, 21);
             this.H_fin.TabIndex = 25;
             this.H_fin.SelectedIndexChanged += new System.EventHandler(this.H_fin_SelectedIndexChanged);
             // 
@@ -406,16 +392,16 @@
             "20",
             "30",
             "40"});
-            this.M_fin.Location = new System.Drawing.Point(424, 185);
+            this.M_fin.Location = new System.Drawing.Point(402, 132);
             this.M_fin.Name = "M_fin";
-            this.M_fin.Size = new System.Drawing.Size(121, 21);
+            this.M_fin.Size = new System.Drawing.Size(47, 21);
             this.M_fin.TabIndex = 26;
             // 
             // btn_confirmer
             // 
-            this.btn_confirmer.Location = new System.Drawing.Point(286, 423);
+            this.btn_confirmer.Location = new System.Drawing.Point(14, 620);
             this.btn_confirmer.Name = "btn_confirmer";
-            this.btn_confirmer.Size = new System.Drawing.Size(132, 47);
+            this.btn_confirmer.Size = new System.Drawing.Size(130, 50);
             this.btn_confirmer.TabIndex = 27;
             this.btn_confirmer.Text = "Confirmer";
             this.btn_confirmer.UseVisualStyleBackColor = true;
@@ -423,7 +409,7 @@
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(424, 226);
+            this.textBoxX.Location = new System.Drawing.Point(327, 214);
             this.textBoxX.Name = "textBoxX";
             this.textBoxX.Size = new System.Drawing.Size(67, 20);
             this.textBoxX.TabIndex = 28;
@@ -431,7 +417,7 @@
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(556, 226);
+            this.textBoxY.Location = new System.Drawing.Point(459, 214);
             this.textBoxY.Name = "textBoxY";
             this.textBoxY.Size = new System.Drawing.Size(63, 20);
             this.textBoxY.TabIndex = 29;
@@ -440,7 +426,7 @@
             // X
             // 
             this.X.AutoSize = true;
-            this.X.Location = new System.Drawing.Point(404, 229);
+            this.X.Location = new System.Drawing.Point(307, 217);
             this.X.Name = "X";
             this.X.Size = new System.Drawing.Size(14, 13);
             this.X.TabIndex = 30;
@@ -449,7 +435,7 @@
             // Y
             // 
             this.Y.AutoSize = true;
-            this.Y.Location = new System.Drawing.Point(531, 229);
+            this.Y.Location = new System.Drawing.Point(434, 217);
             this.Y.Name = "Y";
             this.Y.Size = new System.Drawing.Size(14, 13);
             this.Y.TabIndex = 31;
@@ -457,7 +443,7 @@
             // 
             // description
             // 
-            this.description.Location = new System.Drawing.Point(424, 287);
+            this.description.Location = new System.Drawing.Point(327, 320);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(195, 96);
             this.description.TabIndex = 32;
@@ -465,9 +451,9 @@
             // 
             // btn_annuler
             // 
-            this.btn_annuler.Location = new System.Drawing.Point(443, 423);
+            this.btn_annuler.Location = new System.Drawing.Point(157, 620);
             this.btn_annuler.Name = "btn_annuler";
-            this.btn_annuler.Size = new System.Drawing.Size(129, 47);
+            this.btn_annuler.Size = new System.Drawing.Size(130, 50);
             this.btn_annuler.TabIndex = 33;
             this.btn_annuler.Text = "Annuler";
             this.btn_annuler.UseVisualStyleBackColor = true;
@@ -475,6 +461,8 @@
             // 
             // niveau3
             // 
+            this.niveau3.Controls.Add(this.label2);
+            this.niveau3.Controls.Add(this.label1);
             this.niveau3.Controls.Add(this.nom_coord);
             this.niveau3.Controls.Add(this.nom_position);
             this.niveau3.Controls.Add(this.M_fin);
@@ -502,13 +490,13 @@
             this.niveau3.Controls.Add(this.M_debut);
             this.niveau3.Location = new System.Drawing.Point(12, 12);
             this.niveau3.Name = "niveau3";
-            this.niveau3.Size = new System.Drawing.Size(631, 508);
+            this.niveau3.Size = new System.Drawing.Size(532, 683);
             this.niveau3.TabIndex = 34;
             // 
             // nom_coord
             // 
             this.nom_coord.AutoSize = true;
-            this.nom_coord.Location = new System.Drawing.Point(284, 259);
+            this.nom_coord.Location = new System.Drawing.Point(187, 247);
             this.nom_coord.Name = "nom_coord";
             this.nom_coord.Size = new System.Drawing.Size(100, 13);
             this.nom_coord.TabIndex = 35;
@@ -516,15 +504,72 @@
             // 
             // nom_position
             // 
-            this.nom_position.Location = new System.Drawing.Point(424, 253);
+            this.nom_position.Location = new System.Drawing.Point(327, 241);
             this.nom_position.Name = "nom_position";
             this.nom_position.Size = new System.Drawing.Size(100, 20);
             this.nom_position.TabIndex = 34;
             // 
+            // minutes_debut
+            // 
+            this.minutes_debut.AutoSize = true;
+            this.minutes_debut.Location = new System.Drawing.Point(456, 101);
+            this.minutes_debut.Name = "minutes_debut";
+            this.minutes_debut.Size = new System.Drawing.Size(23, 13);
+            this.minutes_debut.TabIndex = 17;
+            this.minutes_debut.Text = "min";
+            // 
+            // minutes_fin
+            // 
+            this.minutes_fin.AutoSize = true;
+            this.minutes_fin.Location = new System.Drawing.Point(457, 134);
+            this.minutes_fin.Name = "minutes_fin";
+            this.minutes_fin.Size = new System.Drawing.Size(23, 13);
+            this.minutes_fin.TabIndex = 19;
+            this.minutes_fin.Text = "min";
+            // 
+            // btn_suppr
+            // 
+            this.btn_suppr.Location = new System.Drawing.Point(12, 759);
+            this.btn_suppr.Name = "btn_suppr";
+            this.btn_suppr.Size = new System.Drawing.Size(185, 91);
+            this.btn_suppr.TabIndex = 36;
+            this.btn_suppr.Text = "Supprimer l\'activité";
+            this.btn_suppr.UseVisualStyleBackColor = true;
+            this.btn_suppr.Click += new System.EventHandler(this.btn_suppr_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(381, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.TabIndex = 1001;
+            this.label1.Text = "h";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(382, 135);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.TabIndex = 1002;
+            this.label2.Text = "h";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship1;
+            this.pictureBox2.Location = new System.Drawing.Point(735, 708);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(147, 142);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 37;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox1.Image = global::Mars_Mission_Control_Dev.Properties.Resources.nanedi_valles;
-            this.pictureBox1.Location = new System.Drawing.Point(650, 113);
+            this.pictureBox1.Location = new System.Drawing.Point(562, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 670);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -532,22 +577,13 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btn_suppr
-            // 
-            this.btn_suppr.Location = new System.Drawing.Point(28, 538);
-            this.btn_suppr.Name = "btn_suppr";
-            this.btn_suppr.Size = new System.Drawing.Size(150, 70);
-            this.btn_suppr.TabIndex = 36;
-            this.btn_suppr.Text = "Supprimer l\'activité";
-            this.btn_suppr.UseVisualStyleBackColor = true;
-            this.btn_suppr.Click += new System.EventHandler(this.btn_suppr_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 812);
+            this.ClientSize = new System.Drawing.Size(894, 862);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btn_suppr);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.niveau3);
@@ -557,6 +593,7 @@
             this.Load += new System.EventHandler(this.Form3_Load);
             this.niveau3.ResumeLayout(false);
             this.niveau3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -570,10 +607,8 @@
         private System.Windows.Forms.Label affichage_jour_actuel;
         private System.Windows.Forms.Label type;
         private System.Windows.Forms.Label heure_debut;
-        private System.Windows.Forms.Label minutes_debut;
         private System.Windows.Forms.Label heure_fin;
         private System.Windows.Forms.Label position;
-        private System.Windows.Forms.Label minutes_fin;
         private System.Windows.Forms.Label descriptif;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ComboBox H_debut;
@@ -592,5 +627,10 @@
         private System.Windows.Forms.TextBox nom_position;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_suppr;
+        private System.Windows.Forms.Label minutes_debut;
+        private System.Windows.Forms.Label minutes_fin;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -126,6 +126,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="nanedi_valles.jpg" />
+    <None Include="Resources\space-ship1.png" />
+    <None Include="Resources\transport1066.png" />
+    <None Include="Resources\space ship29.png" />
+    <None Include="Resources\space59.png" />
+    <None Include="Resources\space-ship.png" />
+    <None Include="Resources\image mars.png" />
+    <None Include="Resources\ac552d3738_31053_Mars 3_Jon Rask.jpg" />
+    <None Include="Resources\Horaires.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

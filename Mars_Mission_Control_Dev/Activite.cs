@@ -99,7 +99,11 @@ namespace Mars_Mission_Control_Dev
 
 
 #region méthodes
-		
+
+        public override string ToString()
+        {
+            return Nom;
+        }
 
 
 #endregion
