@@ -157,7 +157,7 @@ namespace Mars_Mission_Control_Dev
             int NumJour = 0;
             NumJour = int.Parse(((Button)sender).Text.ToString());
 
-            using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour), this.jourActuel))
+            using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour)))
             {
                 f2.FormClosing += delegate { this.Show(); };
                 this.Hide();

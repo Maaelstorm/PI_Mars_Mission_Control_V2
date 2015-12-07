@@ -19,10 +19,9 @@ namespace Mars_Mission_Control_Dev
         List<int> listEcart = new List<int>(); // ecart entre 2 activités
         List<Button> ListBtnActi = new List<Button>();
 
-        public Form2(Calendrier calendrier, Journee jour, Journee jourActuel)
+        public Form2(Calendrier calendrier, Journee jour)
         {
             InitializeComponent();
-            jourActuel.NumJour = calendrier.NumJour;
             jourSelec = jour;
             calendrierActuel = calendrier;
             this.tagjourSelec.Text = jour.NumJour.ToString();
@@ -141,11 +140,6 @@ namespace Mars_Mission_Control_Dev
                 BtnActi.MouseHover += BtnActi_MouseHover;
                 BtnActi.MouseLeave += BtnActi_Leave;
                 ListBtnActi.Add(BtnActi);
-            }
-
-            if (jourSelec < )
-            {
-                
             }
 
             return ListBtnActi;

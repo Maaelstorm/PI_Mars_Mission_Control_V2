@@ -50,9 +50,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelActivites3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.horaires)).BeginInit();
@@ -62,11 +63,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(500, 12);
+            this.button1.Location = new System.Drawing.Point(668, 58);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 40);
             this.button1.TabIndex = 5;
@@ -76,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(782, 12);
+            this.button2.Location = new System.Drawing.Point(780, 58);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 40);
             this.button2.TabIndex = 4;
@@ -88,7 +91,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(618, 18);
+            this.label1.Location = new System.Drawing.Point(10, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 24);
             this.label1.TabIndex = 6;
@@ -98,7 +101,7 @@
             // 
             this.tagjourSelec.AutoSize = true;
             this.tagjourSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagjourSelec.Location = new System.Drawing.Point(737, 18);
+            this.tagjourSelec.Location = new System.Drawing.Point(130, 7);
             this.tagjourSelec.Name = "tagjourSelec";
             this.tagjourSelec.Size = new System.Drawing.Size(19, 24);
             this.tagjourSelec.TabIndex = 7;
@@ -106,9 +109,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(737, 67);
+            this.button3.Location = new System.Drawing.Point(668, 104);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 40);
+            this.button3.Size = new System.Drawing.Size(214, 40);
             this.button3.TabIndex = 8;
             this.button3.Text = "Retour au calendrier";
             this.button3.UseVisualStyleBackColor = true;
@@ -132,17 +135,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 121);
+            this.label3.Location = new System.Drawing.Point(7, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 20);
+            this.label3.Size = new System.Drawing.Size(174, 20);
             this.label3.TabIndex = 41;
-            this.label3.Text = "Compte Rendu du Jour :";
+            this.label3.Text = "Compte Rendu du Jour";
             // 
             // tagjourSelec2
             // 
             this.tagjourSelec2.AutoSize = true;
             this.tagjourSelec2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagjourSelec2.Location = new System.Drawing.Point(195, 120);
+            this.tagjourSelec2.Location = new System.Drawing.Point(180, 120);
             this.tagjourSelec2.Name = "tagjourSelec2";
             this.tagjourSelec2.Size = new System.Drawing.Size(17, 20);
             this.tagjourSelec2.TabIndex = 42;
@@ -152,7 +155,7 @@
             // 
             this.label_nom_acti.AutoSize = true;
             this.label_nom_acti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nom_acti.Location = new System.Drawing.Point(85, 5);
+            this.label_nom_acti.Location = new System.Drawing.Point(7, 5);
             this.label_nom_acti.Name = "label_nom_acti";
             this.label_nom_acti.Size = new System.Drawing.Size(60, 20);
             this.label_nom_acti.TabIndex = 43;
@@ -276,21 +279,10 @@
             this.panelActivites3.Size = new System.Drawing.Size(261, 810);
             this.panelActivites3.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Activité : ";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label_nom_acti);
             this.panel1.Controls.Add(this.richTextBox2);
             this.panel1.Controls.Add(this.tagjourSelec2);
@@ -311,19 +303,43 @@
             this.pictureBox3.TabIndex = 50;
             this.pictureBox3.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SaddleBrown;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.tagjourSelec);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(710, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(170, 40);
+            this.panel2.TabIndex = 51;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.ErrorImage = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
+            this.pictureBox4.Image = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
+            this.pictureBox4.InitialImage = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
+            this.pictureBox4.Location = new System.Drawing.Point(660, 10);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 1006;
+            this.pictureBox4.TabStop = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(894, 862);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.tagjourSelec);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Name = "Form2";
@@ -338,8 +354,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -364,11 +382,12 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panelActivites3;
         private System.Windows.Forms.PictureBox horaires;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox4;
 
         public System.EventHandler comboBox1_SelectedIndexChanged { get; set; }
 
