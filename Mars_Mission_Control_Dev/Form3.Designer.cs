@@ -305,7 +305,7 @@
             treeNode34,
             treeNode35});
             this.treeView1.Size = new System.Drawing.Size(163, 369);
-            this.treeView1.TabIndex = 22;
+            this.treeView1.TabIndex = 1000;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // H_debut
@@ -547,7 +547,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 750);
+            this.ClientSize = new System.Drawing.Size(984, 812);
             this.Controls.Add(this.btn_suppr);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.niveau3);
