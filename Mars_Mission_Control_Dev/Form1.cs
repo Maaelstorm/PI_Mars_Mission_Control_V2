@@ -11,72 +11,72 @@ using System.Windows.Forms;
 namespace Mars_Mission_Control_Dev
 {
     public partial class Form1 : Form
-	{
+    {
 
 
-#region Accesseurs & Propriétés
+        #region Accesseurs & Propriétés
 
 
-		private int period = 1;
+        private int period = 1;
         private int jourActuel = 25;
         private int posX = 0;
         private int posY = 0;
-        
-		public Button btn_jour { get; set; }
-		
-		
-		private List<Button> _listBtnJour;
-		public List<Button> ListBtnJour
-		{
-			get { return _listBtnJour; }
-			set { _listBtnJour = value; }
-		}
+
+        public Button btn_jour { get; set; }
+
+
+        private List<Button> _listBtnJour;
+        public List<Button> ListBtnJour
+        {
+            get { return _listBtnJour; }
+            set { _listBtnJour = value; }
+        }
 
         private Calendrier _cal;
         public Calendrier Cal
         {
             get { return _cal; }
             set { _cal = value; }
-        }        
+        }
 
-		
-#endregion
-		
 
-#region Constructeur
+        #endregion
+
+
+        #region Constructeur
 
         public Form1()
         {
             InitializeComponent();
-		
-            Cal = new Calendrier();            
-				
-			for (int i = 0; i < 500; i++)
-			{
-				Journee jour = new Journee(i);
-                jour.CompteRendu = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?";
-				
-				Cal.ListJournees.Add(jour);
-			}
-			
 
-			if (this.ListBtnJour == null)
-			{
-				ListBtnJour = new List<Button>();
-			}
+            Cal = new Calendrier();
+
+            for (int i = 0; i < 500; i++)
+            {
+                Journee jour = new Journee(i);
+                jour.CompteRendu = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?";
+
+                Cal.ListJournees.Add(jour);
+            }
+
+
+            if (this.ListBtnJour == null)
+            {
+                ListBtnJour = new List<Button>();
+            }
 
             for (int i = 1; i <= 50; i++)
             {
                 Button btn_jour = new Button();
-				ListBtnJour.Add(btn_jour);
+                ListBtnJour.Add(btn_jour);
 
-                btn_jour.Size = new Size(50, 50);
+                btn_jour.Size = new Size(70, 50);
 
-				// Pour le chargement de la 1ère page du calendrier : on sait que le numéro du jour va de 1 à 50
-				btn_jour.Text = btn_jour.Name = i.ToString();                 
-                btn_jour.Location = new Point(60 + (posX * 50), 160 + (posY * 50));
+                // Pour le chargement de la 1ère page du calendrier : on sait que le numéro du jour va de 1 à 50
+                btn_jour.Text = btn_jour.Name = i.ToString();
+                btn_jour.Location = new Point(50 + (posX * 80), 160 + (posY * 60));
                 posX++;
-				
+
 
                 //mise à jour des positions, si x depasse le nombre max d'elements en horizontal, on passe à la ligne suivante
                 if (posX >= 10)
@@ -85,9 +85,9 @@ namespace Mars_Mission_Control_Dev
                     posY++;
                 }
 
-             
-			    this.Controls.Add(btn_jour);
-			    btn_jour.Click += jour_Click;//fonction de click sur le Btn_jour
+
+                this.Controls.Add(btn_jour);
+                btn_jour.Click += jour_Click;//fonction de click sur le Btn_jour
 
                 //gestion de la couleur 
                 if (int.Parse(btn_jour.Name) < jourActuel)
@@ -95,26 +95,26 @@ namespace Mars_Mission_Control_Dev
                 else if (int.Parse(btn_jour.Name) == jourActuel)
                     btn_jour.BackColor = Color.LightBlue;
                 else
-                    btn_jour.BackColor = Color.LightGreen;                  
-                              
+                    btn_jour.BackColor = Color.LightGreen;
+
             }
 
 
-    #region Activités par défauts
+            #region Activités par défauts
 
             // On ajoute toutes les activités par défaut
             int index = 0;
             foreach (var item in Cal.ListJournees)
             {
-				Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
-				Activite Sleeping1 = new Activite("Sleeping", new Dates(item.NumJour, 0, 0), new Dates(item.NumJour, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Sleeping2 = new Activite("Sleeping", new Dates(item.NumJour, 23, 0), new Dates(item.NumJour, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Eating1 = new Activite("Eating", new Dates(item.NumJour, 7, 0), new Dates(item.NumJour, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Eating2 = new Activite("Eating", new Dates(item.NumJour, 12, 0), new Dates(item.NumJour, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Eating3 = new Activite("Eating", new Dates(item.NumJour, 19, 0), new Dates(item.NumJour, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Private1 = new Activite("Eating", new Dates(item.NumJour, 8, 0), new Dates(item.NumJour, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Private2 = new Activite("Private", new Dates(item.NumJour, 14, 0), new Dates(item.NumJour, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-				Activite Private3 = new Activite("Private", new Dates(item.NumJour, 21, 0), new Dates(item.NumJour, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
+                Activite Sleeping1 = new Activite("Sleeping", new Dates(item.NumJour, 0, 0), new Dates(item.NumJour, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Sleeping2 = new Activite("Sleeping", new Dates(item.NumJour, 23, 0), new Dates(item.NumJour, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Eating1 = new Activite("Eating", new Dates(item.NumJour, 7, 0), new Dates(item.NumJour, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Eating2 = new Activite("Eating", new Dates(item.NumJour, 12, 0), new Dates(item.NumJour, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Eating3 = new Activite("Eating", new Dates(item.NumJour, 19, 0), new Dates(item.NumJour, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Private1 = new Activite("Eating", new Dates(item.NumJour, 8, 0), new Dates(item.NumJour, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Private2 = new Activite("Private", new Dates(item.NumJour, 14, 0), new Dates(item.NumJour, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+                Activite Private3 = new Activite("Private", new Dates(item.NumJour, 21, 0), new Dates(item.NumJour, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
 
                 item.ListActiviteJournee.Add(Sleeping1);
 
@@ -143,28 +143,26 @@ namespace Mars_Mission_Control_Dev
                 index++;
             }
 
-    #endregion
+            #endregion
 
         }
 
-#endregion
+        #endregion
 
-
-
-#region Méthodes
+        #region Méthodes
 
 
         private void jour_Click(object sender, EventArgs e)
         {
             int NumJour = 0;
             NumJour = int.Parse(((Button)sender).Text.ToString());
-            
-            using (var f2 = new Form2(this.Cal ,this.Cal.ListJournees.ElementAt(NumJour)))
+
+            using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour), this.jourActuel))
             {
                 f2.FormClosing += delegate { this.Show(); };
                 this.Hide();
                 f2.ShowDialog();
-            }                        
+            }
         }
 
 
@@ -174,23 +172,23 @@ namespace Mars_Mission_Control_Dev
             if (period < 10)
             {
                 period++;
-                
-				for (int i = 0; i < 50; i++)
-				{   
+
+                for (int i = 0; i < 50; i++)
+                {
                     tmpBtn = ListBtnJour.ElementAt(i);
                     int tmp = int.Parse((ListBtnJour.ElementAt(i).Text.ToString())); //On récupère la valeur du numéro du jour
                     tmp += 50; // On lui ajoute 50
                     tmpBtn.Text = tmp.ToString(); // Et on la remplace
-                    
+
                     //color                    
                     if (tmp < jourActuel)
                         tmpBtn.BackColor = Color.LightGray;
                     else if (tmp == jourActuel)
                         tmpBtn.BackColor = Color.LightBlue;
                     else
-                        tmpBtn.BackColor = Color.LightGreen;     
+                        tmpBtn.BackColor = Color.LightGreen;
 
-				}
+                }
             }
         }
 
@@ -215,23 +213,23 @@ namespace Mars_Mission_Control_Dev
                     else if (tmp == jourActuel)
                         tmpBtn.BackColor = Color.LightBlue;
                     else
-                        tmpBtn.BackColor = Color.LightGreen;     
+                        tmpBtn.BackColor = Color.LightGreen;
                 }
             }
         }
 
 
-		private void label1_Click(object sender, EventArgs e)
-		{
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
 
-#endregion
+        #endregion
 
-		private void Form1_Load(object sender, EventArgs e)
-		{
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-		}
+        }
 
     }
 }

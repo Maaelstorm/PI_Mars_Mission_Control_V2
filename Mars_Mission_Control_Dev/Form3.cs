@@ -98,7 +98,7 @@ namespace Mars_Mission_Control_Dev
         }
         #endregion
 
-        #region evenement
+        #region Evenement
         private void btn_confirmer_Click(object sender, EventArgs e)
         {
             bool PossibleDeChanger = true;

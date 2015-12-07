@@ -70,6 +70,38 @@ namespace Mars_Mission_Control_Dev
 			CompteRendu = "";
 			this.ListActiviteJournee = new List<Activite>();
 		}
+        public Journee(int nJour, List<Spationaute> listeSpationaute)
+        {
+            CompteRendu = "";
+
+            ListActiviteJournee = new List<Activite>();
+
+            Dates h0 = new Dates(nJour, 0, 0);
+            Dates h7 = new Dates(nJour, 7, 0);
+            Dates h8 = new Dates(nJour, 8, 0);
+            Dates h12 = new Dates(nJour, 12, 0);
+            Dates h14 = new Dates(nJour, 14, 0);
+            Dates h19 = new Dates(nJour, 19, 0);
+            Dates h21 = new Dates(nJour, 21, 0);
+            Dates h23 = new Dates(nJour, 23, 0);
+            Dates h24_40 = new Dates(nJour, 24, 40);
+
+            Coordonnees baseMission = new Coordonnees("base", new Point(0,0));
+            string sleeping = "Sleeping";
+            string eating = "Eating";
+            string prive = "Private";
+
+            //on ajoute les activites par defaut de la journee.
+
+            ListActiviteJournee.Add(new Activite(sleeping, h0, h7, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(eating, h7, h8, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(prive, h8, h12, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(eating, h12, h14, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(prive, h14, h19, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(eating, h19, h21, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(prive, h21, h23, baseMission, CompteRendu, listeSpationaute));
+            ListActiviteJournee.Add(new Activite(sleeping, h23, h24_40, baseMission, CompteRendu, listeSpationaute));
+        }
 
         #endregion
 

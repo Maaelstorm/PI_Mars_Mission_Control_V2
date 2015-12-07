@@ -52,12 +52,12 @@ namespace Mars_Mission_Control_Dev
             get { return _listActivite; }
             set { _listActivite = value; }
         }
-        private uint _numJour;
+        private int _jourActuel;
 
-        public uint NumJour
+        public int JourActuel
         {
-            get { return _numJour; }
-            set { _numJour = value; }
+            get { return _jourActuel; }
+            set { _jourActuel = value; }
         }
 
 
@@ -138,12 +138,13 @@ namespace Mars_Mission_Control_Dev
             );
             return listResult;
         }
-        public List<Activite> selectionPeriodeAct(Dates HeureDeb, Dates HeureFin)
+        public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
         {
             List<Activite> lst_periode = new List<Activite>();
             foreach (Activite uneActivite in ListActivite)
             {
-                if (uneActivite.HeureFin.Heure > HeureDeb.Heure || uneActivite.HeureDebut.Heure < HeureFin.Heure)
+                //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
+                if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
                 {
                     lst_periode.Add(uneActivite);
                 }
@@ -155,7 +156,7 @@ namespace Mars_Mission_Control_Dev
             List<Journee> lst_periode = new List<Journee>();
             foreach (Journee uneJournee in ListJournees)
             {
-                if (uneJournee.NumJour > dateDeb.Heure || uneJournee.NumJour < dateFin.Jour)
+                if (uneJournee.NumJour > dateDeb.Jour || uneJournee.NumJour < dateFin.Jour)
                 {
                     lst_periode.Add(uneJournee);
                 }

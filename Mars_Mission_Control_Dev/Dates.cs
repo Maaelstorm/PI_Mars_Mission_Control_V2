@@ -66,11 +66,19 @@ namespace Mars_Mission_Control_Dev
         }
         #endregion
         #region methodes
-        public Dates ecart(Dates date)
+        public int diff(Dates date)
+            /*retourne la différence en minutes entre la date this et la date passée en argument.
+             * si la date en argument est posterieure à la date this, la valeur de retour est positive. 
+             * Elle est négative sinon*/
         {
             int date1 = (this.Jour * 24 + this.Heure) * 60 + this.Minute;
             int date2 = (date.Jour * 24 + date.Heure) * 60 + date.Minute;
-            int ecartMin = Math.Abs(date1 - date2);
+            int ecartMin = date2 - date1;
+            return ecartMin;
+        }
+        public Dates ecart(Dates date)
+        {
+            int ecartMin = Math.Abs(diff(date));
             int ecartJour = ecartMin / (60 * 24);
             int ecartH = (ecartMin / 60) % 24;
             ecartMin = ecartMin % 60;
