@@ -122,20 +122,23 @@ namespace Mars_Mission_Control_Dev
         //on verifie si une activite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
         {
             List<Activite> lst_ActiviteConflit = new List<Activite>();
-            foreach (Activite activite in ListActivite)
+            foreach (Journee uneJournee in ListJournees)
             {
-                if (activite.HeureFin.Heure >= newActivite.HeureDebut.Heure && activite.HeureFin.Minute >= newActivite.HeureDebut.Minute)
+                foreach (Activite uneActivite in uneJournee.ListActiviteJournee)
                 {
-                    foreach (Spationaute spatioOccupe in activite.ListSpationaute)
+                    if (uneActivite.HeureFin.Heure >= newActivite.HeureDebut.Heure && uneActivite.HeureFin.Minute >= newActivite.HeureDebut.Minute)
                     {
-                        foreach (Spationaute spatioNewActivite in newActivite.ListSpationaute)
+                        foreach (Spationaute spatioOccupe in uneActivite.ListSpationaute)
                         {
-                            if (spatioNewActivite == spatioOccupe)
+                            foreach (Spationaute spatioNewActivite in newActivite.ListSpationaute)
                             {
-                                lst_ActiviteConflit.Add(activite);
+                                if (spatioNewActivite == spatioOccupe)
+                                {
+                                    lst_ActiviteConflit.Add(uneActivite);
+                                }
+
+
                             }
-
-
                         }
                     }
                 }
@@ -173,12 +176,15 @@ namespace Mars_Mission_Control_Dev
         public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
         {
             List<Activite> lst_periode = new List<Activite>();
-            foreach (Activite uneActivite in ListActivite)
+            foreach (Journee uneJournee in ListJournees)
             {
-                //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
-                if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
+                foreach (Activite uneActivite in uneJournee.ListActiviteJournee)
                 {
-                    lst_periode.Add(uneActivite);
+                    //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
+                    if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
+                    {
+                        lst_periode.Add(uneActivite);
+                    }
                 }
             }
             return lst_periode;
