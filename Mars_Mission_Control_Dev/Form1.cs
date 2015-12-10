@@ -41,6 +41,14 @@ namespace Mars_Mission_Control_Dev
             set { _cal = value; }
         }
 
+		//private List<Activite> _listActivite;
+		//[XmlArray("ListActivite")]
+		//public List<Activite> ListActivite
+		//{
+		//    get { return _listActivite; }
+		//    set { _listActivite = value; }
+		//}
+
 
         #endregion
 
@@ -53,11 +61,32 @@ namespace Mars_Mission_Control_Dev
 			
 			chargementXML();
 
-			// Si le calenderier n'a pas été chargé via la déserialisation
-			if (Cal == null)
-			{
-				Cal = new Calendrier();
+			// On ajoute toutes les activités par défaut
 
+			//Cal = new Calendrier();
+
+			//Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
+			//Activite Sleeping1 = new Activite("Sleeping", new Dates(0, 0, 0), new Dates(0, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Sleeping2 = new Activite("Sleeping", new Dates(0, 23, 0), new Dates(0, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Eating1 = new Activite("Eating", new Dates(0, 7, 0), new Dates(0, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Eating2 = new Activite("Eating", new Dates(0, 12, 0), new Dates(0, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Eating3 = new Activite("Eating", new Dates(0, 19, 0), new Dates(0, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Private1 = new Activite("Eating", new Dates(0, 8, 0), new Dates(0, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Private2 = new Activite("Private", new Dates(0, 14, 0), new Dates(0, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+			//Activite Private3 = new Activite("Private", new Dates(0, 21, 0), new Dates(0, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+
+			//Cal.ListActiviteDefaut.Add(Sleeping1);
+			//Cal.ListActiviteDefaut.Add(Eating1);
+			//Cal.ListActiviteDefaut.Add(Private1);
+			//Cal.ListActiviteDefaut.Add(Eating2);
+			//Cal.ListActiviteDefaut.Add(Private2);
+			//Cal.ListActiviteDefaut.Add(Eating3);
+			//Cal.ListActiviteDefaut.Add(Private3);
+			//Cal.ListActiviteDefaut.Add(Sleeping2);
+
+			// Si le calenderier n'a pas été chargé via la déserialisation
+			if (Cal.ListJournees.Count == 0)
+			{
 				// Création des jours
 				for (int i = 0; i < 500; i++)
 				{
@@ -65,48 +94,62 @@ namespace Mars_Mission_Control_Dev
 					jour.CompteRendu = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?";
 
 					Cal.ListJournees.Add(jour);
+
+					for (int j = 0; j < Cal.ListActiviteDefaut.Count; j++)
+					{
+						Cal.ListActiviteDefaut.ElementAt(j).HeureDebut.Jour = jour.NumJour;
+						Cal.ListActiviteDefaut.ElementAt(j).HeureFin.Jour = jour.NumJour;
+					}
+
+					// Ajout de toutes les activités par défaut à la journée
+					Cal.ListJournees.ElementAt(i).ListActiviteJournee.AddRange(Cal.ListActiviteDefaut);
 				}
 
-				// On ajoute toutes les activités par défaut
-				int index = 0;
-				foreach (var item in Cal.ListJournees)
-				{
-					Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
-					Activite Sleeping1 = new Activite("Sleeping", new Dates(item.NumJour, 0, 0), new Dates(item.NumJour, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Sleeping2 = new Activite("Sleeping", new Dates(item.NumJour, 23, 0), new Dates(item.NumJour, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Eating1 = new Activite("Eating", new Dates(item.NumJour, 7, 0), new Dates(item.NumJour, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Eating2 = new Activite("Eating", new Dates(item.NumJour, 12, 0), new Dates(item.NumJour, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Eating3 = new Activite("Eating", new Dates(item.NumJour, 19, 0), new Dates(item.NumJour, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Private1 = new Activite("Eating", new Dates(item.NumJour, 8, 0), new Dates(item.NumJour, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Private2 = new Activite("Private", new Dates(item.NumJour, 14, 0), new Dates(item.NumJour, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-					Activite Private3 = new Activite("Private", new Dates(item.NumJour, 21, 0), new Dates(item.NumJour, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
 
-					item.ListActiviteJournee.Add(Sleeping1);
 
-					if (index % 1 == 0)
-						item.ListActiviteJournee.Add(Sleeping2);
-					if (index % 2 == 0)
-						item.ListActiviteJournee.Add(Eating1);
-					if (index % 6 == 0)
-						item.ListActiviteJournee.Add(Eating2);
-					if (index % 3 == 0)
-						item.ListActiviteJournee.Add(Eating3);
-					if (index % 8 == 0)
-						item.ListActiviteJournee.Add(Private1);
-					if (index % 6 == 0)
-						item.ListActiviteJournee.Add(Private2);
-					if (index % 4 == 0)
-						item.ListActiviteJournee.Add(Private3);
-					item.ListActiviteJournee.Sort(
-						delegate(Activite a1, Activite a2) // Et on les ordonne
-						{
-							int HA1 = a1.HeureDebut.Heure * 60 + a1.HeureDebut.Minute;
-							int HA2 = a2.HeureDebut.Heure * 60 + a2.HeureDebut.Minute;
-							return HA1.CompareTo(HA2);
-						});
 
-					index++;
-				}
+				// TEST A SUPPRIMER si plus besoin 
+
+				//int index = 0;
+				//foreach (var item in Cal.ListJournees)
+				//{
+				//    Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
+				//    Activite Sleeping1 = new Activite("Sleeping", new Dates(item.NumJour, 0, 0), new Dates(item.NumJour, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Sleeping2 = new Activite("Sleeping", new Dates(item.NumJour, 23, 0), new Dates(item.NumJour, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Eating1 = new Activite("Eating", new Dates(item.NumJour, 7, 0), new Dates(item.NumJour, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Eating2 = new Activite("Eating", new Dates(item.NumJour, 12, 0), new Dates(item.NumJour, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Eating3 = new Activite("Eating", new Dates(item.NumJour, 19, 0), new Dates(item.NumJour, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Private1 = new Activite("Eating", new Dates(item.NumJour, 8, 0), new Dates(item.NumJour, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Private2 = new Activite("Private", new Dates(item.NumJour, 14, 0), new Dates(item.NumJour, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+				//    Activite Private3 = new Activite("Private", new Dates(item.NumJour, 21, 0), new Dates(item.NumJour, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+
+				//    item.ListActiviteJournee.Add(Sleeping1);
+
+
+				//    if (index % 1 == 0)
+				//        item.ListActiviteJournee.Add(Sleeping2);
+				//    if (index % 2 == 0)
+				//        item.ListActiviteJournee.Add(Eating1);
+				//    if (index % 6 == 0)
+				//        item.ListActiviteJournee.Add(Eating2);
+				//    if (index % 3 == 0)
+				//        item.ListActiviteJournee.Add(Eating3);
+				//    if (index % 8 == 0)
+				//        item.ListActiviteJournee.Add(Private1);
+				//    if (index % 6 == 0)
+				//        item.ListActiviteJournee.Add(Private2);
+				//    if (index % 4 == 0)
+				//        item.ListActiviteJournee.Add(Private3);
+				//    item.ListActiviteJournee.Sort(
+				//        delegate(Activite a1, Activite a2) // Et on les ordonne
+				//        {
+				//            int HA1 = a1.HeureDebut.Heure * 60 + a1.HeureDebut.Minute;
+				//            int HA2 = a2.HeureDebut.Heure * 60 + a2.HeureDebut.Minute;
+				//            return HA1.CompareTo(HA2);
+				//        });
+
+				//    index++;
+				//}
 			}           
 
 
@@ -177,9 +220,16 @@ namespace Mars_Mission_Control_Dev
 			//    }
 			//}
 
-			// Initialisation du Calendrier à null
-			this.Cal = null;
-
+			// Chargement de la liste d'activitée par défaut :
+			if (File.Exists("./..//..//ListeActiviteDefaut.xml"))
+			{
+				XmlSerializer test = new XmlSerializer(typeof(Calendrier));
+				FileStream xmlFichier = new FileStream("./..//..//ListeActiviteDefaut.xml", FileMode.Open, FileAccess.Read);
+				xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
+				Cal = (Calendrier)test.Deserialize(xmlFichier);
+				xmlFichier.Close();
+			}
+			
 			// Toutes les données sont sérialisées dans le même document 
 			if (File.Exists("./..//..//Calendrier.xml"))
 			{

@@ -15,9 +15,9 @@ namespace Mars_Mission_Control_Dev
 {
 	[XmlRoot("Journees")]
     public class Journee
-    {		
+    {
 
-    #region Accesseurs & Propriétés
+        #region Accesseurs & Propriétés
 
 		private int _numJour;
 		[XmlElement("NumJour")]

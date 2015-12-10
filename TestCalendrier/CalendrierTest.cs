@@ -62,7 +62,7 @@ namespace Mars_Mission_Control_Dev
             listeJournee[10].ListActiviteJournee[6].Lieu.Position = new Point(-15, 70);
             listeJournee[17].ListActiviteJournee[2].Lieu.Position = new Point(-60, -10);
             DateTime jourDebMission = new DateTime(2015, 11, 15);
-            LeCalendrier = new Calendrier(listeJournee, listeActivite, listeSpationaute);
+            LeCalendrier = new Calendrier(listeJournee, listeSpationaute);
         }
         
 
