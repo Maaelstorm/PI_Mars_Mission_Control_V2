@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Calendrier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <JourDebutMission>0001-01-01T00:00:00</JourDebutMission>
+  <JourActuel>0</JourActuel>
   <ListeJournees>
     <Journee>
       <NumJour>0</NumJour>
@@ -2345,7 +2346,7 @@
     </Journee>
     <Journee>
       <NumJour>26</NumJour>
-      <CompteRendu>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?</CompteRendu>
+      <CompteRendu>TEST</CompteRendu>
       <ListeActivitees>
         <Activite>
           <Nom>Sleeping</Nom>
@@ -2420,7 +2421,7 @@
     </Journee>
     <Journee>
       <NumJour>27</NumJour>
-      <CompteRendu>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?</CompteRendu>
+      <CompteRendu>TESSST</CompteRendu>
       <ListeActivitees>
         <Activite>
           <Nom>Sleeping</Nom>
@@ -43784,5 +43785,4 @@
   </ListeJournees>
   <ListSpationaute />
   <ListActivite />
-  <NumJour>0</NumJour>
 </Calendrier>

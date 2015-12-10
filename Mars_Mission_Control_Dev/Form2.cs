@@ -152,7 +152,7 @@ namespace Mars_Mission_Control_Dev
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-
+			jourSelec.CompteRendu = richTextBox2.Text;
         }
 
         private void activite_Click(object sender, EventArgs e)

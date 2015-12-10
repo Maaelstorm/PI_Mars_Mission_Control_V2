@@ -17,43 +17,8 @@ namespace Mars_Mission_Control_Dev
         /// </summary>
         [STAThread]
         static void Main()
-        {	
-			// Chargement des informations générales :
- 			// - Nom du fichier image (carte)
-			// - position de l'habitat
-			// - nombre et nom de chaque astronaute
-			// - hiérarchie des activité 
-			// - description des activités de la journée par défaut
-									
-			// Création d'un variable Restaurant qui sera utilisé pour la déserialisation
-			//Calendrier cal = null;
-
-			//if (File.Exists("./..//..//InfoGenerales.xml"))
-			//{
-			//    XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
-			//    using (StreamReader sr = new StreamReader("./..//..//InfoGenerales.xml"))
-			//    {
-			//        cal = xs.Deserialize(sr) as Calendrier;
-			//        //Console.WriteLine("Interface de gestion du restaurant \"{0}\" - Bienvenue {1}", restaurant.Nom, restaurant.NomProprio);
-			//        //Console.WriteLine("\nAppuyez sur une touche pour continuer");
-			//        //Console.ReadKey();
-			//    }
-			//}
-
-			//if (File.Exists("./..//..//CalendrierListes.xml"))
-			//{
-			//    XmlSerializer test = new XmlSerializer(typeof(Calendrier));
-			//    FileStream xmlFichier = new FileStream("./..//..//CalendrierListes.xml", FileMode.Open, FileAccess.Read);
-			//    xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
-			//    cal = (Calendrier)test.Deserialize(xmlFichier);
-			//    xmlFichier.Close();
-			//}
-
-
-
-			// Chargement des journées et des activités :
-
-
+        {
+			
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
