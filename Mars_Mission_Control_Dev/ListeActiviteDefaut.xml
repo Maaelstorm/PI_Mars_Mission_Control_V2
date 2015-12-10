@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Calendrier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <JourDebutMission>0001-01-01T00:00:00</JourDebutMission>
+  <JourActuel>0</JourActuel>
+  <ListeJournees />
+  <ListSpationaute />
+  <ListeActiviteeDefaut>
+    <Activite>
+      <Nom>Sleeping</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>0</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>7</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Eating</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>7</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>8</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Eating</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>8</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>12</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Eating</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>12</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>14</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Private</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>14</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>19</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Eating</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>19</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>21</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Private</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>21</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>23</Heure>
+        <Minute>0</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+    <Activite>
+      <Nom>Sleeping</Nom>
+      <HeureDebut>
+        <Jour>0</Jour>
+        <Heure>23</Heure>
+        <Minute>0</Minute>
+      </HeureDebut>
+      <HeureFin>
+        <Jour>0</Jour>
+        <Heure>24</Heure>
+        <Minute>40</Minute>
+      </HeureFin>
+      <Coordonnees>
+        <Nom>Base</Nom>
+        <Point>
+          <X>0</X>
+          <Y>0</Y>
+        </Point>
+        <Descriptif />
+      </Coordonnees>
+      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Spationautes />
+    </Activite>
+  </ListeActiviteeDefaut>
+</Calendrier>

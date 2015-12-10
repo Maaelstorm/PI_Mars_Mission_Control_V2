@@ -64,13 +64,13 @@ namespace Mars_Mission_Control_Dev
             set { _listSpationaute = value; }
         }
 
-        private List<Activite> _listActivite;
-        [XmlArray("ListActivite")]
-        public List<Activite> ListActivite
-        {
-            get { return _listActivite; }
-            set { _listActivite = value; }
-        }
+		private List<Activite> _listActiviteDefaut;
+		[XmlArray("ListeActiviteeDefaut")]
+		public List<Activite> ListActiviteDefaut
+		{
+			get { return _listActiviteDefaut; }
+			set { _listActiviteDefaut = value; }
+		}
 				
 
         #endregion
@@ -81,15 +81,15 @@ namespace Mars_Mission_Control_Dev
         {
 			this.Map = null;
             this.ListJournees = new List<Journee>();
-            this.ListActivite = new List<Activite>();
+			this.ListActiviteDefaut = new List<Activite>();
             this.ListSpationaute = new List<Spationaute>();
         }
-        public Calendrier(Carte map, List<Journee> listeJournees, List<Activite> listeActivites, List<Spationaute> listeSpationautes)
+        public Calendrier(Carte map, List<Journee> listeJournees, List<Spationaute> listeSpationautes)
         {
 			this.Map = map;
-            ListJournees = listeJournees;
-            ListActivite = listeActivites;
-            ListSpationaute = listeSpationautes;
+            this.ListJournees = listeJournees;
+			//this.ListActiviteDefaut = listeActivites;
+            this.ListSpationaute = listeSpationautes;
         }
         #endregion
 
@@ -118,71 +118,71 @@ namespace Mars_Mission_Control_Dev
         }
 
 
-        public List<Activite> checkActivite(Activite newActivite)
-        //on verifie si une activite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
-        {
-            List<Activite> lst_ActiviteConflit = new List<Activite>();
-            foreach (Activite activite in ListActivite)
-            {
-                if (activite.HeureFin.Heure >= newActivite.HeureDebut.Heure && activite.HeureFin.Minute >= newActivite.HeureDebut.Minute)
-                {
-                    foreach (Spationaute spatioOccupe in activite.ListSpationaute)
-                    {
-                        foreach (Spationaute spatioNewActivite in newActivite.ListSpationaute)
-                        {
-                            if (spatioNewActivite == spatioOccupe)
-                            {
-                                lst_ActiviteConflit.Add(activite);
-                            }
+		//public List<Activite> checkActivite(Activite newActivite)
+		////on verifie si une activite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
+		//{
+		//    List<Activite> lst_ActiviteConflit = new List<Activite>();
+		//    foreach (Activite activite in ListActivite)
+		//    {
+		//        if (activite.HeureFin.Heure >= newActivite.HeureDebut.Heure && activite.HeureFin.Minute >= newActivite.HeureDebut.Minute)
+		//        {
+		//            foreach (Spationaute spatioOccupe in activite.ListSpationaute)
+		//            {
+		//                foreach (Spationaute spatioNewActivite in newActivite.ListSpationaute)
+		//                {
+		//                    if (spatioNewActivite == spatioOccupe)
+		//                    {
+		//                        lst_ActiviteConflit.Add(activite);
+		//                    }
 
 
-                        }
-                    }
-                }
-            }
-            return lst_ActiviteConflit;
-        }
+		//                }
+		//            }
+		//        }
+		//    }
+		//    return lst_ActiviteConflit;
+		//}
 
 
-        public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
-        {
-            List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
-            List<Activite> listResult = listPeriode.FindAll(
-            delegate(Activite act)
-            {
-                return (act.Nom == mot);
-            }
-            );
-            return listResult;
-        }
+		//public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
+		//{
+		//    List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
+		//    List<Activite> listResult = listPeriode.FindAll(
+		//    delegate(Activite act)
+		//    {
+		//        return (act.Nom == mot);
+		//    }
+		//    );
+		//    return listResult;
+		//}
 
 
-        public List<Activite> rechercheDescActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
-        {
-            List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
-            List<Activite> listResult = listPeriode.FindAll(
-            delegate(Activite act)
-            {
-                return (act.Descritpion.Contains(mot));
-            }
-            );
-            return listResult;
-        }
+		//public List<Activite> rechercheDescActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
+		//{
+		//    List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
+		//    List<Activite> listResult = listPeriode.FindAll(
+		//    delegate(Activite act)
+		//    {
+		//        return (act.Descritpion.Contains(mot));
+		//    }
+		//    );
+		//    return listResult;
+		//}
 
 
-        public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
-        {
-            List<Activite> lst_periode = new List<Activite>();
-            foreach (Activite uneActivite in ListActivite)
-            {
-                //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
-                if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
-                {
-                    lst_periode.Add(uneActivite);
-                }
-            }
-            return lst_periode;
-        }
+		//public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
+		//{
+		//    List<Activite> lst_periode = new List<Activite>();
+		//    foreach (Activite uneActivite in ListActivite)
+		//    {
+		//        //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
+		//        if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
+		//        {
+		//            lst_periode.Add(uneActivite);
+		//        }
+		//    }
+		//    return lst_periode;
+		//}
 
 
         public List<Journee> selectionPeriodeJour(Dates dateDeb, Dates dateFin)
@@ -206,19 +206,19 @@ namespace Mars_Mission_Control_Dev
         //}
 
 
-        public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
-        // hg : point en haut à gauche du rectangle dans lequel on veut chercher
-        // bd : point en bas à droite du rectangle dans lequel on veut chercher
-        {
-            List<Activite> listPeriode = selectionPeriodeAct(HeureDeb, HeureFin);
-            List<Activite> listResult = listPeriode.FindAll(
-            delegate(Activite act)
-            {
-                return (act.Lieu.Position.X >= hg.X && act.Lieu.Position.X <= bd.X && act.Lieu.Position.Y <= hg.Y && act.Lieu.Position.Y >= bd.Y);
-            }
-            );
-            return listResult;
-        }
+		//public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
+		//// hg : point en haut à gauche du rectangle dans lequel on veut chercher
+		//// bd : point en bas à droite du rectangle dans lequel on veut chercher
+		//{
+		//    List<Activite> listPeriode = selectionPeriodeAct(HeureDeb, HeureFin);
+		//    List<Activite> listResult = listPeriode.FindAll(
+		//    delegate(Activite act)
+		//    {
+		//        return (act.Lieu.Position.X >= hg.X && act.Lieu.Position.X <= bd.X && act.Lieu.Position.Y <= hg.Y && act.Lieu.Position.Y >= bd.Y);
+		//    }
+		//    );
+		//    return listResult;
+		//}
 
 
         public List<Activite> rechercheSorties(Dates dateDeb, Dates dateFin)
