@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.Xml;
+
 using System.Xml.Serialization;
 
 
@@ -20,16 +22,16 @@ namespace Mars_Mission_Control_Dev
             set { _nom = value; }
         }
 
+		// Constructeur par défaut pour la sérialisation
+		public Spationaute()
+		{
+			this.Nom = "serialisation";
+		}
 
 		public Spationaute(string nom)
 		{
 			this.Nom = nom;
-		}
+		}			
 
-
-		public List<Activite> afficherActiviteSpationaute()
-		{
-			throw new System.NotImplementedException();
-		}
 	}
 }
