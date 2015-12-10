@@ -18,6 +18,8 @@ namespace Mars_Mission_Control_Dev
 
         public Form3(Form2 p, Calendrier calendrier, Journee jourActuel, Activite actiActuelle)
         {
+			this.StartPosition = FormStartPosition.CenterScreen;
+
             InitializeComponent();
 
             if (actiActuelle != null)

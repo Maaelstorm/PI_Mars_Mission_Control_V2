@@ -38,7 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tagjourSelec2 = new System.Windows.Forms.Label();
             this.label_nom_acti = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.tb_Description = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.panelActivites = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -161,14 +161,14 @@
             this.label_nom_acti.TabIndex = 43;
             this.label_nom_acti.Text = "Activité";
             // 
-            // richTextBox1
+            // tb_Description
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 28);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(225, 52);
-            this.richTextBox1.TabIndex = 44;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.tb_Description.Location = new System.Drawing.Point(7, 28);
+            this.tb_Description.Name = "tb_Description";
+            this.tb_Description.Size = new System.Drawing.Size(225, 52);
+            this.tb_Description.TabIndex = 44;
+            this.tb_Description.Text = "";
+            this.tb_Description.TextChanged += new System.EventHandler(this.tb_Description_TextChanged);
             // 
             // richTextBox2
             // 
@@ -286,7 +286,7 @@
             this.panel1.Controls.Add(this.label_nom_acti);
             this.panel1.Controls.Add(this.richTextBox2);
             this.panel1.Controls.Add(this.tagjourSelec2);
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.tb_Description);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(368, 203);
             this.panel1.Name = "panel1";
@@ -372,7 +372,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label tagjourSelec2;
         private System.Windows.Forms.Label label_nom_acti;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox tb_Description;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Panel panelActivites;
         private System.Windows.Forms.TabControl tabControl1;

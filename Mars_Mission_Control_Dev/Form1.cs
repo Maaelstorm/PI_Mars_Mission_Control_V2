@@ -57,6 +57,8 @@ namespace Mars_Mission_Control_Dev
 
         public Form1()
         {
+			this.StartPosition = FormStartPosition.CenterScreen;
+
             InitializeComponent();
 			
 			chargementXML();
@@ -320,11 +322,7 @@ namespace Mars_Mission_Control_Dev
 
         }
 
-		//private void enregistrer(object sender, FormClosedEventArgs e)
-		//{
-		//    this.Cal.enregistrer();
-		//}
-
+	
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			this.Cal.enregistrer();
