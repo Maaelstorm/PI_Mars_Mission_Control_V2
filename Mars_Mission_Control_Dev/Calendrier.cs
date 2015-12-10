@@ -29,23 +29,23 @@ namespace Mars_Mission_Control_Dev
         }
 
 
-		private int _jourActuel;
-		[XmlElement("JourActuel")]
-		public int JourActuel
-		{
-			get { return _jourActuel; }
-			set { _jourActuel = value; }
-		}
+        private int _jourActuel;
+        [XmlElement("JourActuel")]
+        public int JourActuel
+        {
+            get { return _jourActuel; }
+            set { _jourActuel = value; }
+        }
 
 
-		private Carte _map;
-		[XmlElement("Carte")]
-		public Carte Map
-		{
-			get { return _map; }
-			set { _map = value; }
-		}
-		
+        private Carte _map;
+        [XmlElement("Carte")]
+        public Carte Map
+        {
+            get { return _map; }
+            set { _map = value; }
+        }
+
 
         private List<Journee> _listJournees;
         [XmlArray("ListeJournees")]
@@ -64,14 +64,14 @@ namespace Mars_Mission_Control_Dev
             set { _listSpationaute = value; }
         }
 
-        private List<Activite> _listActivite;
-        [XmlArray("ListActivite")]
-        public List<Activite> ListActivite
+        private List<Activite> _listActiviteDefaut;
+        [XmlArray("ListeActiviteeDefaut")]
+        public List<Activite> ListActiviteDefaut
         {
-            get { return _listActivite; }
-            set { _listActivite = value; }
+            get { return _listActiviteDefaut; }
+            set { _listActiviteDefaut = value; }
         }
-				
+
 
         #endregion
 
@@ -79,17 +79,24 @@ namespace Mars_Mission_Control_Dev
 
         public Calendrier()
         {
-			this.Map = null;
+            this.Map = null;
             this.ListJournees = new List<Journee>();
-            this.ListActivite = new List<Activite>();
+            this.ListActiviteDefaut = new List<Activite>();
             this.ListSpationaute = new List<Spationaute>();
         }
-        public Calendrier(Carte map, List<Journee> listeJournees, List<Activite> listeActivites, List<Spationaute> listeSpationautes)
+        public Calendrier(List<Journee> listeJournees, List<Spationaute> listeSpationautes)
         {
-			this.Map = map;
-            ListJournees = listeJournees;
-            ListActivite = listeActivites;
-            ListSpationaute = listeSpationautes;
+            this.Map = null;
+            this.ListJournees = listeJournees;
+            //this.ListActiviteDefaut = listeActivites;
+            this.ListSpationaute = listeSpationautes;
+        }
+        public Calendrier(Carte map, List<Journee> listeJournees, List<Spationaute> listeSpationautes)
+        {
+            this.Map = map;
+            this.ListJournees = listeJournees;
+            //this.ListActiviteDefaut = listeActivites;
+            this.ListSpationaute = listeSpationautes;
         }
         #endregion
 
@@ -97,24 +104,24 @@ namespace Mars_Mission_Control_Dev
 
         public void enregistrer()
         {
-			DialogResult result = new DialogResult();
+            DialogResult result = new DialogResult();
 
-			try
-			{
-				XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
+            try
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
 
-				// Ouverture de l'instance d'écriture en précisant le chemin du fichier
-				using (TextWriter writer = new StreamWriter("./..//..//Calendrier.xml"))
-				{
-					xs.Serialize(writer, this);
-				}
-				result = MessageBox.Show("Calendrier enregistré");
-			}
-			catch (Exception)
-			{
-				result = MessageBox.Show("Erreur lors de l'enregistrement");
-				throw;
-			}
+                // Ouverture de l'instance d'écriture en précisant le chemin du fichier
+                using (TextWriter writer = new StreamWriter("./..//..//Calendrier.xml"))
+                {
+                    xs.Serialize(writer, this);
+                }
+                result = MessageBox.Show("Calendrier enregistré");
+            }
+            catch (Exception)
+            {
+                result = MessageBox.Show("Erreur lors de l'enregistrement");
+                throw;
+            }
         }
 
 
@@ -136,8 +143,6 @@ namespace Mars_Mission_Control_Dev
                                 {
                                     lst_ActiviteConflit.Add(uneActivite);
                                 }
-
-
                             }
                         }
                     }
@@ -146,7 +151,22 @@ namespace Mars_Mission_Control_Dev
             return lst_ActiviteConflit;
         }
 
-
+        public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
+        {
+            List<Activite> lst_periode = new List<Activite>();
+            foreach (Journee uneJournee in ListJournees)
+            {
+                foreach (Activite uneActivite in uneJournee.ListActiviteJournee)
+                {
+                    //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
+                    if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
+                    {
+                        lst_periode.Add(uneActivite);
+                    }
+                }
+            }
+            return lst_periode;
+        }
         public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         {
             List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
@@ -173,22 +193,6 @@ namespace Mars_Mission_Control_Dev
         }
 
 
-        public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
-        {
-            List<Activite> lst_periode = new List<Activite>();
-            foreach (Journee uneJournee in ListJournees)
-            {
-                foreach (Activite uneActivite in uneJournee.ListActiviteJournee)
-                {
-                    //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
-                    if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
-                    {
-                        lst_periode.Add(uneActivite);
-                    }
-                }
-            }
-            return lst_periode;
-        }
 
 
         public List<Journee> selectionPeriodeJour(Dates dateDeb, Dates dateFin)
@@ -205,11 +209,11 @@ namespace Mars_Mission_Control_Dev
         }
 
 
-        //public List<Activite> selectionPeriode(int HeureDeb, int HeureFin)
-        //{
-        //    var datesDuree = this.int2dates(HeureDeb, HeureFin);
-        //    return selectionPeriode(datesDuree.Item1, datesDuree.Item2);
-        //}
+        public List<Journee> selectionPeriodeJour(int HeureDeb, int HeureFin)
+        {
+            var datesDuree = this.int2dates(HeureDeb, HeureFin);
+            return selectionPeriodeJour(datesDuree.Item1, datesDuree.Item2);
+        }
 
 
         public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
@@ -247,18 +251,18 @@ namespace Mars_Mission_Control_Dev
             var datesDuree = this.int2dates(HeureDeb, HeureFin);
             return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
         }
-		 * 
-		 * 
+		 */
+
         private Tuple<Dates, Dates> int2dates(int HeureDeb, int HeureFin)
         //converti deux int en dates, en considér. Si l'Heure de fin vaut 24, la date convertie correspond à 24 h et 40 min. 
         //Cette fonction sert juste pour le confort de codage.
         {
-            Dates dateDeb = new Dates(this.NumJour, HeureDeb, 0);
+            Dates dateDeb = new Dates(this.JourActuel, HeureDeb, 0);
             Dates dateFin;
-            if (HeureFin == 24) dateFin = new Dates(this.NumJour, HeureFin, 40);
-            else dateFin = new Dates(this.NumJour, HeureFin, 0);
+            if (HeureFin == 24) dateFin = new Dates(this.JourActuel, HeureFin, 40);
+            else dateFin = new Dates(this.JourActuel, HeureFin, 0);
             return Tuple.Create(dateDeb, dateFin);
-        }*/
+        }
 
 
         public Dates conversionHeureMartienne(DateTime HeureTerre)
