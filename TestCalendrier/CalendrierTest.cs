@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace PI_Mars_Mission_Control
+namespace Mars_Mission_Control_Dev
 {
     
     
@@ -173,16 +173,16 @@ namespace PI_Mars_Mission_Control
         [TestMethod()]
         public void rechercheLieuExplorationTest()
         {
-            Calendrier target = new Calendrier(); // TODO: initialisez à une valeur appropriée
-            Point hg = new Point(); // TODO: initialisez à une valeur appropriée
-            Point bd = new Point(); // TODO: initialisez à une valeur appropriée
-            Dates HeureDeb = null; // TODO: initialisez à une valeur appropriée
-            Dates HeureFin = null; // TODO: initialisez à une valeur appropriée
-            List<Activite> expected = null; // TODO: initialisez à une valeur appropriée
+            initialiseCalendrier();
+            Point hg = new Point(0,60); 
+            Point bd = new Point(50,30); 
+            Dates dateDeb = new Dates(0);
+            Dates dateFin = new Dates(3);
+            List<Activite> expected = new List<Activite>();
+            expected.Add(LeCalendrier.ListJournees[2].ListActiviteJournee[1]);
             List<Activite> actual;
-            actual = target.rechercheLieuExploration(hg, bd, HeureDeb, HeureFin);
+            actual = LeCalendrier.rechercheLieuExploration(hg, bd, dateDeb, dateFin);
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Vérifiez l\'exactitude de cette méthode de test.");
         }
 
         /// <summary>
