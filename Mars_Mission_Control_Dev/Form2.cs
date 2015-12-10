@@ -21,6 +21,8 @@ namespace Mars_Mission_Control_Dev
 
         public Form2(Calendrier calendrier, Journee jour)
         {
+			this.StartPosition = FormStartPosition.CenterScreen;
+
             InitializeComponent();
             jourSelec = jour;
             calendrierActuel = calendrier;
@@ -145,7 +147,7 @@ namespace Mars_Mission_Control_Dev
             return ListBtnActi;
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void tb_Description_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -164,14 +166,16 @@ namespace Mars_Mission_Control_Dev
 
         private void BtnActi_Leave(object sender, EventArgs e)
         {
-            richTextBox1.Text = "Survolez une activité pour voir son descriptif.";
+            tb_Description.Text = "Survolez une activité pour voir son descriptif.";
             label_nom_acti.Text = "Activité";
         }
 
         private void BtnActi_MouseHover(object sender, EventArgs e)
         {
-            richTextBox1.Text = ((Button)sender).Tag.ToString();
-            label_nom_acti.Text = ((Button)sender).Text.ToString();
+			label_nom_acti.Text = ((Button)sender).Text.ToString();
+			
+			Activite act = (Activite)((Button)sender).Tag;
+			tb_Description.Text = act.Descritpion;
         }
 
         #endregion

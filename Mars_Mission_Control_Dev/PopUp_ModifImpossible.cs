@@ -14,6 +14,7 @@ namespace Mars_Mission_Control_Dev
         public PopUp_ModifImpossible()
         {
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,5 +26,15 @@ namespace Mars_Mission_Control_Dev
         {
 
         }
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
     }
 }
