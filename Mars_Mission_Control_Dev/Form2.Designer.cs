@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tagjourSelec = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_insert = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tagjourSelec2 = new System.Windows.Forms.Label();
             this.label_nom_acti = new System.Windows.Forms.Label();
@@ -117,19 +117,19 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.retourCalendrier_Click);
             // 
-            // button4
+            // btn_insert
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.button4.FlatAppearance.BorderSize = 2;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(368, 496);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 60);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "Insérer une activité";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.inserer_Click);
+            this.btn_insert.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.btn_insert.FlatAppearance.BorderSize = 2;
+            this.btn_insert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.btn_insert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_insert.Location = new System.Drawing.Point(368, 496);
+            this.btn_insert.Name = "btn_insert";
+            this.btn_insert.Size = new System.Drawing.Size(140, 60);
+            this.btn_insert.TabIndex = 38;
+            this.btn_insert.Text = "Insérer une activité";
+            this.btn_insert.UseVisualStyleBackColor = true;
+            this.btn_insert.Click += new System.EventHandler(this.inserer_Click);
             // 
             // label3
             // 
@@ -163,6 +163,7 @@
             // 
             // tb_Description
             // 
+            this.tb_Description.Enabled = false;
             this.tb_Description.Location = new System.Drawing.Point(7, 28);
             this.tb_Description.Name = "tb_Description";
             this.tb_Description.Size = new System.Drawing.Size(225, 52);
@@ -185,6 +186,7 @@
             this.panelActivites.Name = "panelActivites";
             this.panelActivites.Size = new System.Drawing.Size(261, 844);
             this.panelActivites.TabIndex = 46;
+            this.panelActivites.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites_Paint);
             // 
             // tabControl1
             // 
@@ -338,7 +340,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -368,7 +370,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label tagjourSelec;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_insert;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label tagjourSelec2;
         private System.Windows.Forms.Label label_nom_acti;

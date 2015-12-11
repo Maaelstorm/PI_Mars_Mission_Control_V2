@@ -117,7 +117,9 @@ namespace Mars_Mission_Control_Dev
 
 #region méthodes
 
-		
+		// Ajout d'un Spationaute à une activité
+
+
 #endregion
 
 

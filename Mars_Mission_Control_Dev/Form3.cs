@@ -44,6 +44,8 @@ namespace Mars_Mission_Control_Dev
             parent = p;
 
             graphics = pictureBox1.CreateGraphics();
+
+            desactiverJourPasses();
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -229,6 +231,32 @@ namespace Mars_Mission_Control_Dev
             //graphics.DrawImage(patate, p);
         }
         #endregion
+
+        private void niveau3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        // Désactivation des éléments si la journée sélectionnée est passée
+        private void desactiverJourPasses()
+        {
+            
+            if (this.jourActuel.NumJour > this.actiActuelle.HeureDebut.Jour)
+            {
+                this.H_debut.Enabled = false;
+                this.M_debut.Enabled = false;
+                this.H_fin.Enabled = false;
+                this.M_fin.Enabled = false;
+                this.textBoxY.Enabled = false;
+                this.textBoxX.Enabled = false;
+                this.nom_position.Enabled = false;
+                this.description.Enabled = false;
+                this.btn_confirmer.Enabled = false;
+                this.btn_annuler.Enabled = false;
+                this.btn_suppr.Enabled = false;
+            }
+        }
 
     }
 }

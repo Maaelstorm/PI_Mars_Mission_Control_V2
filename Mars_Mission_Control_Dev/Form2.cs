@@ -32,6 +32,9 @@ namespace Mars_Mission_Control_Dev
             this.richTextBox2.Text = jourSelec.CompteRendu;
 
             afficheBoutons();
+
+            // On désactive les contrôles si la journée est passée
+            desactiverJourPasses();
         }
 
         #region Méthodes
@@ -177,6 +180,39 @@ namespace Mars_Mission_Control_Dev
 			Activite act = (Activite)((Button)sender).Tag;
 			tb_Description.Text = act.Descritpion;
         }
+
+        #endregion
+
+        private void panelActivites_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+
+
+        #region en test
+
+        // Désactivation des éléments si la journée sélectionnée est passée
+        private void desactiverJourPasses()
+        {            
+            if (this.calendrierActuel.JourActuel > this.jourSelec.NumJour)
+	        {
+                this.btn_insert.Enabled = false;
+	        }           
+        }
+
+
+        // FONCTION QUI PEUT SERVIR A AFFICHER DES ICONES SUR UN BOUTTON
+
+        //private void SetMyButtonIcon(Button BtnActi)
+        //{
+        //    // Assign an image to the button.
+        //    BtnActi.Image = Image.FromFile("C:\\Graphics\\My.ico");
+        //    // Align the image and text on the button.
+        //    BtnActi.ImageAlign = ContentAlignment.MiddleRight;
+        //    BtnActi.TextAlign = ContentAlignment.MiddleLeft;
+        //}
 
         #endregion
 

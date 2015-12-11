@@ -3,7 +3,17 @@
   <JourDebutMission>0001-01-01T00:00:00</JourDebutMission>
   <JourActuel>0</JourActuel>
   <ListeJournees />
-  <ListSpationaute />
+  <ListSpationaute>
+    <Spationaute>
+       <Nom>Neil Armstrong</Nom>
+    </Spationaute>
+    <Spationaute>
+       <Nom>Edwin Aldrin</Nom>
+    </Spationaute>
+    <Spationaute>
+       <Nom>Pete Conrad</Nom>
+    </Spationaute>
+  </ListSpationaute>
   <ListeActiviteeDefaut>
     <Activite>
       <Nom>Sleeping</Nom>
@@ -26,7 +36,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Eating</Nom>
@@ -47,9 +67,19 @@
           <Y>0</Y>
         </Point>
         <Descriptif />
-      </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+	  </Coordonnees>
+	  <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+	  <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Eating</Nom>
@@ -72,7 +102,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Eating</Nom>
@@ -95,7 +135,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Private</Nom>
@@ -118,7 +168,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Eating</Nom>
@@ -141,7 +201,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Private</Nom>
@@ -164,7 +234,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
     <Activite>
       <Nom>Sleeping</Nom>
@@ -187,7 +267,17 @@
         <Descriptif />
       </Coordonnees>
       <Description>CHANGER LA DESCRIPTION EN NOM</Description>
-      <Spationautes />
+      <Spationautes>
+        <Spationaute>
+          <Nom>Neil Armstrong</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Edwin Aldrin</Nom>
+        </Spationaute>
+        <Spationaute>
+          <Nom>Pete Conrad</Nom>
+        </Spationaute>
+	  </Spationautes>
     </Activite>
   </ListeActiviteeDefaut>
 </Calendrier>

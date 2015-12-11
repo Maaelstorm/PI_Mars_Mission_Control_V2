@@ -20,7 +20,7 @@ namespace Mars_Mission_Control_Dev
 
 
         private int period = 1;
-        private int jourActuel = 25;
+        //A SUPPRIMER private int jourActuel = 25;
         private int posX = 0;
         private int posY = 0;
 
@@ -40,16 +40,7 @@ namespace Mars_Mission_Control_Dev
             get { return _cal; }
             set { _cal = value; }
         }
-
-		//private List<Activite> _listActivite;
-		//[XmlArray("ListActivite")]
-		//public List<Activite> ListActivite
-		//{
-		//    get { return _listActivite; }
-		//    set { _listActivite = value; }
-		//}
-
-
+        		
         #endregion
 
 
@@ -58,33 +49,46 @@ namespace Mars_Mission_Control_Dev
         public Form1()
         {
 			this.StartPosition = FormStartPosition.CenterScreen;
-
+            
             InitializeComponent();
 			
 			chargementXML();
 
-			// On ajoute toutes les activités par défaut
 
-			//Cal = new Calendrier();
+            Cal.JourActuel = 25;
 
-			//Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
-			//Activite Sleeping1 = new Activite("Sleeping", new Dates(0, 0, 0), new Dates(0, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Sleeping2 = new Activite("Sleeping", new Dates(0, 23, 0), new Dates(0, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Eating1 = new Activite("Eating", new Dates(0, 7, 0), new Dates(0, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Eating2 = new Activite("Eating", new Dates(0, 12, 0), new Dates(0, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Eating3 = new Activite("Eating", new Dates(0, 19, 0), new Dates(0, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Private1 = new Activite("Eating", new Dates(0, 8, 0), new Dates(0, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Private2 = new Activite("Private", new Dates(0, 14, 0), new Dates(0, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-			//Activite Private3 = new Activite("Private", new Dates(0, 21, 0), new Dates(0, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
 
-			//Cal.ListActiviteDefaut.Add(Sleeping1);
-			//Cal.ListActiviteDefaut.Add(Eating1);
-			//Cal.ListActiviteDefaut.Add(Private1);
-			//Cal.ListActiviteDefaut.Add(Eating2);
-			//Cal.ListActiviteDefaut.Add(Private2);
-			//Cal.ListActiviteDefaut.Add(Eating3);
-			//Cal.ListActiviteDefaut.Add(Private3);
-			//Cal.ListActiviteDefaut.Add(Sleeping2);
+			//On ajoute toutes les activités par défaut
+
+            //Cal = new Calendrier();
+
+            //Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
+            //Activite Sleeping1 = new Activite("Sleeping", new Dates(0, 0, 0), new Dates(0, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Sleeping2 = new Activite("Sleeping", new Dates(0, 23, 0), new Dates(0, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Eating1 = new Activite("Eating", new Dates(0, 7, 0), new Dates(0, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Eating2 = new Activite("Eating", new Dates(0, 12, 0), new Dates(0, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Eating3 = new Activite("Eating", new Dates(0, 19, 0), new Dates(0, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Private1 = new Activite("Eating", new Dates(0, 8, 0), new Dates(0, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Private2 = new Activite("Private", new Dates(0, 14, 0), new Dates(0, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Private3 = new Activite("Private", new Dates(0, 21, 0), new Dates(0, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+
+            //Cal.ListActiviteDefaut.Add(Sleeping1);
+            //Cal.ListActiviteDefaut.Add(Eating1);
+            //Cal.ListActiviteDefaut.Add(Private1);
+            //Cal.ListActiviteDefaut.Add(Eating2);
+            //Cal.ListActiviteDefaut.Add(Private2);
+            //Cal.ListActiviteDefaut.Add(Eating3);
+            //Cal.ListActiviteDefaut.Add(Private3);
+            //Cal.ListActiviteDefaut.Add(Sleeping2);
+
+            //Spationaute s1 = new Spationaute("Neil Armstrong");
+            //Spationaute s2 = new Spationaute("Edwin Aldrin");
+            //Spationaute s3 = new Spationaute("Pete Conrad");
+
+            //Cal.ListSpationaute.Add(s1);
+            //Cal.ListSpationaute.Add(s2);
+            //Cal.ListSpationaute.Add(s3);
+
 
 			// Si le calenderier n'a pas été chargé via la déserialisation
 			if (Cal.ListJournees.Count == 0)
@@ -97,6 +101,7 @@ namespace Mars_Mission_Control_Dev
 
 					Cal.ListJournees.Add(jour);
 
+                    // NE marche pas à corriger
 					for (int j = 0; j < Cal.ListActiviteDefaut.Count; j++)
 					{
 						Cal.ListActiviteDefaut.ElementAt(j).HeureDebut.Jour = jour.NumJour;
@@ -107,7 +112,7 @@ namespace Mars_Mission_Control_Dev
 					Cal.ListJournees.ElementAt(i).ListActiviteJournee.AddRange(Cal.ListActiviteDefaut);
 				}
 
-
+                
 
 
 				// TEST A SUPPRIMER si plus besoin 
@@ -184,9 +189,9 @@ namespace Mars_Mission_Control_Dev
                 btn_jour.Click += jour_Click;//fonction de click sur le Btn_jour
 
                 //gestion de la couleur 
-                if (int.Parse(btn_jour.Name) < jourActuel)
+                if (int.Parse(btn_jour.Name) < Cal.JourActuel)
                     btn_jour.BackColor = Color.LightGray;
-                else if (int.Parse(btn_jour.Name) == jourActuel)
+                else if (int.Parse(btn_jour.Name) == Cal.JourActuel)
                     btn_jour.BackColor = Color.LightBlue;
                 else
                     btn_jour.BackColor = Color.LightGreen;
@@ -244,9 +249,8 @@ namespace Mars_Mission_Control_Dev
 		}
 
         private void jour_Click(object sender, EventArgs e)
-        {
-            int NumJour = 0;
-            NumJour = int.Parse(((Button)sender).Text.ToString());
+        {            
+            int NumJour = int.Parse(((Button)sender).Text.ToString());
 
             using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour)))
             {
@@ -272,9 +276,9 @@ namespace Mars_Mission_Control_Dev
                     tmpBtn.Text = tmp.ToString(); // Et on la remplace
 
                     //color                    
-                    if (tmp < jourActuel)
+                    if (tmp < Cal.JourActuel)
                         tmpBtn.BackColor = Color.LightGray;
-                    else if (tmp == jourActuel)
+                    else if (tmp == Cal.JourActuel)
                         tmpBtn.BackColor = Color.LightBlue;
                     else
                         tmpBtn.BackColor = Color.LightGreen;
@@ -299,9 +303,9 @@ namespace Mars_Mission_Control_Dev
                     tmpBtn.Text = tmp.ToString(); // Et on la replace
 
                     //color                    
-                    if (tmp < jourActuel)
+                    if (tmp < Cal.JourActuel)
                         tmpBtn.BackColor = Color.LightGray;
-                    else if (tmp == jourActuel)
+                    else if (tmp == Cal.JourActuel)
                         tmpBtn.BackColor = Color.LightBlue;
                     else
                         tmpBtn.BackColor = Color.LightGreen;
@@ -327,6 +331,11 @@ namespace Mars_Mission_Control_Dev
 		{
 			this.Cal.enregistrer();
 		}
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }
