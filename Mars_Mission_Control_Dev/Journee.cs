@@ -122,15 +122,21 @@ namespace Mars_Mission_Control_Dev
                             {
                                 lst_ActiviteConflit.Add(activite);
                             }
-
-
                         }
                     }
                 }
             }
             return lst_ActiviteConflit;
         }
-		public void rechercheNomActivite(string mot, Dates dateDeb, Dates dateFin)
+        public bool recherche(string motDesc, string nomAct)
+        {
+            foreach (Activite uneActivite in ListActiviteJournee)
+            {
+                if (uneActivite.Nom.Contains(nomAct) && uneActivite.Descritpion.Contains(motDesc)) return true;
+            }
+            return false;
+        }
+		public List<Activite> rechercheNomActivite(string mot, Dates dateDeb, Dates dateFin)
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
 			List<Activite> listResult = listPeriode.FindAll(
@@ -139,8 +145,9 @@ namespace Mars_Mission_Control_Dev
 				return (act.Nom == mot);
 			}
 			);
+            return listResult;
 		}
-		public void rechercheDescActivite(string mot, Dates dateDeb, Dates dateFin)
+        public List<Activite> rechercheDescActivite(string mot, Dates dateDeb, Dates dateFin)
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
 			List<Activite> listResult = listPeriode.FindAll(
@@ -149,6 +156,7 @@ namespace Mars_Mission_Control_Dev
 				return (act.Descritpion.Contains(mot));
 			}
 			);
+            return listResult;
 		}
 
 

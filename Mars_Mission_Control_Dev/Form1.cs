@@ -326,7 +326,6 @@ namespace Mars_Mission_Control_Dev
 
         }
 
-	
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			this.Cal.enregistrer();
@@ -335,6 +334,34 @@ namespace Mars_Mission_Control_Dev
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tb_rechercheDescAct_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_goRecherche_Click(object sender, EventArgs e)
+        {
+            int jourDeb=Int32.Parse(tb_jourDebut.Text);
+            int jourFin=Int32.Parse(tb_jourFin.Text);
+            bool actExt = cb_activiteExt.Checked;
+            List<int> joursRecherche = new List<int>();
         }
 
     }
