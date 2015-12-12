@@ -20,7 +20,6 @@ namespace Mars_Mission_Control_Dev
 
 
         private int period = 1;
-        //A SUPPRIMER private int jourActuel = 25;
         private int posX = 0;
         private int posY = 0;
 
@@ -54,8 +53,15 @@ namespace Mars_Mission_Control_Dev
 			
 			chargementXML();
 
+            Cal.JourDebutMission = new DateTime(2015, 12, 01);
+            
+            // conversionHeureMartienne A corriger pour que la ligne marche :
+            // Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
 
+
+            // Test en dur à commenter si heure martienne marche
             Cal.JourActuel = 25;
+
 
 
 			//On ajoute toutes les activités par défaut
@@ -96,7 +102,7 @@ namespace Mars_Mission_Control_Dev
 				// Création des jours
 				for (int i = 0; i < 500; i++)
 				{
-					Journee jour = new Journee(i);
+					Journee jour = new Journee(i+1);
 					jour.CompteRendu = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?";
 
 					Cal.ListJournees.Add(jour);
@@ -250,7 +256,7 @@ namespace Mars_Mission_Control_Dev
 
         private void jour_Click(object sender, EventArgs e)
         {            
-            int NumJour = int.Parse(((Button)sender).Text.ToString());
+            int NumJour = int.Parse(((Button)sender).Text.ToString()) - 1;
 
             using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour)))
             {
@@ -366,6 +372,11 @@ namespace Mars_Mission_Control_Dev
 
         }
 #endregion
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
     }
 }
