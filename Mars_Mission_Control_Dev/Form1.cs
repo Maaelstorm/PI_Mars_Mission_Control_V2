@@ -56,11 +56,11 @@ namespace Mars_Mission_Control_Dev
             Cal.JourDebutMission = new DateTime(2015, 12, 01);
             
             // conversionHeureMartienne A corriger pour que la ligne marche :
-            // Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
+             Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
 
 
             // Test en dur à commenter si heure martienne marche
-            Cal.JourActuel = 25;
+            //Cal.JourActuel = 25;
 
 
 
@@ -359,14 +359,19 @@ namespace Mars_Mission_Control_Dev
         {
             int jourDeb=Int32.Parse(tb_jourDebut.Text);
             int jourFin=Int32.Parse(tb_jourFin.Text);
+            string descAct = tb_rechercheDescAct.Text;
+            string nomAct = clb_activites.CheckedItems;
             bool actExt = cb_activiteExt.Checked;
             List<Journee> joursRecherche = new List<Journee>();
-
-
         }
 #endregion
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void clb_activites_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
