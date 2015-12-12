@@ -150,7 +150,20 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_ActiviteConflit;
         }
+        public List<Journee> rechercheJournee(string nomAct, string motDescAct, string motCompteRendu, Dates dateDeb, Dates dateFin)
+        {
+            List<Journee> ListPeriode = new List<Journee>();
+            //on parcours toutes les journées et on ajoute celle qui correspondent aux critères de recherche.
+            foreach (Journee uneJournee in ListJournees)
+            {
+                if ((uneJournee.NumJour > dateDeb.Jour || uneJournee.NumJour < dateFin.Jour) && uneJournee.CompteRendu.Contains(motCompteRendu) && uneJournee.recherche(motDescAct, nomAct))
+                {
+                    ListPeriode.Add(uneJournee);
+                }
+            }
+            return ListPeriode;
 
+        }
         public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
         {
             List<Activite> lst_periode = new List<Activite>();
@@ -179,7 +192,6 @@ namespace Mars_Mission_Control_Dev
             return listResult;
         }
 
-
         public List<Activite> rechercheDescActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         {
             List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
@@ -207,7 +219,6 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_periode;
         }
-
 
         public List<Journee> selectionPeriodeJour(int HeureDeb, int HeureFin)
         {
