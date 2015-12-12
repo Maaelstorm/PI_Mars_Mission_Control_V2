@@ -54,7 +54,6 @@
             this.label1.Size = new System.Drawing.Size(315, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mars Calendar\r\n";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button2
             // 
@@ -102,7 +101,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 48);
             this.listBox1.TabIndex = 6;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -174,7 +172,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

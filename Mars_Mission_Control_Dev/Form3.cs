@@ -12,11 +12,12 @@ namespace Mars_Mission_Control_Dev
     public partial class Form3 : Form
     {
         public Form2 parent;
-        public Journee jourActuel;
+        public Journee jourSelec;
         public Activite actiActuelle;
         public System.Drawing.Graphics graphics;
+        private Calendrier calendrierActuel;
 
-        public Form3(Form2 p, Calendrier calendrier, Journee jourActuel, Activite actiActuelle)
+        public Form3(Form2 p, Calendrier calendrier, Journee jourSelec, Activite actiActuelle)
         {
 			this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -37,9 +38,11 @@ namespace Mars_Mission_Control_Dev
             {
                 btn_suppr.Enabled = false;
             }
-            this.jour_actuel.Text = jourActuel.NumJour.ToString();
-            this.jourActuel = jourActuel;
+            this.jour_actuel.Text = jourSelec.NumJour.ToString();
+            this.jourSelec = jourSelec;
             this.actiActuelle = actiActuelle;
+
+            this.calendrierActuel = calendrier;
 
             parent = p;
 
@@ -107,8 +110,8 @@ namespace Mars_Mission_Control_Dev
         {
             bool PossibleDeChanger = true;
 
-            Dates datesDebut = new Dates(jourActuel.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
-            Dates datesFin = new Dates(jourActuel.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
+            Dates datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
+            Dates datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
 
             //verif des coordonnées
             double cooX, cooY;
@@ -123,9 +126,9 @@ namespace Mars_Mission_Control_Dev
                 nomActiTmp = actiActuelle.Nom;
             else
                 nomActiTmp = treeView1.SelectedNode.Text;
-            Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, jourActuel.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
+            Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, jourSelec.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
             //verif des données
-            if (!verifieDonnees(jourActuel.ListActiviteJournee, tmpActi))
+            if (!verifieDonnees(jourSelec.ListActiviteJournee, tmpActi))
                 PossibleDeChanger = false;
 
             //verif le treeView
@@ -134,8 +137,8 @@ namespace Mars_Mission_Control_Dev
 
             if (PossibleDeChanger)
             {
-                jourActuel.ListActiviteJournee.Remove(actiActuelle);
-                jourActuel.ListActiviteJournee.Add(tmpActi);
+                jourSelec.ListActiviteJournee.Remove(actiActuelle);
+                jourSelec.ListActiviteJournee.Add(tmpActi);
                 actiActuelle = tmpActi;
                 this.Close();
             }
@@ -202,14 +205,14 @@ namespace Mars_Mission_Control_Dev
 
         private void btn_suppr_Click(object sender, EventArgs e)
         {
-            jourActuel.ListActiviteJournee.Remove(actiActuelle);
+            jourSelec.ListActiviteJournee.Remove(actiActuelle);
             this.Close();
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parent.journee = this.jourActuel;
-            parent.rafraichirPage(jourActuel.NumJour);
+            parent.journee = this.jourSelec;
+            parent.rafraichirPage(jourSelec.NumJour);
         }
 
         private void textBoxXY_TextChanged(object sender, EventArgs e)
@@ -242,7 +245,8 @@ namespace Mars_Mission_Control_Dev
         private void desactiverJourPasses()
         {
             
-            if (this.jourActuel.NumJour > this.actiActuelle.HeureDebut.Jour)
+            // RAJOUTER CONDITION pour insérer activité jours < jourSelec
+            if (this.calendrierActuel.JourActuel > this.jourSelec.NumJour)
             {
                 this.H_debut.Enabled = false;
                 this.M_debut.Enabled = false;
@@ -256,6 +260,11 @@ namespace Mars_Mission_Control_Dev
                 this.btn_annuler.Enabled = false;
                 this.btn_suppr.Enabled = false;
             }
+        }
+
+        private void btn_retourJour_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

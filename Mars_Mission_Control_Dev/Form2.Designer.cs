@@ -39,7 +39,7 @@
             this.tagjourSelec2 = new System.Windows.Forms.Label();
             this.label_nom_acti = new System.Windows.Forms.Label();
             this.tb_Description = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.tb_compteRendu = new System.Windows.Forms.RichTextBox();
             this.panelActivites = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -69,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(668, 58);
+            this.button1.Location = new System.Drawing.Point(380, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 40);
             this.button1.TabIndex = 5;
@@ -79,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(780, 58);
+            this.button2.Location = new System.Drawing.Point(693, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 40);
             this.button2.TabIndex = 4;
@@ -109,9 +109,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(668, 104);
+            this.button3.Location = new System.Drawing.Point(547, 58);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(214, 40);
+            this.button3.Size = new System.Drawing.Size(124, 40);
             this.button3.TabIndex = 8;
             this.button3.Text = "Retour au calendrier";
             this.button3.UseVisualStyleBackColor = true;
@@ -171,14 +171,14 @@
             this.tb_Description.Text = "";
             this.tb_Description.TextChanged += new System.EventHandler(this.tb_Description_TextChanged);
             // 
-            // richTextBox2
+            // tb_compteRendu
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(7, 145);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(392, 123);
-            this.richTextBox2.TabIndex = 45;
-            this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            this.tb_compteRendu.Location = new System.Drawing.Point(7, 145);
+            this.tb_compteRendu.Name = "tb_compteRendu";
+            this.tb_compteRendu.Size = new System.Drawing.Size(392, 123);
+            this.tb_compteRendu.TabIndex = 45;
+            this.tb_compteRendu.Text = "";
+            this.tb_compteRendu.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // panelActivites
             // 
@@ -286,7 +286,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label_nom_acti);
-            this.panel1.Controls.Add(this.richTextBox2);
+            this.panel1.Controls.Add(this.tb_compteRendu);
             this.panel1.Controls.Add(this.tagjourSelec2);
             this.panel1.Controls.Add(this.tb_Description);
             this.panel1.Controls.Add(this.label3);
@@ -312,7 +312,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tagjourSelec);
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(710, 10);
+            this.panel2.Location = new System.Drawing.Point(501, 14);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 40);
             this.panel2.TabIndex = 51;
@@ -322,7 +322,7 @@
             this.pictureBox4.ErrorImage = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
             this.pictureBox4.Image = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
             this.pictureBox4.InitialImage = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
-            this.pictureBox4.Location = new System.Drawing.Point(660, 10);
+            this.pictureBox4.Location = new System.Drawing.Point(501, 58);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(40, 40);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -375,7 +375,7 @@
         private System.Windows.Forms.Label tagjourSelec2;
         private System.Windows.Forms.Label label_nom_acti;
         private System.Windows.Forms.RichTextBox tb_Description;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox tb_compteRendu;
         private System.Windows.Forms.Panel panelActivites;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;

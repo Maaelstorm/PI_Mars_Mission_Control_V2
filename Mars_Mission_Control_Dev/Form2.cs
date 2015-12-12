@@ -29,7 +29,7 @@ namespace Mars_Mission_Control_Dev
             this.tagjourSelec.Text = jour.NumJour.ToString();
             this.tagjourSelec2.Text = jour.NumJour.ToString();
             _taille10minPixel = 5; // 10 Minutes = 5 pixel
-            this.richTextBox2.Text = jourSelec.CompteRendu;
+            this.tb_compteRendu.Text = jourSelec.CompteRendu;
 
             afficheBoutons();
 
@@ -55,8 +55,10 @@ namespace Mars_Mission_Control_Dev
             jourSelec = calendrierActuel.ListJournees.ElementAt(jour);
 
             miseAJourJour(jourSelec.NumJour);
-            richTextBox2.Text = jourSelec.CompteRendu;
+            tb_compteRendu.Text = jourSelec.CompteRendu;
             afficheBoutons();
+
+            desactiverJourPasses();
         }
 
         private void miseAJourJour(int jour)
@@ -83,15 +85,7 @@ namespace Mars_Mission_Control_Dev
             f3.Dispose();
         }
 
-        private void modifier_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void supprimer_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private int tailleActivite(Activite Activitee)
         {
@@ -157,7 +151,7 @@ namespace Mars_Mission_Control_Dev
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-			jourSelec.CompteRendu = richTextBox2.Text;
+			jourSelec.CompteRendu = tb_compteRendu.Text;
         }
 
         private void activite_Click(object sender, EventArgs e)
@@ -195,11 +189,17 @@ namespace Mars_Mission_Control_Dev
 
         // Désactivation des éléments si la journée sélectionnée est passée
         private void desactiverJourPasses()
-        {            
+        {
             if (this.calendrierActuel.JourActuel > this.jourSelec.NumJour)
-	        {
+            {
                 this.btn_insert.Enabled = false;
-	        }           
+                this.tb_compteRendu.Enabled = false;
+            }
+            else
+            {
+                this.btn_insert.Enabled = true;
+                this.tb_compteRendu.Enabled = true;
+            }
         }
 
 
