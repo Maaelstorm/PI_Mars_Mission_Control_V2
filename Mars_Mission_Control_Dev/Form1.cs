@@ -48,7 +48,7 @@ namespace Mars_Mission_Control_Dev
         public Form1()
         {
 			this.StartPosition = FormStartPosition.CenterScreen;
-            
+                        
             InitializeComponent();
 			
 			chargementXML();
@@ -96,8 +96,7 @@ namespace Mars_Mission_Control_Dev
 				for (int i = 0; i < 500; i++)
 				{
 					Journee jour = new Journee(i+1);
-					jour.CompteRendu = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?";
-
+					
 					Cal.ListJournees.Add(jour);
 
                     // NE marche pas à corriger

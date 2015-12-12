@@ -23,6 +23,8 @@ namespace Mars_Mission_Control_Dev
 
             InitializeComponent();
 
+            this.treeView1.ExpandAll();
+
             if (actiActuelle != null)
             {
                 this.H_debut.SelectedItem = actiActuelle.HeureDebut.Heure.ToString();
@@ -110,10 +112,36 @@ namespace Mars_Mission_Control_Dev
         {
             bool PossibleDeChanger = true;
 
-            Dates datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
-            Dates datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
+            Dates datesDebut = null;
+            Dates datesFin = null;
 
-            //verif des coordonnées
+            try
+            {
+                datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
+                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));       
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Erreur : {0}. {1}", ex.Message, "Veuillez renseigner les horaires");
+            }
+            finally
+            {
+               
+            }
+
+            // Vérification des Horaires
+            if (H_debut.Text == "" || M_debut.Text == "" || H_fin.Text == "" || M_fin.Text == "")
+            {
+                PossibleDeChanger = false;
+            }
+            else
+            {
+                datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
+                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));                        
+            }
+                      
+
+            // Vérification des coordonnées
             double cooX, cooY;
             if (!testCoord(textBoxX.Text, out cooX, -1000, 1000))
                 PossibleDeChanger = false;
@@ -121,17 +149,26 @@ namespace Mars_Mission_Control_Dev
                 PossibleDeChanger = false;
 
             Coordonnees coo = new Coordonnees(nom_position.Text, new Point((int)cooX, (int)cooY));
-            string nomActiTmp;
-            if (treeView1.SelectedNode == null)
+            string nomActiTmp = "";
+            if (treeView1.SelectedNode == null && actiActuelle == null)
+            {
+                PossibleDeChanger = false;                
+            }
+            else if (treeView1.SelectedNode == null)
+            {
                 nomActiTmp = actiActuelle.Nom;
+            }
             else
+            {
                 nomActiTmp = treeView1.SelectedNode.Text;
+            }
+
             Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, jourSelec.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
-            //verif des données
+            // Vérification des données
             if (!verifieDonnees(jourSelec.ListActiviteJournee, tmpActi))
                 PossibleDeChanger = false;
 
-            //verif le treeView
+            // Vérification le treeView
             if (!testTreeView())
                 PossibleDeChanger = false;
 
@@ -265,6 +302,11 @@ namespace Mars_Mission_Control_Dev
         private void btn_retourJour_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void M_debut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
