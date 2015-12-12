@@ -70,6 +70,7 @@ namespace Mars_Mission_Control_Dev
 			CompteRendu = "";
 			this.ListActiviteJournee = new List<Activite>();
 		}
+        //ce constructeur ne sert que pour les tests unitaires
         public Journee(int nJour, List<Spationaute> listeSpationaute)
         {
             CompteRendu = "";

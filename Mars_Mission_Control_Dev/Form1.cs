@@ -156,7 +156,7 @@ namespace Mars_Mission_Control_Dev
 
 				//    index++;
 				//}
-			}           
+			}   //fin if Journees.count==0        
 
 
 			// Création et gestion des boutons
@@ -195,8 +195,18 @@ namespace Mars_Mission_Control_Dev
                 else
                     btn_jour.BackColor = Color.LightGreen;
             }
-			            
-        }
+
+            string[] nomsActivites = new string[Cal.ListActiviteDefaut.Count];
+            for (int i = 0; i < nomsActivites.Length; i++)
+            {
+                nomsActivites[i] = Cal.ListActiviteDefaut[i].Nom;
+            }
+            //foreach (string unNomAct in nomsActivites)
+            //{
+            //    this.clb_activites.Items.Add(unNomAct, true);
+            //}
+            this.clb_activites.Items.AddRange(nomsActivites);
+        }//end of constructor
 
         #endregion
 
@@ -360,7 +370,7 @@ namespace Mars_Mission_Control_Dev
             int jourDeb=Int32.Parse(tb_jourDebut.Text);
             int jourFin=Int32.Parse(tb_jourFin.Text);
             string descAct = tb_rechercheDescAct.Text;
-            string nomAct = clb_activites.CheckedItems;
+            string nomAct = clb_activites.CheckedItems.ToString();
             bool actExt = cb_activiteExt.Checked;
             List<Journee> joursRecherche = new List<Journee>();
         }

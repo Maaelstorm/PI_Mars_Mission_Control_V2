@@ -37,6 +37,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cb_activitesExt = new System.Windows.Forms.Panel();
+            this.tb_rechercheCR = new System.Windows.Forms.TextBox();
+            this.lb_rechercheCR = new System.Windows.Forms.Label();
             this.cb_activiteExt = new System.Windows.Forms.CheckBox();
             this.tb_rechercheDescAct = new System.Windows.Forms.TextBox();
             this.lb_rechercheDsAct = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.lb_jourDebut = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_rechercheCR = new System.Windows.Forms.TextBox();
-            this.lb_rechercheCR = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,7 +71,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(967, 572);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 49);
             this.button2.TabIndex = 2;
@@ -84,7 +84,7 @@
             this.btn_jour_precedents.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_jour_precedents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_jour_precedents.Location = new System.Drawing.Point(57, 572);
-            this.btn_jour_precedents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_jour_precedents.Margin = new System.Windows.Forms.Padding(4);
             this.btn_jour_precedents.Name = "btn_jour_precedents";
             this.btn_jour_precedents.Size = new System.Drawing.Size(173, 49);
             this.btn_jour_precedents.TabIndex = 3;
@@ -114,7 +114,7 @@
             "Edwin Aldrin",
             "Pete Conrad"});
             this.listBox1.Location = new System.Drawing.Point(316, 78);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(160, 20);
             this.listBox1.TabIndex = 6;
@@ -128,7 +128,7 @@
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1159, 161);
             this.panel1.TabIndex = 7;
@@ -140,7 +140,7 @@
             this.pictureBox2.Image = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
             this.pictureBox2.InitialImage = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship29;
             this.pictureBox2.Location = new System.Drawing.Point(1069, 60);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(53, 57);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,7 +153,7 @@
             this.pictureBox1.Image = global::Mars_Mission_Control_Dev.Properties.Resources.image_mars;
             this.pictureBox1.InitialImage = global::Mars_Mission_Control_Dev.Properties.Resources.image_mars;
             this.pictureBox1.Location = new System.Drawing.Point(979, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -177,16 +177,35 @@
             this.cb_activitesExt.Controls.Add(this.label4);
             this.cb_activitesExt.Controls.Add(this.label3);
             this.cb_activitesExt.Location = new System.Drawing.Point(17, 641);
-            this.cb_activitesExt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_activitesExt.Margin = new System.Windows.Forms.Padding(4);
             this.cb_activitesExt.Name = "cb_activitesExt";
             this.cb_activitesExt.Size = new System.Drawing.Size(1153, 404);
             this.cb_activitesExt.TabIndex = 8;
             this.cb_activitesExt.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // tb_rechercheCR
+            // 
+            this.tb_rechercheCR.Location = new System.Drawing.Point(371, 126);
+            this.tb_rechercheCR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_rechercheCR.Multiline = true;
+            this.tb_rechercheCR.Name = "tb_rechercheCR";
+            this.tb_rechercheCR.Size = new System.Drawing.Size(243, 43);
+            this.tb_rechercheCR.TabIndex = 23;
+            // 
+            // lb_rechercheCR
+            // 
+            this.lb_rechercheCR.AutoSize = true;
+            this.lb_rechercheCR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lb_rechercheCR.Location = new System.Drawing.Point(370, 99);
+            this.lb_rechercheCR.Name = "lb_rechercheCR";
+            this.lb_rechercheCR.Size = new System.Drawing.Size(403, 24);
+            this.lb_rechercheCR.TabIndex = 22;
+            this.lb_rechercheCR.Text = "rechercher dansle compte rendu de la journee";
+            // 
             // cb_activiteExt
             // 
             this.cb_activiteExt.AutoSize = true;
-            this.cb_activiteExt.Location = new System.Drawing.Point(25, 132);
+            this.cb_activiteExt.Location = new System.Drawing.Point(25, 117);
             this.cb_activiteExt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_activiteExt.Name = "cb_activiteExt";
             this.cb_activiteExt.Size = new System.Drawing.Size(160, 21);
@@ -196,7 +215,7 @@
             // 
             // tb_rechercheDescAct
             // 
-            this.tb_rechercheDescAct.Location = new System.Drawing.Point(24, 246);
+            this.tb_rechercheDescAct.Location = new System.Drawing.Point(370, 36);
             this.tb_rechercheDescAct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_rechercheDescAct.Multiline = true;
             this.tb_rechercheDescAct.Name = "tb_rechercheDescAct";
@@ -208,7 +227,7 @@
             // 
             this.lb_rechercheDsAct.AutoSize = true;
             this.lb_rechercheDsAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lb_rechercheDsAct.Location = new System.Drawing.Point(23, 219);
+            this.lb_rechercheDsAct.Location = new System.Drawing.Point(369, 9);
             this.lb_rechercheDsAct.Name = "lb_rechercheDsAct";
             this.lb_rechercheDsAct.Size = new System.Drawing.Size(357, 24);
             this.lb_rechercheDsAct.TabIndex = 19;
@@ -217,34 +236,16 @@
             // clb_activites
             // 
             this.clb_activites.FormattingEnabled = true;
-            this.clb_activites.Location = new System.Drawing.Point(25, 165);
+            this.clb_activites.Location = new System.Drawing.Point(25, 150);
             this.clb_activites.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clb_activites.Name = "clb_activites";
             this.clb_activites.Size = new System.Drawing.Size(243, 21);
             this.clb_activites.TabIndex = 18;
             this.clb_activites.SelectedIndexChanged += new System.EventHandler(this.clb_activites_SelectedIndexChanged);
-            //string[] nomsActivites = new string[Cal.ListActiviteDefaut.Count];
-            //for (int i = 0; i < nomsActivites.Length; i++)
-            //{
-            //    nomsActivites[i] = Cal.ListActiviteDefaut[i].Nom;
-            //}
-            //foreach (string unNomAct in nomsActivites)
-            //{
-            //    this.clb_activites.Items.Add(nomsActivites, true);
-            //}
-            //string[] nomsActivites = new string[Cal.ListActiviteDefaut.Count];
-            //for (int i = 0; i < nomsActivites.Length; i++)
-            //{
-            //    nomsActivites[i] = Cal.ListActiviteDefaut[i].Nom;
-            //}
-            //foreach (string unNomAct in nomsActivites)
-            //{
-            //    this.clb_activites.Items.Add(nomsActivites, true);
-            //}
             // 
             // btn_goRecherche
             // 
-            this.btn_goRecherche.Location = new System.Drawing.Point(638, 148);
+            this.btn_goRecherche.Location = new System.Drawing.Point(908, 78);
             this.btn_goRecherche.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_goRecherche.Name = "btn_goRecherche";
             this.btn_goRecherche.Size = new System.Drawing.Size(43, 23);
@@ -255,7 +256,7 @@
             // 
             // tb_jourFin
             // 
-            this.tb_jourFin.Location = new System.Drawing.Point(236, 103);
+            this.tb_jourFin.Location = new System.Drawing.Point(236, 88);
             this.tb_jourFin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_jourFin.Name = "tb_jourFin";
             this.tb_jourFin.Size = new System.Drawing.Size(31, 22);
@@ -264,7 +265,7 @@
             // lb_jourFin
             // 
             this.lb_jourFin.AutoSize = true;
-            this.lb_jourFin.Location = new System.Drawing.Point(156, 103);
+            this.lb_jourFin.Location = new System.Drawing.Point(156, 88);
             this.lb_jourFin.Name = "lb_jourFin";
             this.lb_jourFin.Size = new System.Drawing.Size(71, 17);
             this.lb_jourFin.TabIndex = 4;
@@ -272,7 +273,7 @@
             // 
             // tb_jourDebut
             // 
-            this.tb_jourDebut.Location = new System.Drawing.Point(117, 103);
+            this.tb_jourDebut.Location = new System.Drawing.Point(117, 88);
             this.tb_jourDebut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_jourDebut.Name = "tb_jourDebut";
             this.tb_jourDebut.Size = new System.Drawing.Size(31, 22);
@@ -281,7 +282,7 @@
             // lb_jourDebut
             // 
             this.lb_jourDebut.AutoSize = true;
-            this.lb_jourDebut.Location = new System.Drawing.Point(24, 103);
+            this.lb_jourDebut.Location = new System.Drawing.Point(24, 88);
             this.lb_jourDebut.Name = "lb_jourDebut";
             this.lb_jourDebut.Size = new System.Drawing.Size(92, 17);
             this.lb_jourDebut.TabIndex = 2;
@@ -291,7 +292,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label4.Location = new System.Drawing.Point(20, 76);
+            this.label4.Location = new System.Drawing.Point(20, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 24);
             this.label4.TabIndex = 1;
@@ -310,25 +311,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Recherches";
             // 
-            // tb_rechercheCR
-            // 
-            this.tb_rechercheCR.Location = new System.Drawing.Point(25, 336);
-            this.tb_rechercheCR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_rechercheCR.Multiline = true;
-            this.tb_rechercheCR.Name = "tb_rechercheCR";
-            this.tb_rechercheCR.Size = new System.Drawing.Size(243, 43);
-            this.tb_rechercheCR.TabIndex = 23;
-            // 
-            // lb_rechercheCR
-            // 
-            this.lb_rechercheCR.AutoSize = true;
-            this.lb_rechercheCR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lb_rechercheCR.Location = new System.Drawing.Point(24, 309);
-            this.lb_rechercheCR.Name = "lb_rechercheCR";
-            this.lb_rechercheCR.Size = new System.Drawing.Size(403, 24);
-            this.lb_rechercheCR.TabIndex = 22;
-            this.lb_rechercheCR.Text = "rechercher dansle compte rendu de la journee";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -339,7 +321,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_jour_precedents);
             this.Controls.Add(this.button2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
