@@ -52,7 +52,7 @@ namespace Mars_Mission_Control_Dev
 
         public void rafraichirPage(int jour)
         {
-            jourSelec = calendrierActuel.ListJournees.ElementAt(jour);
+            jourSelec = calendrierActuel.ListJournees.ElementAt(jour - 1);
 
             miseAJourJour(jourSelec.NumJour);
             tb_compteRendu.Text = jourSelec.CompteRendu;
@@ -67,14 +67,14 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void jourPrecedent_Click(object sender, EventArgs e)
-        {
-            if (jourSelec.NumJour != 0)
+        {           
+            if (jourSelec.NumJour > 1)
                 rafraichirPage(jourSelec.NumJour - 1);
         }
 
         private void jourSuivant_Click(object sender, EventArgs e)
         {
-            if (jourSelec.NumJour != 499)
+            if (jourSelec.NumJour < calendrierActuel.ListJournees.Count)
                 rafraichirPage(jourSelec.NumJour + 1);
         }
 

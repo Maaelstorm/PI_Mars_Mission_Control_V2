@@ -69,14 +69,14 @@ namespace Mars_Mission_Control_Dev
             //Cal = new Calendrier();
 
             //Coordonnees QG = new Coordonnees("Base", new Point(0, 0));
-            //Activite Sleeping1 = new Activite("Sleeping", new Dates(0, 0, 0), new Dates(0, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-            //Activite Sleeping2 = new Activite("Sleeping", new Dates(0, 23, 0), new Dates(0, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Sleeping1 = new Activite("Sleeping1", new Dates(0, 0, 0), new Dates(0, 7, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
             //Activite Eating1 = new Activite("Eating", new Dates(0, 7, 0), new Dates(0, 8, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Private1 = new Activite("private", new Dates(0, 8, 0), new Dates(0, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
             //Activite Eating2 = new Activite("Eating", new Dates(0, 12, 0), new Dates(0, 14, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-            //Activite Eating3 = new Activite("Eating", new Dates(0, 19, 0), new Dates(0, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
-            //Activite Private1 = new Activite("Eating", new Dates(0, 8, 0), new Dates(0, 12, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
             //Activite Private2 = new Activite("Private", new Dates(0, 14, 0), new Dates(0, 19, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Eating3 = new Activite("Eating", new Dates(0, 19, 0), new Dates(0, 21, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
             //Activite Private3 = new Activite("Private", new Dates(0, 21, 0), new Dates(0, 23, 0), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
+            //Activite Sleeping2 = new Activite("Sleeping", new Dates(0, 23, 0), new Dates(0, 24, 40), QG, "CHANGER LA DESCRIPTION EN NOM", Cal.ListSpationaute);
 
             //Cal.ListActiviteDefaut.Add(Sleeping1);
             //Cal.ListActiviteDefaut.Add(Eating1);
@@ -87,13 +87,6 @@ namespace Mars_Mission_Control_Dev
             //Cal.ListActiviteDefaut.Add(Private3);
             //Cal.ListActiviteDefaut.Add(Sleeping2);
 
-            //Spationaute s1 = new Spationaute("Neil Armstrong");
-            //Spationaute s2 = new Spationaute("Edwin Aldrin");
-            //Spationaute s3 = new Spationaute("Pete Conrad");
-
-            //Cal.ListSpationaute.Add(s1);
-            //Cal.ListSpationaute.Add(s2);
-            //Cal.ListSpationaute.Add(s3);
 
 
 			// Si le calenderier n'a pas été chargé via la déserialisation

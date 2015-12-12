@@ -35,7 +35,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description>Repos</Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -68,7 +68,7 @@
         </Point>
         <Descriptif />
 	  </Coordonnees>
-	  <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+	  <Description>Repas</Description>
 	  <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -82,7 +82,7 @@
 	  </Spationautes>
     </Activite>
     <Activite>
-      <Nom>Eating</Nom>
+      <Nom>Private</Nom>
       <HeureDebut>
         <Jour>0</Jour>
         <Heure>8</Heure>
@@ -101,7 +101,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description></Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -134,7 +134,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description>Repas</Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -167,7 +167,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description></Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -200,7 +200,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description>Repas</Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -233,7 +233,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description></Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
@@ -266,7 +266,7 @@
         </Point>
         <Descriptif />
       </Coordonnees>
-      <Description>CHANGER LA DESCRIPTION EN NOM</Description>
+      <Description>Repos</Description>
       <Spationautes>
         <Spationaute>
           <Nom>Neil Armstrong</Nom>
