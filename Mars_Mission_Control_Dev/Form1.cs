@@ -20,6 +20,7 @@ namespace Mars_Mission_Control_Dev
 
 
         private int period = 1;
+        //A SUPPRIMER private int jourActuel = 25;
         private int posX = 0;
         private int posY = 0;
 
@@ -54,9 +55,7 @@ namespace Mars_Mission_Control_Dev
 			chargementXML();
 
 
-            Cal.JourDebutMission = new DateTime(2015, 12, 01);
-
-            Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
+            Cal.JourActuel = 25;
 
 
 			//On ajoute toutes les activités par défaut
@@ -97,7 +96,7 @@ namespace Mars_Mission_Control_Dev
 				// Création des jours
 				for (int i = 0; i < 500; i++)
 				{
-					Journee jour = new Journee(i+1);
+					Journee jour = new Journee(i);
 					jour.CompteRendu = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dolore magnam aliquam quaerat voluptatem. Ut enim quo voluptas nulla pariatur?";
 
 					Cal.ListJournees.Add(jour);
@@ -251,7 +250,7 @@ namespace Mars_Mission_Control_Dev
 
         private void jour_Click(object sender, EventArgs e)
         {            
-            int NumJour = int.Parse(((Button)sender).Text.ToString()) - 1;
+            int NumJour = int.Parse(((Button)sender).Text.ToString());
 
             using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour)))
             {
@@ -314,16 +313,59 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+        #region fonctionRecherche
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
 
-       	
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			this.Cal.enregistrer();
 		}
 
-       
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tb_rechercheDescAct_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_goRecherche_Click(object sender, EventArgs e)
+        {
+            int jourDeb=Int32.Parse(tb_jourDebut.Text);
+            int jourFin=Int32.Parse(tb_jourFin.Text);
+            bool actExt = cb_activiteExt.Checked;
+            List<Journee> joursRecherche = new List<Journee>();
+
+
+        }
+#endregion
 
     }
 }
