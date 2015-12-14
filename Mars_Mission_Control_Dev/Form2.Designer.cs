@@ -40,7 +40,7 @@
             this.label_nom_acti = new System.Windows.Forms.Label();
             this.tb_Description = new System.Windows.Forms.RichTextBox();
             this.tb_compteRendu = new System.Windows.Forms.RichTextBox();
-            this.panelActivites = new System.Windows.Forms.Panel();
+            this.panelActivites1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.horaires = new System.Windows.Forms.PictureBox();
@@ -180,13 +180,13 @@
             this.tb_compteRendu.Text = "";
             this.tb_compteRendu.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
-            // panelActivites
+            // panelActivites1
             // 
-            this.panelActivites.Location = new System.Drawing.Point(51, 6);
-            this.panelActivites.Name = "panelActivites";
-            this.panelActivites.Size = new System.Drawing.Size(261, 844);
-            this.panelActivites.TabIndex = 46;
-            this.panelActivites.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites_Paint);
+            this.panelActivites1.Location = new System.Drawing.Point(51, 6);
+            this.panelActivites1.Name = "panelActivites1";
+            this.panelActivites1.Size = new System.Drawing.Size(261, 844);
+            this.panelActivites1.TabIndex = 46;
+            this.panelActivites1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites_Paint);
             // 
             // tabControl1
             // 
@@ -198,11 +198,12 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(323, 842);
             this.tabControl1.TabIndex = 47;
+            this.tabControl1.Click += new System.EventHandler(this.switchTab);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.horaires);
-            this.tabPage1.Controls.Add(this.panelActivites);
+            this.tabPage1.Controls.Add(this.panelActivites1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -251,6 +252,7 @@
             this.panelActivites2.Name = "panelActivites2";
             this.panelActivites2.Size = new System.Drawing.Size(261, 803);
             this.panelActivites2.TabIndex = 0;
+            this.panelActivites2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites2_Paint);
             // 
             // tabPage3
             // 
@@ -376,7 +378,7 @@
         private System.Windows.Forms.Label label_nom_acti;
         private System.Windows.Forms.RichTextBox tb_Description;
         private System.Windows.Forms.RichTextBox tb_compteRendu;
-        private System.Windows.Forms.Panel panelActivites;
+        private System.Windows.Forms.Panel panelActivites1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

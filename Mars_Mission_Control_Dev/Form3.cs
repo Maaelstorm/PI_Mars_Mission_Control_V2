@@ -309,5 +309,15 @@ namespace Mars_Mission_Control_Dev
 
         }
 
+        private void nom_coord_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jour_actuel_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

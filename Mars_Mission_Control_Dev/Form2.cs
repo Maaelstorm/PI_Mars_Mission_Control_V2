@@ -11,38 +11,58 @@ namespace Mars_Mission_Control_Dev
 {
     public partial class Form2 : Form
     {
-        private Journee jourSelec;
-        private Calendrier calendrierActuel;
-        private int _taille10minPixel;
-        private List<Activite> listActi = new List<Activite>(); // liste des activités
-        List<int> listTailles = new List<int>(); // taille en pixel d'une activité
-        List<int> listEcart = new List<int>(); // ecart entre 2 activités
-        List<Button> ListBtnActi = new List<Button>();
+        private Journee _jourSelec;
+        private Calendrier _calendrierActuel;
+        private int _taille10minPixel;               
+        
+        //private List<Activite> _listActi = new List<Activite>(); // liste des activités
+        
+        private List<int> _listTailles = new List<int>(); // taille en pixel d'une activité
+        private List<int> _listEcart = new List<int>(); // ecart entre 2 activités
+        private List<Button> _listBtnActi = new List<Button>();
+
+        private List<Panel> _listPanelActivites;
 
         public Form2(Calendrier calendrier, Journee jour)
         {
 			this.StartPosition = FormStartPosition.CenterScreen;
 
             InitializeComponent();
-            jourSelec = jour;
-            calendrierActuel = calendrier;
+
+            this._listPanelActivites = new List<Panel>(calendrier.ListSpationaute.Count);
+            for (int i = 0; i < _listPanelActivites.Count; i++)
+            {
+                List<TabPage> _listTabPage = new List<TabPage>();
+               
+                //_listTabPage = this.tabControl1.TabPages.GetEnumerator();
+               
+                //this._listPanelActivites.Add();
+            }
+
+            this.tabPage1.Text = calendrier.ListSpationaute.ElementAt(0).Nom;
+            this.tabPage2.Text = calendrier.ListSpationaute.ElementAt(1).Nom;
+            this.tabPage3.Text = calendrier.ListSpationaute.ElementAt(2).Nom;
+
+            _jourSelec = jour;
+            _calendrierActuel = calendrier;
             this.tagjourSelec.Text = jour.NumJour.ToString();
             this.tagjourSelec2.Text = jour.NumJour.ToString();
             _taille10minPixel = 5; // 10 Minutes = 5 pixel
-            this.tb_compteRendu.Text = jourSelec.CompteRendu;
+            this.tb_compteRendu.Text = _jourSelec.CompteRendu;
 
-            afficheBoutons();
+            afficheBoutons(1);
 
             // On désactive les contrôles si la journée est passée
             desactiverJourPasses();
         }
 
-        #region Méthodes
+
+#region Méthodes
 
         public Journee journee
         {
-            get { return jourSelec; }
-            set { jourSelec = value; }
+            get { return _jourSelec; }
+            set { _jourSelec = value; }
         }
 
         private void retourCalendrier_Click(object sender, EventArgs e)
@@ -52,11 +72,13 @@ namespace Mars_Mission_Control_Dev
 
         public void rafraichirPage(int jour)
         {
-            jourSelec = calendrierActuel.ListJournees.ElementAt(jour - 1);
+            _jourSelec = _calendrierActuel.ListJournees.ElementAt(jour - 1);
 
-            miseAJourJour(jourSelec.NumJour);
-            tb_compteRendu.Text = jourSelec.CompteRendu;
-            afficheBoutons();
+            miseAJourJour(_jourSelec.NumJour);
+            tb_compteRendu.Text = _jourSelec.CompteRendu;
+            
+            // On affiche la 1ère tab lorsqu'on arrive sur le niveau 2
+            afficheBoutons(1);
 
             desactiverJourPasses();
         }
@@ -68,95 +90,123 @@ namespace Mars_Mission_Control_Dev
 
         private void jourPrecedent_Click(object sender, EventArgs e)
         {           
-            if (jourSelec.NumJour > 1)
-                rafraichirPage(jourSelec.NumJour - 1);
+            if (_jourSelec.NumJour > 1)
+                rafraichirPage(_jourSelec.NumJour - 1);
         }
 
         private void jourSuivant_Click(object sender, EventArgs e)
         {
-            if (jourSelec.NumJour < calendrierActuel.ListJournees.Count)
-                rafraichirPage(jourSelec.NumJour + 1);
+            if (_jourSelec.NumJour < _calendrierActuel.ListJournees.Count)
+                rafraichirPage(_jourSelec.NumJour + 1);
         }
 
         private void inserer_Click(object sender, EventArgs e)
         {
-            Form3 f3 = new Form3(this, this.calendrierActuel, this.jourSelec, null);
+            Form3 f3 = new Form3(this, this._calendrierActuel, this._jourSelec, null);
             DialogResult dialogresult = f3.ShowDialog();
             f3.Dispose();
         }
 
+
+
+        // Cette fonction affichera les bonnes activités dans chaque TAB du panel (celle auxquelles le spationaute participe)
+        private void switchTab(object sender, EventArgs e)
+        {
+            // On passe en paramètre l'index de la Tab sélectionnée
+            afficheBoutons( ((TabControl)sender).SelectedIndex );
+        }
+
         
 
-        private int tailleActivite(Activite Activitee)
+        private void afficheBoutons(int tabIndex)
         {
-            return ((Activitee.HeureFin.Heure - Activitee.HeureDebut.Heure) * 60 + (Activitee.HeureFin.Minute - Activitee.HeureDebut.Minute)) / 10 * _taille10minPixel;
-        }
+            // TROUVER MOYEN DE G2RER les panelActivity
+                       
 
-        private void tailleChaqueCreneaux()
-        {
-            listEcart.Clear();
-            listTailles.Clear();
+            //this._listPanelActivites.ElementAt(tabIndex - 1).Controls.Clear();
 
-            foreach (Activite i in jourSelec.ListActiviteJournee)
-            {
-                listTailles.Add(tailleActivite(i));
-            }
+            this.panelActivites1.Controls.Clear();
 
-            listEcart.Add(((jourSelec.ListActiviteJournee[0].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[0].HeureDebut.Minute) - 0) / 10 * _taille10minPixel); // écart entre Heure 0 et première activité
-
-            for (int j = 0; j < jourSelec.ListActiviteJournee.Count() - 1; j++)
-            {
-                listEcart.Add(((jourSelec.ListActiviteJournee[j + 1].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[j + 1].HeureDebut.Minute) - (jourSelec.ListActiviteJournee[j].HeureFin.Heure * 60 + jourSelec.ListActiviteJournee[j].HeureFin.Minute)) / 10 * _taille10minPixel); // écart entre 2 activités
-            }
-
-            listEcart.Add(((24 * 60 + 40 - (jourSelec.ListActiviteJournee[jourSelec.ListActiviteJournee.Count - 1].HeureFin.Heure * 60 + jourSelec.ListActiviteJournee[jourSelec.ListActiviteJournee.Count - 1].HeureFin.Minute))) / 10 * _taille10minPixel); // écart entre dernière activité et 24h40
-        }
-
-        private List<Button> afficheBoutons()
-        {
-            this.panelActivites.Controls.Clear();
             tailleChaqueCreneaux();
+            
             int posX = 10, posY = 10;
 
-            for (int i = 0; i < jourSelec.ListActiviteJournee.Count; i++)
+            for (int i = 0; i < _jourSelec.ListActiviteJournee.Count; i++)
             {
                 Button BtnActi = new Button();
-                BtnActi.Size = new Size(200, listTailles[i]);
-                BtnActi.Text = (jourSelec.ListActiviteJournee[i].Nom);
-                BtnActi.Location = (new Point(posX, posY + (jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel));
-                BtnActi.Tag = jourSelec.ListActiviteJournee[i];
-                BtnActi.Name = jourSelec.ListActiviteJournee[i].HeureDebut.ToString();
+                BtnActi.Size = new Size(200, _listTailles[i]);
+                BtnActi.Text = (_jourSelec.ListActiviteJournee[i].Nom);
+                BtnActi.Location = (new Point(posX, posY + (_jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + _jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel));
+                BtnActi.Tag = _jourSelec.ListActiviteJournee[i];
+                BtnActi.Name = _jourSelec.ListActiviteJournee[i].HeureDebut.ToString();
 
                 Label label = new Label();
                 label.Name = "labelActivites";
-                label.Location = new Point(posX + 210, posY + (jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel);
-                label.Text = jourSelec.ListActiviteJournee[i].HeureDebut.ToString();
+                label.Location = new Point(posX + 210, posY + (_jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + _jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel);
+                label.Text = _jourSelec.ListActiviteJournee[i].HeureDebut.ToString();
 
-                this.panelActivites.Controls.Add(BtnActi);
-                this.panelActivites.Controls.Add(label);
+                this.panelActivites1.Controls.Add(BtnActi);
+                this.panelActivites1.Controls.Add(label);
+                
 
                 BtnActi.Click += activite_Click;
                 BtnActi.MouseHover += BtnActi_MouseHover;
                 BtnActi.MouseLeave += BtnActi_Leave;
-                ListBtnActi.Add(BtnActi);
+                _listBtnActi.Add(BtnActi);
             }
 
-            return ListBtnActi;
+            //return _listBtnActi;
         }
+               
+        // Ajoute La liste des tailles des activités pour chaque créneau
+        private void tailleChaqueCreneaux()
+        {
+            // On commence par réinitialiser les listes
+            _listEcart.Clear();
+            _listTailles.Clear();
+
+            // Pour chaque activité de la journée 
+            foreach (Activite i in _jourSelec.ListActiviteJournee)
+            {
+                // On ajoute la taille de chaque activité à une liste d'entiers : _listTailles
+                _listTailles.Add(tailleActivite(i));
+            }
+
+            // écart entre Heure 0 et première activité
+            _listEcart.Add(((_jourSelec.ListActiviteJournee[0].HeureDebut.Heure * 60 + _jourSelec.ListActiviteJournee[0].HeureDebut.Minute) - 0) / 10 * _taille10minPixel); 
+
+            for (int j = 0; j < _jourSelec.ListActiviteJournee.Count() - 1; j++)
+            {
+                // écart entre 2 activités
+                _listEcart.Add(((_jourSelec.ListActiviteJournee[j + 1].HeureDebut.Heure * 60 + _jourSelec.ListActiviteJournee[j + 1].HeureDebut.Minute) - (_jourSelec.ListActiviteJournee[j].HeureFin.Heure * 60 + _jourSelec.ListActiviteJournee[j].HeureFin.Minute)) / 10 * _taille10minPixel); 
+            }
+
+            // écart entre dernière activité et 24h40
+            _listEcart.Add(((24 * 60 + 40 - (_jourSelec.ListActiviteJournee[_jourSelec.ListActiviteJournee.Count - 1].HeureFin.Heure * 60 + _jourSelec.ListActiviteJournee[_jourSelec.ListActiviteJournee.Count - 1].HeureFin.Minute))) / 10 * _taille10minPixel); 
+        }
+        
+        // Cette fonction renvoie la taille d'une activité en pixel (nombre entier)
+        private int tailleActivite(Activite Activitee)
+        {
+            return ((Activitee.HeureFin.Heure - Activitee.HeureDebut.Heure) * 60 + (Activitee.HeureFin.Minute - Activitee.HeureDebut.Minute)) / 10 * _taille10minPixel;
+        }
+        
 
         private void tb_Description_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+
+        // On modifie le compte rendu de l'objet jour à partir de la saisie utilisateur
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-			jourSelec.CompteRendu = tb_compteRendu.Text;
+			_jourSelec.CompteRendu = tb_compteRendu.Text;
         }
 
         private void activite_Click(object sender, EventArgs e)
         {
-            Form3 f3 = new Form3(this, this.calendrierActuel, this.jourSelec, (Activite)((Button)sender).Tag);
+            Form3 f3 = new Form3(this, this._calendrierActuel, this._jourSelec, (Activite)((Button)sender).Tag);
             DialogResult dialogresult = f3.ShowDialog();
             f3.Dispose();
         }
@@ -175,7 +225,8 @@ namespace Mars_Mission_Control_Dev
 			tb_Description.Text = act.Descritpion;
         }
 
-        #endregion
+
+#endregion
 
         private void panelActivites_Paint(object sender, PaintEventArgs e)
         {
@@ -185,12 +236,12 @@ namespace Mars_Mission_Control_Dev
 
 
 
-        #region en test
+        
 
         // Désactivation des éléments si la journée sélectionnée est passée
         private void desactiverJourPasses()
         {
-            if (this.calendrierActuel.JourActuel > this.jourSelec.NumJour)
+            if (this._calendrierActuel.JourActuel > this._jourSelec.NumJour)
             {
                 this.btn_insert.Enabled = false;
                 this.tb_compteRendu.Enabled = false;
@@ -202,6 +253,16 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+        private void panelActivites2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
+        
+
+
+        #region en test
 
         // FONCTION QUI PEUT SERVIR A AFFICHER DES ICONES SUR UN BOUTTON
 

@@ -328,5 +328,13 @@ namespace Mars_Mission_Control_Dev
 
         }
 
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Cal.enregistrer();
+            this.Close();
+        }
+
+       
+
     }
 }
