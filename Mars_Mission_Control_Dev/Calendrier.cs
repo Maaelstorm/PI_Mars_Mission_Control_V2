@@ -150,13 +150,13 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_ActiviteConflit;
         }
-        public List<Journee> rechercheJournee(string nomAct, string motDescAct, string motCompteRendu, Dates dateDeb, Dates dateFin)
+        public List<Journee> rechercheJournee(string nomAct, string motDescAct, string motCompteRendu, int jourDeb, int jourFin)
         {
             List<Journee> ListPeriode = new List<Journee>();
             //on parcours toutes les journées et on ajoute celle qui correspondent aux critères de recherche.
             foreach (Journee uneJournee in ListJournees)
             {
-                if ((uneJournee.NumJour > dateDeb.Jour || uneJournee.NumJour < dateFin.Jour) && uneJournee.CompteRendu.Contains(motCompteRendu) && uneJournee.recherche(motDescAct, nomAct))
+                if ((uneJournee.NumJour > jourDeb || uneJournee.NumJour < jourFin) && uneJournee.CompteRendu.Contains(motCompteRendu) && uneJournee.recherche(motDescAct, nomAct))
                 {
                     ListPeriode.Add(uneJournee);
                 }
