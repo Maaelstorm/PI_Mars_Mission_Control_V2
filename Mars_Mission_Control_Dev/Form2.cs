@@ -29,20 +29,16 @@ namespace Mars_Mission_Control_Dev
 
             InitializeComponent();
 
-            this._listPanelActivites = new List<Panel>(calendrier.ListSpationaute.Count);
-            for (int i = 0; i < _listPanelActivites.Count; i++)
-            {
-                List<TabPage> _listTabPage = new List<TabPage>();
-               
-                //_listTabPage = this.tabControl1.TabPages.GetEnumerator();
-               
-                //this._listPanelActivites.Add();
-            }
-
             this.tabPage1.Text = calendrier.ListSpationaute.ElementAt(0).Nom;
             this.tabPage2.Text = calendrier.ListSpationaute.ElementAt(1).Nom;
             this.tabPage3.Text = calendrier.ListSpationaute.ElementAt(2).Nom;
-
+            
+            // Ajout des Panel 
+            this._listPanelActivites = new List<Panel>(calendrier.ListSpationaute.Count);
+            this._listPanelActivites.Add(this.panelActivites1);
+            this._listPanelActivites.Add(this.panelActivites2);
+            this._listPanelActivites.Add(this.panelActivites3);
+                        
             _jourSelec = jour;
             _calendrierActuel = calendrier;
             this.tagjourSelec.Text = jour.NumJour.ToString();
@@ -117,16 +113,14 @@ namespace Mars_Mission_Control_Dev
         }
 
         
-
+        // SI SUPPRESSION d'UNE ACTI POUR 1 ASTRO = SUPPRESSION DE L'ACTI POUR TOUS LES ASTRO !!
         private void afficheBoutons(int tabIndex)
         {
-            // TROUVER MOYEN DE G2RER les panelActivity
-                       
+            
+            this._listBtnActi.Clear();
 
-            //this._listPanelActivites.ElementAt(tabIndex - 1).Controls.Clear();
-
-            this.panelActivites1.Controls.Clear();
-
+            this._listPanelActivites.ElementAt(tabIndex).Controls.Clear();
+                        
             tailleChaqueCreneaux();
             
             int posX = 10, posY = 10;
@@ -144,10 +138,9 @@ namespace Mars_Mission_Control_Dev
                 label.Name = "labelActivites";
                 label.Location = new Point(posX + 210, posY + (_jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + _jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel);
                 label.Text = _jourSelec.ListActiviteJournee[i].HeureDebut.ToString();
-
-                this.panelActivites1.Controls.Add(BtnActi);
-                this.panelActivites1.Controls.Add(label);
                 
+                this._listPanelActivites.ElementAt(tabIndex).Controls.Add(BtnActi);
+                this._listPanelActivites.ElementAt(tabIndex).Controls.Add(label);
 
                 BtnActi.Click += activite_Click;
                 BtnActi.MouseHover += BtnActi_MouseHover;
@@ -164,6 +157,20 @@ namespace Mars_Mission_Control_Dev
             // On commence par réinitialiser les listes
             _listEcart.Clear();
             _listTailles.Clear();
+
+
+            
+            //List<Activite> listResult = listPeriode.FindAll( delegate(Activite act) { return (act.Nom == mot); } );
+
+            //List<Activite> listAct = new List<Activite>();
+            //listAct = this._jourSelec.ListActiviteJournee;
+
+            //if (listAct.Find( delegate(Activite act) { return (act.ListSpationaute.Find( delegate(Spationaute spatio) { return (spatio.Nom == this.tabControl1.SelectedTab.Text); } ) ); } ); )
+            //{
+                
+            //}
+
+
 
             // Pour chaque activité de la journée 
             foreach (Activite i in _jourSelec.ListActiviteJournee)
@@ -258,6 +265,12 @@ namespace Mars_Mission_Control_Dev
 
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+      
         
         
 

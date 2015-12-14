@@ -3248,39 +3248,6 @@
       <CompteRendu />
       <ListeActivitees>
         <Activite>
-          <Nom>Eating</Nom>
-          <HeureDebut>
-            <Jour>500</Jour>
-            <Heure>7</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>500</Jour>
-            <Heure>8</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom>Base</Nom>
-            <Point>
-              <X>0</X>
-              <Y>0</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description>Repas</Description>
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
-        <Activite>
           <Nom>Private</Nom>
           <HeureDebut>
             <Jour>500</Jour>

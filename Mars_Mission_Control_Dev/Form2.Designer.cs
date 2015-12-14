@@ -186,7 +186,6 @@
             this.panelActivites1.Name = "panelActivites1";
             this.panelActivites1.Size = new System.Drawing.Size(261, 844);
             this.panelActivites1.TabIndex = 46;
-            this.panelActivites1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites_Paint);
             // 
             // tabControl1
             // 
@@ -348,6 +347,7 @@
             this.Controls.Add(this.button2);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.horaires)).EndInit();
