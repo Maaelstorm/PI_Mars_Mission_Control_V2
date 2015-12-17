@@ -14,10 +14,10 @@ namespace Mars_Mission_Control_Dev
         private Journee jourSelec;
         private Calendrier calendrierActuel;
         private int _taille10minPixel;
-        private List<Activite> listActi = new List<Activite>(); // liste des activités
-        List<int> listTailles = new List<int>(); // taille en pixel d'une activité
-        List<int> listEcart = new List<int>(); // écart entre 2 activités
-        List<Button> ListBtnActi = new List<Button>(); // liste des boutons des activités
+        private List<Activite> _listActi = new List<Activite>(); // liste des activités
+        private List<int> _listTailles = new List<int>(); // taille en pixel d'une activité
+        private List<int> _listEcart = new List<int>(); // écart entre 2 activités
+        private List<Button> _listBtnActi = new List<Button>(); // liste des boutons des activités
 
         public Form2(Calendrier calendrier, Journee jour)
         {
@@ -91,24 +91,24 @@ namespace Mars_Mission_Control_Dev
 
         private void tailleChaqueCreneaux()
         {
-            listEcart.Clear();
-            listTailles.Clear();
+            _listEcart.Clear();
+            _listTailles.Clear();
 
             foreach (Activite i in jourSelec.ListActiviteJournee)
             {
-                listTailles.Add(tailleActivite(i)); // ajoute les tailles en hauteur que devront avoir les boutons
+                _listTailles.Add(tailleActivite(i)); // ajoute les tailles en hauteur que devront avoir les boutons
             }
 
             // calcule les écarts qu'il devra y avoir entre deux activités, sur le même principe que la taille d'une activité
-            listEcart.Add(((jourSelec.ListActiviteJournee[0].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[0].HeureDebut.Minute) - 0) / 10 * _taille10minPixel); // écart entre Heure 0 et première activité
+            _listEcart.Add(((jourSelec.ListActiviteJournee[0].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[0].HeureDebut.Minute) - 0) / 10 * _taille10minPixel); // écart entre Heure 0 et première activité
 
             // puis on ajoute les écarts à la liste
             for (int j = 0; j < jourSelec.ListActiviteJournee.Count() - 1; j++)
             {
-                listEcart.Add(((jourSelec.ListActiviteJournee[j + 1].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[j + 1].HeureDebut.Minute) - (jourSelec.ListActiviteJournee[j].HeureFin.Heure * 60 + jourSelec.ListActiviteJournee[j].HeureFin.Minute)) / 10 * _taille10minPixel); // écart entre 2 activités
+                _listEcart.Add(((jourSelec.ListActiviteJournee[j + 1].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[j + 1].HeureDebut.Minute) - (jourSelec.ListActiviteJournee[j].HeureFin.Heure * 60 + jourSelec.ListActiviteJournee[j].HeureFin.Minute)) / 10 * _taille10minPixel); // écart entre 2 activités
             }
 
-            listEcart.Add(((24 * 60 + 40 - (jourSelec.ListActiviteJournee[jourSelec.ListActiviteJournee.Count - 1].HeureFin.Heure * 60 + jourSelec.ListActiviteJournee[jourSelec.ListActiviteJournee.Count - 1].HeureFin.Minute))) / 10 * _taille10minPixel); // écart entre dernière activité et 24h40
+            _listEcart.Add(((24 * 60 + 40 - (jourSelec.ListActiviteJournee[jourSelec.ListActiviteJournee.Count - 1].HeureFin.Heure * 60 + jourSelec.ListActiviteJournee[jourSelec.ListActiviteJournee.Count - 1].HeureFin.Minute))) / 10 * _taille10minPixel); // écart entre dernière activité et 24h40
         }
 
         private List<Button> afficheBoutons()
@@ -117,11 +117,11 @@ namespace Mars_Mission_Control_Dev
             tailleChaqueCreneaux();
             int posX = 10, posY = 10;
 
-            // crée les boutons des activités avec les bonnes tailles, bon écart (et donc emplacement), bon nom selon les activités
+            // créer les boutons des activités avec les bonnes tailles, bon écart (et donc emplacement), bon nom selon les activités
             for (int i = 0; i < jourSelec.ListActiviteJournee.Count; i++)
             {
                 Button BtnActi = new Button(); 
-                BtnActi.Size = new Size(200, listTailles[i]);
+                BtnActi.Size = new Size(200, _listTailles[i]);
                 BtnActi.Text = (jourSelec.ListActiviteJournee[i].Nom);
                 BtnActi.Location = (new Point(posX, posY + (jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel));
                 BtnActi.Tag = jourSelec.ListActiviteJournee[i];
@@ -138,10 +138,10 @@ namespace Mars_Mission_Control_Dev
                 BtnActi.Click += activite_Click; // événement lié au clic sur un bouton
                 BtnActi.MouseHover += BtnActi_MouseHover; // événement lié au passage de la souris sur le bouton
                 BtnActi.MouseLeave += BtnActi_Leave; // événement lié au fait que la souris n'est plus sur le bouton
-                ListBtnActi.Add(BtnActi);
+                _listBtnActi.Add(BtnActi);
             }
 
-            return ListBtnActi;
+            return _listBtnActi;
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
@@ -199,6 +199,11 @@ namespace Mars_Mission_Control_Dev
                 this.btn_insert.Enabled = true;
                 this.tb_compteRendu.Enabled = true;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -69,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(380, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 40);
@@ -80,7 +80,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.LimeGreen;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Location = new System.Drawing.Point(693, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 40);
@@ -98,6 +98,7 @@
             this.label1.Size = new System.Drawing.Size(120, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "Jour Actuel : ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tagjourSelec
             // 
@@ -307,7 +308,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tagjourSelec);

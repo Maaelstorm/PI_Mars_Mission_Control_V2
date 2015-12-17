@@ -122,14 +122,12 @@
             this.minutes_fin = new System.Windows.Forms.Label();
             this.minutes_debut = new System.Windows.Forms.Label();
             this.btn_suppr = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_retourJour = new System.Windows.Forms.Button();
             this.niveau3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -575,16 +573,6 @@
             this.btn_suppr.UseVisualStyleBackColor = true;
             this.btn_suppr.Click += new System.EventHandler(this.btn_suppr_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Mars_Mission_Control_Dev.Properties.Resources.space_ship1;
-            this.pictureBox2.Location = new System.Drawing.Point(763, 733);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(119, 117);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 37;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
@@ -599,7 +587,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.affichage_jour_actuel);
             this.panel2.Controls.Add(this.jour_actuel);
@@ -640,7 +628,6 @@
             this.Controls.Add(this.btn_retourJour);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btn_suppr);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.niveau3);
@@ -652,7 +639,6 @@
             this.niveau3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -693,7 +679,6 @@
         private System.Windows.Forms.Label minutes_fin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
