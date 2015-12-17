@@ -238,13 +238,6 @@ namespace Mars_Mission_Control_Dev
             return lst_periode;
         }
 
-        public List<Journee> selectionPeriodeJour(int HeureDeb, int HeureFin)
-        // renvoie toutes les journees comprises entre deux dates 
-        {
-            var datesDuree = this.int2dates(HeureDeb, HeureFin);
-            return selectionPeriodeJour(datesDuree.Item1, datesDuree.Item2);
-        }
-
 
         public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
         /* renvoie la liste des activités comprises dans une certaine zone, dans un intervalle de dates.
@@ -264,7 +257,7 @@ namespace Mars_Mission_Control_Dev
 
 
         public List<Activite> rechercheSorties(Dates dateDeb, Dates dateFin)
-        /* 
+        /* renvoie une liste de toutes les activités en exterieur comprises entre deux dates*/
         {
 
             List<Activite> activitesDehors = new List<Activite>();
@@ -278,27 +271,8 @@ namespace Mars_Mission_Control_Dev
             return activitesDehors;
         }
 
-
-        /*public List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
-        {
-            var datesDuree = this.int2dates(HeureDeb, HeureFin);
-            return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
-        }
-		 */
-
-        private Tuple<Dates, Dates> int2dates(int HeureDeb, int HeureFin)
-        //converti deux int en dates, en considér. Si l'Heure de fin vaut 24, la date convertie correspond à 24 h et 40 min. 
-        //Cette fonction sert juste pour le confort de codage.
-        {
-            Dates dateDeb = new Dates(this.JourActuel, HeureDeb, 0);
-            Dates dateFin;
-            if (HeureFin == 24) dateFin = new Dates(this.JourActuel, HeureFin, 40);
-            else dateFin = new Dates(this.JourActuel, HeureFin, 0);
-            return Tuple.Create(dateDeb, dateFin);
-        }
-
-
         public Dates conversionHeureMartienne(DateTime HeureTerre)
+        //converti une date terrestre en une date martienndu calendrier de la mission martienne
         {
             TimeSpan DureeMissionT = HeureTerre - JourDebutMission;
             int DureeMissionMin = (DureeMissionT.Days * 24 + DureeMissionT.Hours) * 60 + DureeMissionT.Minutes;

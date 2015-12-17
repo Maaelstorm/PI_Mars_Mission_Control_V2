@@ -245,7 +245,7 @@ namespace Mars_Mission_Control_Dev
         private void joursSuivants_Click(object sender, EventArgs e) 
         {
             // on passe à la période suivante (50 jours suivants)
-            if (Period < ListJourneeNumAffichage.Count / 50)
+            if (Period < ListJourneeNumAffichage.Count / 50 && Period <= 8)
             {
                 Period++;
             }
