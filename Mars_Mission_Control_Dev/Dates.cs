@@ -44,10 +44,7 @@ namespace Mars_Mission_Control_Dev
         #endregion
         #region constructeurs
         public Dates()
-        {
-            Jour = 0;
-            Heure = 0;
-            Minute = 0;
+        {            
         }
         public Dates(int leJour)
             : this()

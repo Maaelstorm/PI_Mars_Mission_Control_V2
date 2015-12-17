@@ -82,11 +82,7 @@ namespace Mars_Mission_Control_Dev
         #region constructeurs
 
         public Calendrier()
-        {
-            this.Map = null;
-            this.ListJournees = new List<Journee>();
-            this.ListActiviteDefaut = new List<Activite>();
-            this.ListSpationaute = new List<Spationaute>();
+        {           
         }
         public Calendrier(List<Journee> listeJournees, List<Spationaute> listeSpationautes)
         {
@@ -264,7 +260,7 @@ namespace Mars_Mission_Control_Dev
 
 
         public List<Activite> rechercheSorties(Dates dateDeb, Dates dateFin)
-        /* 
+         
         {
 
             List<Activite> activitesDehors = new List<Activite>();
@@ -279,12 +275,12 @@ namespace Mars_Mission_Control_Dev
         }
 
 
-        /*public List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
+        public List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
         {
             var datesDuree = this.int2dates(HeureDeb, HeureFin);
             return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
         }
-		 */
+		
 
         private Tuple<Dates, Dates> int2dates(int HeureDeb, int HeureFin)
         //converti deux int en dates, en considér. Si l'Heure de fin vaut 24, la date convertie correspond à 24 h et 40 min. 

@@ -49,9 +49,6 @@ namespace Mars_Mission_Control_Dev
 		// Constructeur
 		public Carte()
 		{
-			this.ImageZone = Image.FromFile("nanedi_valles.jpg");
-			this.ListIcone = new List<Image>();
-			this.ListCoordonnees = new List<Coordonnees>();
 		}
 
 		// Méthode d'ouverture de fichier A FAIRE DANS LE FORM si choix de la carte de la zone par l'utilisateur

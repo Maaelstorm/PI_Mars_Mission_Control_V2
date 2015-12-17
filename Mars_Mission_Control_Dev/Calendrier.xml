@@ -4055,42 +4055,8 @@
     </Journee>
     <Journee>
       <NumJour>16</NumJour>
-      <CompteRendu>gsdfgdfgsdgdfgsdfg
-</CompteRendu>
+      <CompteRendu />
       <ListeActivitees>
-        <Activite>
-          <Nom>Sleeping</Nom>
-          <HeureDebut>
-            <Jour>500</Jour>
-            <Heure>0</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>500</Jour>
-            <Heure>7</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom>Base</Nom>
-            <Point>
-              <X>0</X>
-              <Y>0</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description>Repos</Description>
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
         <Activite>
           <Nom>Eating</Nom>
           <HeureDebut>
@@ -4326,7 +4292,7 @@
     </Journee>
     <Journee>
       <NumJour>17</NumJour>
-      <CompteRendu>gsdfgdfgsdfgdfgdfsgsdgff</CompteRendu>
+      <CompteRendu />
       <ListeActivitees>
         <Activite>
           <Nom>Sleeping</Nom>

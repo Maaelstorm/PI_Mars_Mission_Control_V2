@@ -58,10 +58,7 @@ namespace Mars_Mission_Control_Dev
 		
         // Constructeur par défaut dont le num jour est égal à 0 (pour pouvoir sérialiser l'objet journée)
 		public Journee()
-		{
-			NumJour = 0;
-			CompteRendu = "";
-			this.ListActiviteJournee = new List<Activite>();
+		{			
 		}
 
 		public Journee(int nJour)

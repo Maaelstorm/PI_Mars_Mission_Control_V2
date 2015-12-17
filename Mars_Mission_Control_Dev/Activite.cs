@@ -86,16 +86,6 @@ namespace Mars_Mission_Control_Dev
 
 		public Activite()
 		{
-			this.Nom = "defaut";
-
-			this.HeureDebut = new Dates(0,0,0);
-			this.HeureFin = new Dates(0,0,1);
-
-			this.Lieu = new Coordonnees("defaut",new Point(0,0));
-			this.Descritpion = "defaut";
-
-			this.ListSpationaute = new List<Spationaute>();
-
 		}
 
 		public Activite(string nom, Dates hdeb,Dates hfin, Coordonnees lieu, string desc, List<Spationaute> listSpatio)

@@ -25,7 +25,6 @@ namespace Mars_Mission_Control_Dev
 		// Constructeur par défaut pour la sérialisation
 		public Spationaute()
 		{
-			this.Nom = "serialisation";
 		}
 
 		public Spationaute(string nom)
