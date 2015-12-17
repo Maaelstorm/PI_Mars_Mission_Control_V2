@@ -15,6 +15,10 @@ namespace Mars_Mission_Control_Dev
 {
     [XmlRoot("Calendrier")]
     public class Calendrier
+    /* La Classe Calendrier Contient l'ensemble des informations du planning de la mission. Une instance Cal est créée dans le form1 à
+     * partir du xml (s'il existe), et est passé en argument pour construire le form2 et le form3
+     * */
+
     {
 
         #region Accesseurs & Propriétés
@@ -103,6 +107,7 @@ namespace Mars_Mission_Control_Dev
         #region	Méthodes
 
         public void enregistrer()
+        //enregistre le calendrier dans un fichier xml
         {
             DialogResult result = new DialogResult();
 
@@ -124,9 +129,8 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-
         public List<Activite> checkActivite(Activite newActivite)
-        //on verifie si une activite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
+        //verifie si l'activite newActivite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
         {
             List<Activite> lst_ActiviteConflit = new List<Activite>();
             foreach (Journee uneJournee in ListJournees)
@@ -179,6 +183,7 @@ namespace Mars_Mission_Control_Dev
             return ListResult;
         }
         public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
+        //renvoie la liste de toute les activités comprises entre les deux dates passées en argument.
         {
             List<Activite> lst_periode = new List<Activite>();
             foreach (Journee uneJournee in ListJournees)
@@ -195,6 +200,7 @@ namespace Mars_Mission_Control_Dev
             return lst_periode;
         }
         public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
+        //renvoie toutes les activités comprises entre les deux dates passées en argument dont le nom contient la chaine mot.
         {
             List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
             List<Activite> listResult = listPeriode.FindAll(
@@ -205,8 +211,8 @@ namespace Mars_Mission_Control_Dev
             );
             return listResult;
         }
-
         public List<Activite> rechercheDescActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
+        //renvoie toutes les activités comprises entre les deux dates passées en argument dont la description contient la chaine mot.
         {
             List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
             List<Activite> listResult = listPeriode.FindAll(
@@ -218,10 +224,8 @@ namespace Mars_Mission_Control_Dev
             return listResult;
         }
 
-
-
-
         public List<Journee> selectionPeriodeJour(Dates dateDeb, Dates dateFin)
+        // renvoie toutes les journees comprises entre les deux dates passées en argument
         {
             List<Journee> lst_periode = new List<Journee>();
             foreach (Journee uneJournee in ListJournees)
@@ -235,6 +239,7 @@ namespace Mars_Mission_Control_Dev
         }
 
         public List<Journee> selectionPeriodeJour(int HeureDeb, int HeureFin)
+        // renvoie toutes les journees comprises entre deux dates 
         {
             var datesDuree = this.int2dates(HeureDeb, HeureFin);
             return selectionPeriodeJour(datesDuree.Item1, datesDuree.Item2);
@@ -242,10 +247,12 @@ namespace Mars_Mission_Control_Dev
 
 
         public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
-        // hg : point en haut à gauche du rectangle dans lequel on veut chercher
-        // bd : point en bas à droite du rectangle dans lequel on veut chercher
+        /* renvoie la liste des activités comprises dans une certaine zone, dans un intervalle de dates.
+         * hg : point en haut à gauche du rectangle dans lequel on veut chercher
+         * bd : point en bas à droite du rectangle dans lequel on veut chercher
+         * */
         {
-            List<Activite> listPeriode = selectionPeriodeAct(HeureDeb, HeureFin);
+            List<Activite> listPeriode = rechercheSorties(HeureDeb, HeureFin);
             List<Activite> listResult = listPeriode.FindAll(
             delegate(Activite act)
             {
@@ -257,6 +264,7 @@ namespace Mars_Mission_Control_Dev
 
 
         public List<Activite> rechercheSorties(Dates dateDeb, Dates dateFin)
+        /* 
         {
 
             List<Activite> activitesDehors = new List<Activite>();
