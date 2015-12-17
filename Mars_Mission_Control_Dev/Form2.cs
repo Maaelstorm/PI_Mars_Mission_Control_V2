@@ -12,12 +12,20 @@ namespace Mars_Mission_Control_Dev
     public partial class Form2 : Form
     {
         private Journee jourSelec;
+        public Journee journee
+        {
+            get { return jourSelec; }
+            set { jourSelec = value; }
+        }
+
         private Calendrier calendrierActuel;
         private int _taille10minPixel;
         private List<Activite> _listActi = new List<Activite>(); // liste des activités
         private List<int> _listTailles = new List<int>(); // taille en pixel d'une activité
         private List<int> _listEcart = new List<int>(); // écart entre 2 activités
         private List<Button> _listBtnActi = new List<Button>(); // liste des boutons des activités
+
+        
 
         public Form2(Calendrier calendrier, Journee jour)
         {
@@ -37,50 +45,9 @@ namespace Mars_Mission_Control_Dev
             desactiverJourPasses();
         }
 
-        #region Méthodes
 
-        public Journee journee
-        {
-            get { return jourSelec; }
-            set { jourSelec = value; }
-        }
+#region Méthodes
 
-        private void retourCalendrier_Click(object sender, EventArgs e)
-        {
-            // on retourne sur le calendrier → on ferme le form 2
-            this.Close();
-        }
-
-        public void rafraichirPage(int jour)
-        {
-            // on met à jour le jour sur lequel on est
-            jourSelec = calendrierActuel.ListJournees.ElementAt(jour - 1);
-
-            miseAJourJour(jourSelec.NumJour);
-            // on met à jour le compte rendu du jour sur lequel on est
-            tb_compteRendu.Text = jourSelec.CompteRendu;
-            afficheBoutons();
-
-            desactiverJourPasses();
-        }
-
-        private void miseAJourJour(int jour)
-        {
-            // on met à jour le numéro du jour sur lequel on est
-            this.tagjourSelec.Text = this.tagjourSelec2.Text = jour.ToString();
-        }
-
-        private void jourPrecedent_Click(object sender, EventArgs e)
-        {
-            if (jourSelec.NumJour > 1)
-                rafraichirPage(jourSelec.NumJour - 1);
-        }
-
-        private void jourSuivant_Click(object sender, EventArgs e)
-        {
-            if (jourSelec.NumJour < calendrierActuel.ListJournees.Count)
-                rafraichirPage(jourSelec.NumJour + 1);
-        }
 
         private int tailleActivite(Activite Activitee)
         {
@@ -120,7 +87,7 @@ namespace Mars_Mission_Control_Dev
             // créer les boutons des activités avec les bonnes tailles, bon écart (et donc emplacement), bon nom selon les activités
             for (int i = 0; i < jourSelec.ListActiviteJournee.Count; i++)
             {
-                Button BtnActi = new Button(); 
+                Button BtnActi = new Button();
                 BtnActi.Size = new Size(200, _listTailles[i]);
                 BtnActi.Text = (jourSelec.ListActiviteJournee[i].Nom);
                 BtnActi.Location = (new Point(posX, posY + (jourSelec.ListActiviteJournee[i].HeureDebut.Heure * 6 + jourSelec.ListActiviteJournee[i].HeureDebut.Minute / 10) * _taille10minPixel));
@@ -144,6 +111,46 @@ namespace Mars_Mission_Control_Dev
             return _listBtnActi;
         }
 
+
+        private void retourCalendrier_Click(object sender, EventArgs e)
+        {
+            // on retourne sur le calendrier → on ferme le form 2
+            this.Close();
+        }
+
+        public void rafraichirPage(int jour)
+        {
+            // on met à jour le jour sur lequel on est
+            jourSelec = calendrierActuel.ListJournees.ElementAt(jour - 1);
+
+            miseAJourJour(jourSelec.NumJour);
+            // on met à jour le compte rendu du jour sur lequel on est
+            tb_compteRendu.Text = jourSelec.CompteRendu;
+            afficheBoutons();
+
+            desactiverJourPasses();
+        }
+
+        private void miseAJourJour(int jour)
+        {
+            // on met à jour le numéro du jour sur lequel on est
+            this.tagjourSelec.Text = this.tagjourSelec2.Text = jour.ToString();
+        }
+
+        private void jourPrecedent_Click(object sender, EventArgs e)
+        {
+            if (jourSelec.NumJour > 1)
+                rafraichirPage(jourSelec.NumJour - 1);
+        }
+
+        private void jourSuivant_Click(object sender, EventArgs e)
+        {
+            if (jourSelec.NumJour < calendrierActuel.ListJournees.Count)
+                rafraichirPage(jourSelec.NumJour + 1);
+        }
+
+       
+
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
             jourSelec.CompteRendu = tb_compteRendu.Text; // affichage du compte rendu de la journée
@@ -156,9 +163,11 @@ namespace Mars_Mission_Control_Dev
             f3.Dispose();
         }
 
-        private void BtnActi_MouseHover(object sender, EventArgs e) // au passage de la souris sur le bouton, on affiche les informations liées à l'activité
-                                                                    // permet de contrer les problèmes de lecture en cas d'activité courte où le texte n'est 
-                                                                    // pas lisible sur le bouton
+
+        // Au passage de la souris sur le bouton, on affiche les informations liées à l'activité
+        // permet de contrer les problèmes de lecture en cas d'activité courte où le texte n'est 
+        // pas lisible sur le bouton
+        private void BtnActi_MouseHover(object sender, EventArgs e) 
         {
             label_nom_acti.Text = ((Button)sender).Text.ToString();
 
@@ -166,7 +175,8 @@ namespace Mars_Mission_Control_Dev
             tb_Description.Text = act.Descritpion;
         }
 
-        private void BtnActi_Leave(object sender, EventArgs e) // remet un texte par défaut quand la souris quitte le bouton
+        // Remet un texte par défaut quand la souris quitte le bouton
+        private void BtnActi_Leave(object sender, EventArgs e) 
         {
             tb_Description.Text = "Survolez une activité pour voir son descriptif.";
             label_nom_acti.Text = "Activité";
@@ -180,11 +190,6 @@ namespace Mars_Mission_Control_Dev
             f3.Dispose();
         }
 
-
-        #endregion
-
-
-        #region en test
 
         // Désactivation des éléments si la journée sélectionnée est passée
         private void desactiverJourPasses()
@@ -201,12 +206,22 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+
+        #endregion
+
+
+        
+
+        
+
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
 
+        #region en test
+        
         // FONCTION QUI PEUT SERVIR A AFFICHER DES ICONES SUR UN BOUTTON
 
         //private void SetMyButtonIcon(Button BtnActi)
