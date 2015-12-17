@@ -4055,7 +4055,8 @@
     </Journee>
     <Journee>
       <NumJour>16</NumJour>
-      <CompteRendu />
+      <CompteRendu>gsdfgdfgsdgdfgsdfg
+</CompteRendu>
       <ListeActivitees>
         <Activite>
           <Nom>Sleeping</Nom>
@@ -4111,6 +4112,39 @@
             <Descriptif />
           </Coordonnees>
           <Description>Repas</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
+          <Nom>Private</Nom>
+          <HeureDebut>
+            <Jour>500</Jour>
+            <Heure>8</Heure>
+            <Minute>0</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>500</Jour>
+            <Heure>12</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom>Base</Nom>
+            <Point>
+              <X>0</X>
+              <Y>0</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description />
           <Spationautes>
             <Spationaute>
               <Nom>Neil Armstrong</Nom>
@@ -4288,44 +4322,11 @@
             </Spationaute>
           </Spationautes>
         </Activite>
-        <Activite>
-          <Nom>Vehicule</Nom>
-          <HeureDebut>
-            <Jour>16</Jour>
-            <Heure>8</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>16</Jour>
-            <Heure>12</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom />
-            <Point>
-              <X>52</X>
-              <Y>117</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description />
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
       </ListeActivitees>
     </Journee>
     <Journee>
       <NumJour>17</NumJour>
-      <CompteRendu />
+      <CompteRendu>gsdfgdfgsdfgdfgdfsgsdgff</CompteRendu>
       <ListeActivitees>
         <Activite>
           <Nom>Sleeping</Nom>
@@ -11348,6 +11349,39 @@
       <CompteRendu />
       <ListeActivitees>
         <Activite>
+          <Nom>Sleeping</Nom>
+          <HeureDebut>
+            <Jour>500</Jour>
+            <Heure>0</Heure>
+            <Minute>0</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>500</Jour>
+            <Heure>7</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom>Base</Nom>
+            <Point>
+              <X>0</X>
+              <Y>0</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description>Repos</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
           <Nom>Eating</Nom>
           <HeureDebut>
             <Jour>500</Jour>
@@ -11562,39 +11596,6 @@
             <Point>
               <X>0</X>
               <Y>0</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description>Repos</Description>
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
-        <Activite>
-          <Nom>Sleeping</Nom>
-          <HeureDebut>
-            <Jour>43</Jour>
-            <Heure>0</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>43</Jour>
-            <Heure>3</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom />
-            <Point>
-              <X>47</X>
-              <Y>13</Y>
             </Point>
             <Descriptif />
           </Coordonnees>
@@ -16478,6 +16479,39 @@
       <CompteRendu />
       <ListeActivitees>
         <Activite>
+          <Nom>Sleeping</Nom>
+          <HeureDebut>
+            <Jour>500</Jour>
+            <Heure>0</Heure>
+            <Minute>0</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>500</Jour>
+            <Heure>7</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom>Base</Nom>
+            <Point>
+              <X>0</X>
+              <Y>0</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description>Repos</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
           <Nom>Eating</Nom>
           <HeureDebut>
             <Jour>500</Jour>
@@ -16696,39 +16730,6 @@
             <Descriptif />
           </Coordonnees>
           <Description>Repos</Description>
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
-        <Activite>
-          <Nom>Sleeping</Nom>
-          <HeureDebut>
-            <Jour>62</Jour>
-            <Heure>0</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>62</Jour>
-            <Heure>5</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom />
-            <Point>
-              <X>0</X>
-              <Y>0</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description>Repos réparateur</Description>
           <Spationautes>
             <Spationaute>
               <Nom>Neil Armstrong</Nom>

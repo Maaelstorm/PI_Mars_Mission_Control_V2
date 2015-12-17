@@ -64,21 +64,20 @@ namespace Mars_Mission_Control_Dev
 
         public Form1()
         {
-            // création des 500 numéros pour l'affichage des journées
+            // Fonction recherche : création des 500 numéros pour l'affichage des journées
             for (int i = 1; i <= 500; i++) 
             {
                 this.ListJourneeNumAffichage.Add(i);
             }
 
             this.StartPosition = FormStartPosition.CenterScreen;
-
+           
             InitializeComponent();
 
             chargementXML();
 
             Cal.JourDebutMission = new DateTime(2015, 12, 01);
-
-            // conversionHeureMartienne A corriger pour que la ligne marche :
+                       
             Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
 
             // Si le calenderier n'a pas été chargé via la déserialisation
@@ -160,42 +159,21 @@ namespace Mars_Mission_Control_Dev
 
         private void chargementXML()
         {
-            //Chargement des informations générales :
-            //- Nom du fichier image (carte)
-            //- position de l'habitat
-
-            //- nombre et nom de chaque astronaute
-            //- hiérarchie des activité 
-            //- description des activités de la journée par défaut
-
-            //if (File.Exists("./..//..//InfoGenerales.xml"))
-            //{
-            //    XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
-            //    using (StreamReader sr = new StreamReader("./..//..//InfoGenerales.xml"))
-            //    {
-            //        Cal = xs.Deserialize(sr) as Calendrier;
-            //        //Console.WriteLine("Interface de gestion du restaurant \"{0}\" - Bienvenue {1}", restaurant.Nom, restaurant.NomProprio);
-            //        //Console.WriteLine("\nAppuyez sur une touche pour continuer");
-            //        //Console.ReadKey();
-            //        sr.Close();
-            //    }
-            //}
-
-            // Chargement de la liste d'activitée par défaut :
-            if (File.Exists("./..//..//ListeActiviteDefaut.xml"))
-            {
-                XmlSerializer test = new XmlSerializer(typeof(Calendrier));
-                FileStream xmlFichier = new FileStream("./..//..//ListeActiviteDefaut.xml", FileMode.Open, FileAccess.Read);
-                xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
-                Cal = (Calendrier)test.Deserialize(xmlFichier);
-                xmlFichier.Close();
-            }
-
             // Toutes les données sont sérialisées dans le même document 
             if (File.Exists("./..//..//Calendrier.xml"))
             {
                 XmlSerializer test = new XmlSerializer(typeof(Calendrier));
                 FileStream xmlFichier = new FileStream("./..//..//Calendrier.xml", FileMode.Open, FileAccess.Read);
+                xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
+                Cal = (Calendrier)test.Deserialize(xmlFichier);
+                xmlFichier.Close();
+            }
+
+            // Chargement de la liste d'activitée par défaut :
+            else if (File.Exists("./..//..//ListeActiviteDefaut.xml"))
+            {
+                XmlSerializer test = new XmlSerializer(typeof(Calendrier));
+                FileStream xmlFichier = new FileStream("./..//..//ListeActiviteDefaut.xml", FileMode.Open, FileAccess.Read);
                 xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
                 Cal = (Calendrier)test.Deserialize(xmlFichier);
                 xmlFichier.Close();
@@ -275,7 +253,8 @@ namespace Mars_Mission_Control_Dev
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Cal.enregistrer(); // on enregistre les modifications apportées au calendrier
+            // on enregistre les modifications apportées au calendrier
+            this.Cal.enregistrer(); 
         }
 
         private void tb_rechercheDescAct_TextChanged(object sender, EventArgs e)
@@ -312,6 +291,18 @@ namespace Mars_Mission_Control_Dev
         private void clb_activites_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
+        private void btn_leaveApp_Click(object sender, EventArgs e)
+        {
+            this.Cal.enregistrer();
+            this.Close();
         }
     }
 }
