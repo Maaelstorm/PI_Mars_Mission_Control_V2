@@ -69,22 +69,24 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
             this.button1.Location = new System.Drawing.Point(380, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 40);
             this.button1.TabIndex = 5;
             this.button1.Text = "Jour précédent";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.jourPrecedent_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.LimeGreen;
             this.button2.Location = new System.Drawing.Point(693, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 40);
             this.button2.TabIndex = 4;
             this.button2.Text = "Jour suivant";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.jourSuivant_Click);
             // 
             // label1
@@ -307,11 +309,11 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SaddleBrown;
+            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.tagjourSelec);
-            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(501, 14);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 40);

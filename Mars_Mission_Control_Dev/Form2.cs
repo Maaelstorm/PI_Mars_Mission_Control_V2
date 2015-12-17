@@ -21,7 +21,7 @@ namespace Mars_Mission_Control_Dev
 
         public Form2(Calendrier calendrier, Journee jour)
         {
-			this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             InitializeComponent();
             jourSelec = jour;
@@ -67,7 +67,7 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void jourPrecedent_Click(object sender, EventArgs e)
-        {           
+        {
             if (jourSelec.NumJour > 1)
                 rafraichirPage(jourSelec.NumJour - 1);
         }
@@ -77,15 +77,6 @@ namespace Mars_Mission_Control_Dev
             if (jourSelec.NumJour < calendrierActuel.ListJournees.Count)
                 rafraichirPage(jourSelec.NumJour + 1);
         }
-
-        private void inserer_Click(object sender, EventArgs e)
-        {
-            Form3 f3 = new Form3(this, this.calendrierActuel, this.jourSelec, null);
-            DialogResult dialogresult = f3.ShowDialog();
-            f3.Dispose();
-        }
-
-        
 
         private int tailleActivite(Activite Activitee)
         {
@@ -151,7 +142,7 @@ namespace Mars_Mission_Control_Dev
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-			jourSelec.CompteRendu = tb_compteRendu.Text;
+            jourSelec.CompteRendu = tb_compteRendu.Text;
         }
 
         private void activite_Click(object sender, EventArgs e)
@@ -161,19 +152,28 @@ namespace Mars_Mission_Control_Dev
             f3.Dispose();
         }
 
+        private void BtnActi_MouseHover(object sender, EventArgs e)
+        {
+            label_nom_acti.Text = ((Button)sender).Text.ToString();
+
+            Activite act = (Activite)((Button)sender).Tag;
+            tb_Description.Text = act.Descritpion;
+        }
+
         private void BtnActi_Leave(object sender, EventArgs e)
         {
             tb_Description.Text = "Survolez une activité pour voir son descriptif.";
             label_nom_acti.Text = "Activité";
         }
 
-        private void BtnActi_MouseHover(object sender, EventArgs e)
+
+        private void inserer_Click(object sender, EventArgs e)
         {
-			label_nom_acti.Text = ((Button)sender).Text.ToString();
-			
-			Activite act = (Activite)((Button)sender).Tag;
-			tb_Description.Text = act.Descritpion;
+            Form3 f3 = new Form3(this, this.calendrierActuel, this.jourSelec, null);
+            DialogResult dialogresult = f3.ShowDialog();
+            f3.Dispose();
         }
+
 
         #endregion
 

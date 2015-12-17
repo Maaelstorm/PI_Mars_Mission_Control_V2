@@ -159,7 +159,8 @@
             // 
             this.jour_actuel.AutoSize = true;
             this.jour_actuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jour_actuel.Location = new System.Drawing.Point(137, 4);
+            this.jour_actuel.ForeColor = System.Drawing.Color.Black;
+            this.jour_actuel.Location = new System.Drawing.Point(137, 7);
             this.jour_actuel.Name = "jour_actuel";
             this.jour_actuel.Size = new System.Drawing.Size(19, 24);
             this.jour_actuel.TabIndex = 14;
@@ -169,7 +170,8 @@
             // 
             this.affichage_jour_actuel.AutoSize = true;
             this.affichage_jour_actuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.affichage_jour_actuel.Location = new System.Drawing.Point(17, 4);
+            this.affichage_jour_actuel.ForeColor = System.Drawing.Color.Black;
+            this.affichage_jour_actuel.Location = new System.Drawing.Point(17, 7);
             this.affichage_jour_actuel.Name = "affichage_jour_actuel";
             this.affichage_jour_actuel.Size = new System.Drawing.Size(120, 24);
             this.affichage_jour_actuel.TabIndex = 13;
@@ -222,7 +224,7 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(15, 100);
+            this.treeView1.Location = new System.Drawing.Point(9, 100);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Eating";
             treeNode1.Text = "Eating";
@@ -301,7 +303,7 @@
             treeNode26,
             treeNode34,
             treeNode35});
-            this.treeView1.Size = new System.Drawing.Size(163, 450);
+            this.treeView1.Size = new System.Drawing.Size(188, 450);
             this.treeView1.TabIndex = 1000;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -509,9 +511,9 @@
             this.panel1.Controls.Add(this.position);
             this.panel1.Controls.Add(this.X);
             this.panel1.Controls.Add(this.textBoxY);
-            this.panel1.Location = new System.Drawing.Point(185, 100);
+            this.panel1.Location = new System.Drawing.Point(202, 100);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(344, 450);
+            this.panel1.Size = new System.Drawing.Size(332, 450);
             this.panel1.TabIndex = 1003;
             // 
             // label2
@@ -568,9 +570,9 @@
             // 
             // btn_suppr
             // 
-            this.btn_suppr.Location = new System.Drawing.Point(12, 17);
+            this.btn_suppr.Location = new System.Drawing.Point(12, 10);
             this.btn_suppr.Name = "btn_suppr";
-            this.btn_suppr.Size = new System.Drawing.Size(112, 24);
+            this.btn_suppr.Size = new System.Drawing.Size(110, 40);
             this.btn_suppr.TabIndex = 36;
             this.btn_suppr.Text = "Supprimer l\'activité";
             this.btn_suppr.UseVisualStyleBackColor = true;
@@ -600,7 +602,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SaddleBrown;
+            this.panel2.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.affichage_jour_actuel);
             this.panel2.Controls.Add(this.jour_actuel);
@@ -624,9 +626,9 @@
             // 
             // btn_retourJour
             // 
-            this.btn_retourJour.Location = new System.Drawing.Point(754, 17);
+            this.btn_retourJour.Location = new System.Drawing.Point(760, 12);
             this.btn_retourJour.Name = "btn_retourJour";
-            this.btn_retourJour.Size = new System.Drawing.Size(118, 24);
+            this.btn_retourJour.Size = new System.Drawing.Size(110, 40);
             this.btn_retourJour.TabIndex = 1006;
             this.btn_retourJour.Text = "Retour à la journée";
             this.btn_retourJour.UseVisualStyleBackColor = true;

@@ -19,7 +19,7 @@ namespace Mars_Mission_Control_Dev
 
         public Form3(Form2 p, Calendrier calendrier, Journee jourSelec, Activite actiActuelle)
         {
-			this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             InitializeComponent();
 
@@ -118,7 +118,7 @@ namespace Mars_Mission_Control_Dev
             try
             {
                 datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
-                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));       
+                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
             }
             catch (FormatException ex)
             {
@@ -126,7 +126,7 @@ namespace Mars_Mission_Control_Dev
             }
             finally
             {
-               
+
             }
 
             // Vérification des Horaires
@@ -137,9 +137,9 @@ namespace Mars_Mission_Control_Dev
             else
             {
                 datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
-                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));                        
+                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
             }
-                      
+
 
             // Vérification des coordonnées
             double cooX, cooY;
@@ -152,7 +152,7 @@ namespace Mars_Mission_Control_Dev
             string nomActiTmp = "";
             if (treeView1.SelectedNode == null && actiActuelle == null)
             {
-                PossibleDeChanger = false;                
+                PossibleDeChanger = false;
             }
             else if (treeView1.SelectedNode == null)
             {
@@ -223,12 +223,12 @@ namespace Mars_Mission_Control_Dev
             pictureBox1.Refresh();
             MouseEventArgs eM = (MouseEventArgs)e;
             int taille = 50;
-            Image patate = Image.FromFile("../../../patate.png");
+            Image patate = Image.FromFile("../../../robot.png");
             patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
             Point p = new Point(eM.Location.X - taille / 2, eM.Location.Y - taille / 2);
 
-            double vraiCoordX = Math.Round(((((double)(eM.Location.X) / (double)(pictureBox1.Size.Width)) * 1095) - 700) / 5,2);
-            double vraiCoordY = Math.Round(((((double)(eM.Location.Y) / (double)(pictureBox1.Size.Height)) * 2053) - 1000) / 5,2);
+            double vraiCoordX = Math.Round(((((double)(eM.Location.X) / (double)(pictureBox1.Size.Width)) * 1095) - 700) / 5, 2);
+            double vraiCoordY = Math.Round(((((double)(eM.Location.Y) / (double)(pictureBox1.Size.Height)) * 2053) - 1000) / 5, 2);
 
             textBoxX.Text = string.Format("{0}", vraiCoordX);
             textBoxY.Text = string.Format("{0}", vraiCoordY);
@@ -281,7 +281,7 @@ namespace Mars_Mission_Control_Dev
         // Désactivation des éléments si la journée sélectionnée est passée
         private void desactiverJourPasses()
         {
-            
+
             // RAJOUTER CONDITION pour insérer activité jours < jourSelec
             if (this.calendrierActuel.JourActuel > this.jourSelec.NumJour)
             {

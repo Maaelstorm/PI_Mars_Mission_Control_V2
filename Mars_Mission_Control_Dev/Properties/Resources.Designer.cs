@@ -93,6 +93,16 @@ namespace Mars_Mission_Control_Dev.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifier58 {
+            get {
+                object obj = ResourceManager.GetObject("magnifier58", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nanedi_valles {
             get {
                 object obj = ResourceManager.GetObject("nanedi valles", resourceCulture);

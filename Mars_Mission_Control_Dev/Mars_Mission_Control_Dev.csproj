@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="nanedi_valles.jpg" />
+    <None Include="Resources\magnifier58.png" />
     <None Include="Resources\space-ship1.png" />
     <None Include="Resources\transport1066.png" />
     <None Include="Resources\space ship29.png" />

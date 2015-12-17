@@ -23,13 +23,13 @@ namespace Mars_Mission_Control_Dev
         private int Period
         {
             get { return _period; }
-            set 
-            { 
+            set
+            {
                 _period = value;
                 refreshBouttons();
             }
         }
-        
+
         private int posX = 0;
         private int posY = 0;
 
@@ -56,7 +56,7 @@ namespace Mars_Mission_Control_Dev
             get { return _listJourneeNumAffichage; }
             set { _listJourneeNumAffichage = value; }
         }
-        
+
         #endregion
 
 
@@ -65,52 +65,52 @@ namespace Mars_Mission_Control_Dev
         public Form1()
         {
 
-            for (int i=1; i<=500;i++)
+            for (int i = 1; i <= 500; i++)
             {
                 this.ListJourneeNumAffichage.Add(i);
             }
 
-			this.StartPosition = FormStartPosition.CenterScreen;
-                        
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             InitializeComponent();
-			
-			chargementXML();
+
+            chargementXML();
 
             Cal.JourDebutMission = new DateTime(2015, 12, 01);
-            
-            // conversionHeureMartienne A corriger pour que la ligne marche :
-             Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
 
-			// Si le calenderier n'a pas été chargé via la déserialisation
-			if (Cal.ListJournees.Count == 0)
-			{
-				// Création des jours
-				for (int i = 0; i < 500; i++)
-				{
-					Journee jour = new Journee(i+1);
-					
-					Cal.ListJournees.Add(jour);
+            // conversionHeureMartienne A corriger pour que la ligne marche :
+            Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
+
+            // Si le calenderier n'a pas été chargé via la déserialisation
+            if (Cal.ListJournees.Count == 0)
+            {
+                // Création des jours
+                for (int i = 0; i < 500; i++)
+                {
+                    Journee jour = new Journee(i + 1);
+
+                    Cal.ListJournees.Add(jour);
 
                     // NE marche pas à corriger
-					for (int j = 0; j < Cal.ListActiviteDefaut.Count; j++)
-					{
-						Cal.ListActiviteDefaut.ElementAt(j).HeureDebut.Jour = jour.NumJour;
-						Cal.ListActiviteDefaut.ElementAt(j).HeureFin.Jour = jour.NumJour;
-					}
+                    for (int j = 0; j < Cal.ListActiviteDefaut.Count; j++)
+                    {
+                        Cal.ListActiviteDefaut.ElementAt(j).HeureDebut.Jour = jour.NumJour;
+                        Cal.ListActiviteDefaut.ElementAt(j).HeureFin.Jour = jour.NumJour;
+                    }
 
-					// Ajout de toutes les activités par défaut à la journée
-					Cal.ListJournees.ElementAt(i).ListActiviteJournee.AddRange(Cal.ListActiviteDefaut);
-				}
+                    // Ajout de toutes les activités par défaut à la journée
+                    Cal.ListJournees.ElementAt(i).ListActiviteJournee.AddRange(Cal.ListActiviteDefaut);
+                }
 
-			}   //fin if Journees.count==0        
+            }   //fin if Journees.count==0        
 
 
-			// Création et gestion des boutons
+            // Création et gestion des boutons
             if (this.ListBtnJour == null)
             {
                 ListBtnJour = new List<Button>();
             }
-            for (int i = Period*50; i < (Period+1)*50; i++)
+            for (int i = Period * 50; i < (Period + 1) * 50; i++)
             {
                 Button btn_jour = new Button();
                 ListBtnJour.Add(btn_jour);
@@ -121,14 +121,14 @@ namespace Mars_Mission_Control_Dev
                 btn_jour.Text = btn_jour.Name = ListJourneeNumAffichage[i].ToString();
                 btn_jour.Location = new Point(50 + (posX * 80), 160 + (posY * 60));
                 posX++;
-				
+
                 //mise à jour des positions, si x depasse le nombre max d'elements en horizontal, on passe à la ligne suivante
                 if (posX >= 10)
                 {
                     posX = 0;
                     posY++;
                 }
-				
+
                 this.Controls.Add(btn_jour);
                 btn_jour.Click += jour_Click;//fonction de click sur le Btn_jour
 
@@ -158,49 +158,49 @@ namespace Mars_Mission_Control_Dev
         #region Méthodes
 
 
-		private void chargementXML()
-		{
-			//Chargement des informations générales :
-			//- Nom du fichier image (carte)
-			//- position de l'habitat
+        private void chargementXML()
+        {
+            //Chargement des informations générales :
+            //- Nom du fichier image (carte)
+            //- position de l'habitat
 
-			//- nombre et nom de chaque astronaute
-			//- hiérarchie des activité 
-			//- description des activités de la journée par défaut
-			
-			//if (File.Exists("./..//..//InfoGenerales.xml"))
-			//{
-			//    XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
-			//    using (StreamReader sr = new StreamReader("./..//..//InfoGenerales.xml"))
-			//    {
-			//        Cal = xs.Deserialize(sr) as Calendrier;
-			//        //Console.WriteLine("Interface de gestion du restaurant \"{0}\" - Bienvenue {1}", restaurant.Nom, restaurant.NomProprio);
-			//        //Console.WriteLine("\nAppuyez sur une touche pour continuer");
-			//        //Console.ReadKey();
-			//        sr.Close();
-			//    }
-			//}
+            //- nombre et nom de chaque astronaute
+            //- hiérarchie des activité 
+            //- description des activités de la journée par défaut
 
-			// Chargement de la liste d'activitée par défaut :
-			if (File.Exists("./..//..//ListeActiviteDefaut.xml"))
-			{
-				XmlSerializer test = new XmlSerializer(typeof(Calendrier));
-				FileStream xmlFichier = new FileStream("./..//..//ListeActiviteDefaut.xml", FileMode.Open, FileAccess.Read);
-				xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
-				Cal = (Calendrier)test.Deserialize(xmlFichier);
-				xmlFichier.Close();
-			}
-			
-			// Toutes les données sont sérialisées dans le même document 
-			if (File.Exists("./..//..//Calendrier.xml"))
-			{
-				XmlSerializer test = new XmlSerializer(typeof(Calendrier));
-				FileStream xmlFichier = new FileStream("./..//..//Calendrier.xml", FileMode.Open, FileAccess.Read);
-				xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
-				Cal = (Calendrier)test.Deserialize(xmlFichier);
-				xmlFichier.Close();
-			}
-		}
+            //if (File.Exists("./..//..//InfoGenerales.xml"))
+            //{
+            //    XmlSerializer xs = new XmlSerializer(typeof(Calendrier));
+            //    using (StreamReader sr = new StreamReader("./..//..//InfoGenerales.xml"))
+            //    {
+            //        Cal = xs.Deserialize(sr) as Calendrier;
+            //        //Console.WriteLine("Interface de gestion du restaurant \"{0}\" - Bienvenue {1}", restaurant.Nom, restaurant.NomProprio);
+            //        //Console.WriteLine("\nAppuyez sur une touche pour continuer");
+            //        //Console.ReadKey();
+            //        sr.Close();
+            //    }
+            //}
+
+            // Chargement de la liste d'activitée par défaut :
+            if (File.Exists("./..//..//ListeActiviteDefaut.xml"))
+            {
+                XmlSerializer test = new XmlSerializer(typeof(Calendrier));
+                FileStream xmlFichier = new FileStream("./..//..//ListeActiviteDefaut.xml", FileMode.Open, FileAccess.Read);
+                xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
+                Cal = (Calendrier)test.Deserialize(xmlFichier);
+                xmlFichier.Close();
+            }
+
+            // Toutes les données sont sérialisées dans le même document 
+            if (File.Exists("./..//..//Calendrier.xml"))
+            {
+                XmlSerializer test = new XmlSerializer(typeof(Calendrier));
+                FileStream xmlFichier = new FileStream("./..//..//Calendrier.xml", FileMode.Open, FileAccess.Read);
+                xmlFichier.Seek(0, System.IO.SeekOrigin.Begin);
+                Cal = (Calendrier)test.Deserialize(xmlFichier);
+                xmlFichier.Close();
+            }
+        }
 
         private void refreshBouttons()
         {
@@ -209,7 +209,7 @@ namespace Mars_Mission_Control_Dev
             for (int i = 0; i <= 49; i++)
             {
                 numBtn = Period * 50 + i;
-                if (numBtn <= ListJourneeNumAffichage.Count-1)
+                if (numBtn <= ListJourneeNumAffichage.Count - 1)
                 {
                     ListBtnJour[i].Visible = true;
                     ListBtnJour[i].Text = ListJourneeNumAffichage[numBtn].ToString();
@@ -221,16 +221,16 @@ namespace Mars_Mission_Control_Dev
                 numJour = int.Parse(ListBtnJour[i].Text);
                 //color                    
                 if (numJour < Cal.JourActuel)
-                    ListBtnJour[i].BackColor = Color.LightGray;
+                    ListBtnJour[i].BackColor = Color.Silver;
                 else if (numJour == Cal.JourActuel)
-                    ListBtnJour[i].BackColor = Color.LightBlue;
+                    ListBtnJour[i].BackColor = Color.LightSkyBlue;
                 else
-                    ListBtnJour[i].BackColor = Color.LightGreen;
+                    ListBtnJour[i].BackColor = Color.LimeGreen;
             }
         }
 
         private void jour_Click(object sender, EventArgs e)
-        {            
+        {
             int NumJour = int.Parse(((Button)sender).Text.ToString()) - 1;
 
             using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour)))
@@ -245,7 +245,7 @@ namespace Mars_Mission_Control_Dev
         private void joursSuivants_Click(object sender, EventArgs e)
         {
             //Button tmpBtn;
-            if (Period < ListJourneeNumAffichage.Count/50)
+            if (Period < ListJourneeNumAffichage.Count / 50)
             {
                 Period++;
             }
@@ -274,10 +274,10 @@ namespace Mars_Mission_Control_Dev
 
         }
 
-		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			this.Cal.enregistrer();
-		}
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Cal.enregistrer();
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -317,7 +317,7 @@ namespace Mars_Mission_Control_Dev
             {
                 nomAct.Add(actChecked.ToString());
             }
-            string rechercheCR= tb_rechercheCR.Text;
+            string rechercheCR = tb_rechercheCR.Text;
             bool actExt = cb_activiteExt.Checked;
             List<Journee> ListJourneeAffichage = Cal.rechercheJournee(nomAct, descAct, rechercheCR, jourDeb, jourFin);
             List<int> ListNumTmp = new List<int>();
@@ -328,7 +328,7 @@ namespace Mars_Mission_Control_Dev
             ListJourneeNumAffichage = ListNumTmp;
             refreshBouttons();
         }
-#endregion
+        #endregion
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
