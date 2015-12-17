@@ -140,16 +140,16 @@ namespace Mars_Mission_Control_Dev
                 else
                     btn_jour.BackColor = Color.LightGreen;
             }
-
+            // on ajoute les activités par défaut dans la liste à cocher
             string[] nomsActivites = new string[Cal.ListActiviteDefaut.Count];
             for (int i = 0; i < nomsActivites.Length; i++)
             {
                 nomsActivites[i] = Cal.ListActiviteDefaut[i].Nom;
             }
-            //foreach (string unNomAct in nomsActivites)
-            //{
-            //    this.clb_activites.Items.Add(unNomAct, true);
-            //}
+            foreach (string unNomAct in nomsActivites)
+            {
+                this.clb_activites.Items.Add(unNomAct, true);
+            }
             this.clb_activites.Items.AddRange(nomsActivites);
         }//end of constructor
 
@@ -205,16 +205,24 @@ namespace Mars_Mission_Control_Dev
         private void refreshBouttons()
         {
             int numBtn;
+            int numJour;
             for (int i = 0; i <= 49; i++)
             {
-                //on change la valeur des bouttons
                 numBtn = Period * 50 + i;
-                ListBtnJour[i].Text = ListJourneeNumAffichage[numBtn].ToString();
-
+                if (numBtn <= ListJourneeNumAffichage.Count-1)
+                {
+                    ListBtnJour[i].Visible = true;
+                    ListBtnJour[i].Text = ListJourneeNumAffichage[numBtn].ToString();
+                }
+                else
+                {
+                    ListBtnJour[i].Visible = false;
+                }
+                numJour = int.Parse(ListBtnJour[i].Text);
                 //color                    
-                if (numBtn < Cal.JourActuel)
+                if (numJour < Cal.JourActuel)
                     ListBtnJour[i].BackColor = Color.LightGray;
-                else if (numBtn == Cal.JourActuel)
+                else if (numJour == Cal.JourActuel)
                     ListBtnJour[i].BackColor = Color.LightBlue;
                 else
                     ListBtnJour[i].BackColor = Color.LightGreen;
@@ -237,7 +245,7 @@ namespace Mars_Mission_Control_Dev
         private void joursSuivants_Click(object sender, EventArgs e)
         {
             //Button tmpBtn;
-            if (Period < 9)
+            if (Period < ListJourneeNumAffichage.Count/50)
             {
                 Period++;
             }
@@ -304,7 +312,11 @@ namespace Mars_Mission_Control_Dev
             if (tb_jourFin.Text != string.Empty) jourFin = Int32.Parse(tb_jourFin.Text);
             else jourFin = Cal.ListJournees.Count;
             string descAct = tb_rechercheDescAct.Text;
-            string nomAct = clb_activites.CheckedItems.ToString();
+            List<string> nomAct = new List<string>();
+            foreach (object actChecked in clb_activites.CheckedItems)
+            {
+                nomAct.Add(actChecked.ToString());
+            }
             string rechercheCR= tb_rechercheCR.Text;
             bool actExt = cb_activiteExt.Checked;
             List<Journee> ListJourneeAffichage = Cal.rechercheJournee(nomAct, descAct, rechercheCR, jourDeb, jourFin);
@@ -327,6 +339,5 @@ namespace Mars_Mission_Control_Dev
         {
 
         }
-
     }
 }

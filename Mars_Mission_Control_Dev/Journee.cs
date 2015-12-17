@@ -129,11 +129,23 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_ActiviteConflit;
         }
-        public bool recherche(string motDesc, string nomAct)
+        public bool recherche(string motDesc, List<string> ListNomAct)
+        /* renvoie un bouléen true si une activité que l'on recherche est dans la liste des activités de la journée, false sinon
+         * motDesc : mot à rechercher dans la description de l'activité
+         * ListNomAct : nom de toutes les activités à rechercher */
         {
+            bool nomActVide, motDescActVide;
+            nomActVide = true;
+            if (ListNomAct.Count == 0) nomActVide = true;
+            else nomActVide = false;
+            if (motDesc == string.Empty) motDescActVide = true;
+            else motDescActVide = false;
             foreach (Activite uneActivite in ListActiviteJournee)
             {
-                if (uneActivite.Nom.Contains(nomAct) && uneActivite.Descritpion.Contains(motDesc)) return true;
+                foreach (string nomAct in ListNomAct)
+                {
+                    if ((uneActivite.Nom.Contains(nomAct) || nomActVide) && (uneActivite.Descritpion.Contains(motDesc) || motDescActVide)) return true;
+                }
             }
             return false;
         }

@@ -150,19 +150,33 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_ActiviteConflit;
         }
-        public List<Journee> rechercheJournee(string nomAct, string motDescAct, string motCompteRendu, int jourDeb, int jourFin)
+        public List<Journee> rechercheJournee(List<string> ListNomAct, string motsDescAct, string motsCompteRendu, int jourDeb, int jourFin)
+        /* renvoie une liste de toute les journée correspondant aux critères passés en arguments. Si un critère est non renseigné, on considère que toutes les journées
+         * correspondent au critère
+         * ListNomAct : les noms de toutes les activités que l'on cherche
+         * motsDescAct : une chaine de caractère que l'on cherche dans la description des activités. La chaine est recherchée d'un seul bloc. SI les mots sont dans le désordre ça ne marche pas
+         * motCompteRendu : une chaine de caractère que l'on cherche dans les compte-rendus des journées . La chaine est recherchée d'un seul bloc.
+         * jourDeb, jourFin : les numéros des jours qui bornent de la période de recherche. 
+         */
         {
-            List<Journee> ListPeriode = new List<Journee>();
-            //on parcours toutes les journées et on ajoute celle qui correspondent aux critères de recherche.
+            List<Journee> ListResult = new List<Journee>();
+            bool motCRVide;
+            if (motsCompteRendu == string.Empty) motCRVide = true;
+            else motCRVide = false;
+            bool bool_JdsPeriode, bool_CRcontains, bool_motAct;
+            //on parcours toutes les journées et on ajoute celle qui correspondent aux critères de recherche. Si un critère n'est pas remplit, 
+            // on considère que tous 
             foreach (Journee uneJournee in ListJournees)
             {
-                if ((uneJournee.NumJour > jourDeb || uneJournee.NumJour < jourFin) && uneJournee.CompteRendu.Contains(motCompteRendu) && uneJournee.recherche(motDescAct, nomAct))
+                bool_JdsPeriode = (uneJournee.NumJour > jourDeb && uneJournee.NumJour < jourFin);
+                bool_CRcontains = uneJournee.CompteRendu.Contains(motsCompteRendu);
+                bool_motAct = uneJournee.recherche(motsDescAct, ListNomAct);
+                if (bool_JdsPeriode && (bool_CRcontains || motCRVide) && bool_motAct)
                 {
-                    ListPeriode.Add(uneJournee);
+                    ListResult.Add(uneJournee);
                 }
             }
-            return ListPeriode;
-
+            return ListResult;
         }
         public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
         {
