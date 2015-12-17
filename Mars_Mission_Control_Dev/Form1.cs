@@ -18,8 +18,8 @@ namespace Mars_Mission_Control_Dev
 
         #region Accesseurs & Propriétés
 
-
-        private int _period = 0;
+        // une période = 50 jours
+        private int _period = 0; 
         private int Period
         {
             get { return _period; }
@@ -30,12 +30,13 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+        //  pour les positions des boutons
         private int posX = 0;
-        private int posY = 0;
+        private int posY = 0; 
 
-        public Button btn_jour { get; set; }
-
-
+        // Un bouton = une journée
+        public Button btn_jour { get; set; } 
+        
         private List<Button> _listBtnJour;
         public List<Button> ListBtnJour
         {
@@ -49,8 +50,8 @@ namespace Mars_Mission_Control_Dev
             get { return _cal; }
             set { _cal = value; }
         }
+        
         private List<int> _listJourneeNumAffichage = new List<int>();
-
         public List<int> ListJourneeNumAffichage
         {
             get { return _listJourneeNumAffichage; }
@@ -59,13 +60,12 @@ namespace Mars_Mission_Control_Dev
 
         #endregion
 
-
         #region Constructeur
 
         public Form1()
         {
-
-            for (int i = 1; i <= 500; i++)
+            // création des 500 numéros pour l'affichage des journées
+            for (int i = 1; i <= 500; i++) 
             {
                 this.ListJourneeNumAffichage.Add(i);
             }
@@ -206,6 +206,7 @@ namespace Mars_Mission_Control_Dev
         {
             int numBtn;
             int numJour;
+            // au passage à une autre période, on renomme les boutons
             for (int i = 0; i <= 49; i++)
             {
                 numBtn = Period * 50 + i;
@@ -219,7 +220,7 @@ namespace Mars_Mission_Control_Dev
                     ListBtnJour[i].Visible = false;
                 }
                 numJour = int.Parse(ListBtnJour[i].Text);
-                //color                    
+                // couleurs des boutons liés à la journée en cours                   
                 if (numJour < Cal.JourActuel)
                     ListBtnJour[i].BackColor = Color.Silver;
                 else if (numJour == Cal.JourActuel)
@@ -228,12 +229,12 @@ namespace Mars_Mission_Control_Dev
                     ListBtnJour[i].BackColor = Color.LimeGreen;
             }
         }
-
+        
         private void jour_Click(object sender, EventArgs e)
         {
-            int NumJour = int.Parse(((Button)sender).Text.ToString()) - 1;
+            int NumJour = int.Parse(((Button)sender).Text.ToString()) - 1; // on récupère le numéro du jour sur lequel l'utilisateur a cliqué
 
-            using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour)))
+            using (var f2 = new Form2(this.Cal, this.Cal.ListJournees.ElementAt(NumJour))) // on ouvre le Form2 de ce jour précis
             {
                 f2.FormClosing += delegate { this.Show(); };
                 this.Hide();
@@ -241,9 +242,9 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        private void joursSuivants_Click(object sender, EventArgs e)
+        private void joursSuivants_Click(object sender, EventArgs e) 
         {
-            //Button tmpBtn;
+            // on passe à la période suivante (50 jours suivants)
             if (Period < ListJourneeNumAffichage.Count / 50)
             {
                 Period++;
@@ -252,7 +253,7 @@ namespace Mars_Mission_Control_Dev
 
         private void joursPrecedents_Click(object sender, EventArgs e)
         {
-            //Button tmpBtn;
+            // on passe à la période précédente (50 jours précédents)
             if (Period > 0)
             {
                 Period--;
@@ -274,7 +275,7 @@ namespace Mars_Mission_Control_Dev
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Cal.enregistrer();
+            this.Cal.enregistrer(); // on enregistre les modifications apportées au calendrier
         }
 
         private void tb_rechercheDescAct_TextChanged(object sender, EventArgs e)
