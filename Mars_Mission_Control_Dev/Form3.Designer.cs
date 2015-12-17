@@ -305,7 +305,6 @@
             treeNode35});
             this.treeView1.Size = new System.Drawing.Size(188, 450);
             this.treeView1.TabIndex = 1000;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // H_debut
             // 

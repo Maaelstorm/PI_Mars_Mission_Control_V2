@@ -156,7 +156,9 @@ namespace Mars_Mission_Control_Dev
             f3.Dispose();
         }
 
-        private void BtnActi_MouseHover(object sender, EventArgs e) // au passage de la souris sur le bouton, on affi
+        private void BtnActi_MouseHover(object sender, EventArgs e) // au passage de la souris sur le bouton, on affiche les informations liées à l'activité
+                                                                    // permet de contrer les problèmes de lecture en cas d'activité courte où le texte n'est 
+                                                                    // pas lisible sur le bouton
         {
             label_nom_acti.Text = ((Button)sender).Text.ToString();
 
@@ -164,14 +166,14 @@ namespace Mars_Mission_Control_Dev
             tb_Description.Text = act.Descritpion;
         }
 
-        private void BtnActi_Leave(object sender, EventArgs e)
+        private void BtnActi_Leave(object sender, EventArgs e) // remet un texte par défaut quand la souris quitte le bouton
         {
             tb_Description.Text = "Survolez une activité pour voir son descriptif.";
             label_nom_acti.Text = "Activité";
         }
 
 
-        private void inserer_Click(object sender, EventArgs e)
+        private void inserer_Click(object sender, EventArgs e) // création d'activité → form3
         {
             Form3 f3 = new Form3(this, this.calendrierActuel, this.jourSelec, null);
             DialogResult dialogresult = f3.ShowDialog();

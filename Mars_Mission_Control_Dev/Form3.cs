@@ -14,7 +14,7 @@ namespace Mars_Mission_Control_Dev
         public Form2 parent;
         public Journee jourSelec;
         public Activite actiActuelle;
-        public System.Drawing.Graphics graphics;
+        public System.Drawing.Graphics graphics; 
         private Calendrier calendrierActuel;
 
         public Form3(Form2 p, Calendrier calendrier, Journee jourSelec, Activite actiActuelle)
@@ -25,7 +25,7 @@ namespace Mars_Mission_Control_Dev
 
             this.treeView1.ExpandAll();
 
-            if (actiActuelle != null)
+            if (actiActuelle != null) // mets les caractéristiques d'une activité dans le cas d'un chargement d'activité
             {
                 this.H_debut.SelectedItem = actiActuelle.HeureDebut.Heure.ToString();
                 this.M_debut.SelectedItem = actiActuelle.HeureDebut.Minute.ToString();
@@ -38,7 +38,7 @@ namespace Mars_Mission_Control_Dev
             }
             else
             {
-                btn_suppr.Enabled = false;
+                btn_suppr.Enabled = false; // laisse les champs vide pour une création d'activité
             }
             this.jour_actuel.Text = jourSelec.NumJour.ToString();
             this.jourSelec = jourSelec;
@@ -59,7 +59,7 @@ namespace Mars_Mission_Control_Dev
         }
 
         #region methode de verification
-        private bool verifieDonnees(List<Activite> listActi, Activite tmpActi)
+        private bool verifieDonnees(List<Activite> listActi, Activite tmpActi) // vérifie que l'emplacement horaire est libre pour la création de l'activité
         {
             if ((tmpActi.HeureDebut.Heure * 60 + tmpActi.HeureDebut.Minute) > (tmpActi.HeureFin.Heure * 60 + tmpActi.HeureFin.Minute))
             {
@@ -93,7 +93,7 @@ namespace Mars_Mission_Control_Dev
             return res;
         }
 
-        private bool testCoord(string coord, out double valeur, int coordMin, int coordMax)
+        private bool testCoord(string coord, out double valeur, int coordMin, int coordMax) // vérifie que les coordonées rentrées sont cohérentes
         {
             bool res = double.TryParse(coord, out valeur);
             if (coordMin > valeur || coordMax < valeur)
@@ -101,7 +101,7 @@ namespace Mars_Mission_Control_Dev
             return res;
         }
 
-        private bool testTreeView()
+        private bool testTreeView() // annule la sélection automatique d'un noeud dans le treeView
         {
             return treeView1.SelectedNode == null || treeView1.SelectedNode.Nodes.Count == 0;
         }
@@ -115,7 +115,7 @@ namespace Mars_Mission_Control_Dev
             Dates datesDebut = null;
             Dates datesFin = null;
 
-            try
+            try // vérifie qu'on renseigne bien des horaires pour l'activité
             {
                 datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
                 datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
@@ -129,7 +129,7 @@ namespace Mars_Mission_Control_Dev
 
             }
 
-            // Vérification des Horaires
+            // vérifie qu'on renseigne bien des horaires
             if (H_debut.Text == "" || M_debut.Text == "" || H_fin.Text == "" || M_fin.Text == "")
             {
                 PossibleDeChanger = false;
@@ -141,7 +141,7 @@ namespace Mars_Mission_Control_Dev
             }
 
 
-            // Vérification des coordonnées
+            // vérifie qu'on renseigne bien des coordonnées
             double cooX, cooY;
             if (!testCoord(textBoxX.Text, out cooX, -1000, 1000))
                 PossibleDeChanger = false;
@@ -150,17 +150,17 @@ namespace Mars_Mission_Control_Dev
 
             Coordonnees coo = new Coordonnees(nom_position.Text, new Point((int)cooX, (int)cooY));
             string nomActiTmp = "";
-            if (treeView1.SelectedNode == null && actiActuelle == null)
+            if (treeView1.SelectedNode == null && actiActuelle == null) // vérifie qu'on sélectionne bien un type d'activité
             {
                 PossibleDeChanger = false;
             }
-            else if (treeView1.SelectedNode == null)
+            else if (treeView1.SelectedNode == null) // par défaut, mais le type de l'activité sélectionné si c'est un chargement d'activité
             {
                 nomActiTmp = actiActuelle.Nom;
             }
             else
             {
-                nomActiTmp = treeView1.SelectedNode.Text;
+                nomActiTmp = treeView1.SelectedNode.Text; // autrement, met ls noeud sélectionné par l'utilisateur
             }
 
             Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, jourSelec.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
@@ -168,18 +168,18 @@ namespace Mars_Mission_Control_Dev
             if (!verifieDonnees(jourSelec.ListActiviteJournee, tmpActi))
                 PossibleDeChanger = false;
 
-            // Vérification le treeView
+            // Vérification du treeView
             if (!testTreeView())
                 PossibleDeChanger = false;
 
-            if (PossibleDeChanger)
+            if (PossibleDeChanger) // ajoute ou modifie l'activité
             {
                 jourSelec.ListActiviteJournee.Remove(actiActuelle);
                 jourSelec.ListActiviteJournee.Add(tmpActi);
                 actiActuelle = tmpActi;
                 this.Close();
             }
-            else
+            else // si un des critères n'est pas vérifié, un pop-up annonce la modification ou création impossible et renvoie au form de modification
             {
                 PopUp_ModifImpossible popup = new PopUp_ModifImpossible();
                 DialogResult dialogresult = popup.ShowDialog();
@@ -187,12 +187,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            // labelActi.Text = treeView1.SelectedNode.Text;
-        }
-
-        private void H_debut_SelectedIndexChanged(object sender, EventArgs e)
+        private void H_debut_SelectedIndexChanged(object sender, EventArgs e) // enlève la valeur "50" des minutes si on sélectionne l'heure "24"
         {
             if (((ComboBox)sender).SelectedIndex == 24)
             {
@@ -205,7 +200,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        private void H_fin_SelectedIndexChanged(object sender, EventArgs e)
+        private void H_fin_SelectedIndexChanged(object sender, EventArgs e) // enlève la valeur "50" des minutes si on sélectionne l'heure "24"
         {
             if (((ComboBox)sender).SelectedIndex == 24)
             {
@@ -218,29 +213,29 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e) // Gestion de la carte
         {
             pictureBox1.Refresh();
-            MouseEventArgs eM = (MouseEventArgs)e;
+            MouseEventArgs eM = (MouseEventArgs)e; // événement lié à la souris
             int taille = 50;
-            Image patate = Image.FromFile("../../../robot.png");
-            patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
-            Point p = new Point(eM.Location.X - taille / 2, eM.Location.Y - taille / 2);
+            Image robot = Image.FromFile("../../../robot.png"); // charge l'image de robot qui apparaitra sur la carte au clic
+            robot = (Image)(new Bitmap(robot, new Size(taille, taille))); 
+            Point p = new Point(eM.Location.X - taille / 2, eM.Location.Y - taille / 2); // récupère la coordonnée du clic de la souris sur l'image
 
-            double vraiCoordX = Math.Round(((((double)(eM.Location.X) / (double)(pictureBox1.Size.Width)) * 1095) - 700) / 5, 2);
-            double vraiCoordY = Math.Round(((((double)(eM.Location.Y) / (double)(pictureBox1.Size.Height)) * 2053) - 1000) / 5, 2);
+            double vraiCoordX = Math.Round(((((double)(eM.Location.X) / (double)(pictureBox1.Size.Width)) * 1095) - 700) / 5, 2); // convertion des pixels en mètres
+            double vraiCoordY = Math.Round(((((double)(eM.Location.Y) / (double)(pictureBox1.Size.Height)) * 2053) - 1000) / 5, 2); // convertion des pixels en mètres
 
-            textBoxX.Text = string.Format("{0}", vraiCoordX);
+            textBoxX.Text = string.Format("{0}", vraiCoordX); // affiche les coordonnées en mètres calculées dans les textBox
             textBoxY.Text = string.Format("{0}", vraiCoordY);
-            graphics.DrawImage(patate, p);
+            graphics.DrawImage(robot, p); // affiche le robot au point cliqué
         }
 
-        private void btn_annuler_Click(object sender, EventArgs e)
+        private void btn_annuler_Click(object sender, EventArgs e) // ferme le form sans modification
         {
             this.Close();
         }
 
-        private void btn_suppr_Click(object sender, EventArgs e)
+        private void btn_suppr_Click(object sender, EventArgs e) // retire l'activité de la liste d'activités
         {
             jourSelec.ListActiviteJournee.Remove(actiActuelle);
             this.Close();
@@ -271,9 +266,8 @@ namespace Mars_Mission_Control_Dev
             //graphics.DrawImage(patate, p);
         }
         #endregion
-
-        // Désactivation des éléments si la journée sélectionnée est passée
-        private void desactiverJourPasses()
+        
+        private void desactiverJourPasses() // Désactivation des éléments si la journée sélectionnée est passée
         {
 
             // RAJOUTER CONDITION pour insérer activité jours < jourSelec
@@ -293,7 +287,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        private void btn_retourJour_Click(object sender, EventArgs e)
+        private void btn_retourJour_Click(object sender, EventArgs e) // retourne à la journée sans modification
         {
             this.Close();
         }
