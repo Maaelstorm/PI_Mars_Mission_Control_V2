@@ -272,12 +272,6 @@ namespace Mars_Mission_Control_Dev
         }
         #endregion
 
-        private void niveau3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
         // Désactivation des éléments si la journée sélectionnée est passée
         private void desactiverJourPasses()
         {
@@ -303,11 +297,5 @@ namespace Mars_Mission_Control_Dev
         {
             this.Close();
         }
-
-        private void M_debut_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

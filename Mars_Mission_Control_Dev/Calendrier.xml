@@ -11348,39 +11348,6 @@
       <CompteRendu />
       <ListeActivitees>
         <Activite>
-          <Nom>Sleeping</Nom>
-          <HeureDebut>
-            <Jour>500</Jour>
-            <Heure>0</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>500</Jour>
-            <Heure>7</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom>Base</Nom>
-            <Point>
-              <X>0</X>
-              <Y>0</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description>Repos</Description>
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
-        <Activite>
           <Nom>Eating</Nom>
           <HeureDebut>
             <Jour>500</Jour>
@@ -11595,6 +11562,39 @@
             <Point>
               <X>0</X>
               <Y>0</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description>Repos</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
+          <Nom>Sleeping</Nom>
+          <HeureDebut>
+            <Jour>43</Jour>
+            <Heure>0</Heure>
+            <Minute>0</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>43</Jour>
+            <Heure>3</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom />
+            <Point>
+              <X>47</X>
+              <Y>13</Y>
             </Point>
             <Descriptif />
           </Coordonnees>

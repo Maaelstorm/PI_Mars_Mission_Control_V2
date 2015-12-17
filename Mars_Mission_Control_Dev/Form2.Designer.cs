@@ -171,7 +171,6 @@
             this.tb_Description.Size = new System.Drawing.Size(225, 52);
             this.tb_Description.TabIndex = 44;
             this.tb_Description.Text = "";
-            this.tb_Description.TextChanged += new System.EventHandler(this.tb_Description_TextChanged);
             // 
             // tb_compteRendu
             // 
@@ -188,7 +187,6 @@
             this.panelActivites.Name = "panelActivites";
             this.panelActivites.Size = new System.Drawing.Size(261, 844);
             this.panelActivites.TabIndex = 46;
-            this.panelActivites.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites_Paint);
             // 
             // tabControl1
             // 

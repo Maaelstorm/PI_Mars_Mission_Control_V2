@@ -135,11 +135,6 @@ namespace Mars_Mission_Control_Dev
             return ListBtnActi;
         }
 
-        private void tb_Description_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
             jourSelec.CompteRendu = tb_compteRendu.Text;
@@ -176,13 +171,6 @@ namespace Mars_Mission_Control_Dev
 
 
         #endregion
-
-        private void panelActivites_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
 
 
         #region en test

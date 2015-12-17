@@ -132,7 +132,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 131);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cb_activitesExt
             // 
@@ -146,7 +145,6 @@
             this.cb_activitesExt.Name = "cb_activitesExt";
             this.cb_activitesExt.Size = new System.Drawing.Size(865, 329);
             this.cb_activitesExt.TabIndex = 8;
-            this.cb_activitesExt.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // tb_rechercheCR
             // 
@@ -267,7 +265,6 @@
             this.label4.Size = new System.Drawing.Size(179, 18);
             this.label4.TabIndex = 1;
             this.label4.Text = "Sélectionner une période :";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 

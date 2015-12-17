@@ -358,7 +358,6 @@
             this.M_debut.Name = "M_debut";
             this.M_debut.Size = new System.Drawing.Size(47, 21);
             this.M_debut.TabIndex = 24;
-            this.M_debut.SelectedIndexChanged += new System.EventHandler(this.M_debut_SelectedIndexChanged);
             // 
             // H_fin
             // 
@@ -487,7 +486,6 @@
             this.niveau3.Name = "niveau3";
             this.niveau3.Size = new System.Drawing.Size(544, 670);
             this.niveau3.TabIndex = 34;
-            this.niveau3.Paint += new System.Windows.Forms.PaintEventHandler(this.niveau3_Paint);
             // 
             // panel1
             // 
