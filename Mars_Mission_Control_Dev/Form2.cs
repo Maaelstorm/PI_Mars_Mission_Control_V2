@@ -219,6 +219,11 @@ namespace Mars_Mission_Control_Dev
 
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
         #region en test
         

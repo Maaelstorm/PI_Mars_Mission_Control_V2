@@ -135,7 +135,7 @@ namespace Mars_Mission_Control_Dev
                 else if (int.Parse(btn_jour.Name) == Cal.JourActuel)
                     btn_jour.BackColor = Color.LightBlue;
                 else
-                    btn_jour.BackColor = Color.LightGreen;
+                    btn_jour.BackColor = Color.LimeGreen;
             }
             // on ajoute les activités par défaut dans la liste à cocher
             string[] nomsActivites = new string[Cal.ListActiviteDefaut.Count];
