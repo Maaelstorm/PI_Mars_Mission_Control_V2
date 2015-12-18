@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Calendrier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <JourDebutMission>2015-12-01T00:00:00</JourDebutMission>
-  <JourActuel>16</JourActuel>
+  <JourActuel>17</JourActuel>
   <ListeJournees>
     <Journee>
       <NumJour>1</NumJour>
@@ -8918,39 +8918,6 @@
       <CompteRendu />
       <ListeActivitees>
         <Activite>
-          <Nom>Sleeping</Nom>
-          <HeureDebut>
-            <Jour>500</Jour>
-            <Heure>0</Heure>
-            <Minute>0</Minute>
-          </HeureDebut>
-          <HeureFin>
-            <Jour>500</Jour>
-            <Heure>7</Heure>
-            <Minute>0</Minute>
-          </HeureFin>
-          <Coordonnees>
-            <Nom>Base</Nom>
-            <Point>
-              <X>0</X>
-              <Y>0</Y>
-            </Point>
-            <Descriptif />
-          </Coordonnees>
-          <Description>Repos</Description>
-          <Spationautes>
-            <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
-            </Spationaute>
-          </Spationautes>
-        </Activite>
-        <Activite>
           <Nom>Eating</Nom>
           <HeureDebut>
             <Jour>500</Jour>
@@ -9169,6 +9136,105 @@
             <Descriptif />
           </Coordonnees>
           <Description>Repos</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
+          <Nom>Health control</Nom>
+          <HeureDebut>
+            <Jour>34</Jour>
+            <Heure>0</Heure>
+            <Minute>10</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>34</Jour>
+            <Heure>1</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom>jhk</Nom>
+            <Point>
+              <X>-101</X>
+              <Y>-22</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description>jkl</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
+          <Nom>Cleaning</Nom>
+          <HeureDebut>
+            <Jour>34</Jour>
+            <Heure>1</Heure>
+            <Minute>30</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>34</Jour>
+            <Heure>2</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom>jk</Nom>
+            <Point>
+              <X>28</X>
+              <Y>-44</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description>hjk</Description>
+          <Spationautes>
+            <Spationaute>
+              <Nom>Neil Armstrong</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Edwin Aldrin</Nom>
+            </Spationaute>
+            <Spationaute>
+              <Nom>Pete Conrad</Nom>
+            </Spationaute>
+          </Spationautes>
+        </Activite>
+        <Activite>
+          <Nom>LSS air system</Nom>
+          <HeureDebut>
+            <Jour>34</Jour>
+            <Heure>3</Heure>
+            <Minute>0</Minute>
+          </HeureDebut>
+          <HeureFin>
+            <Jour>34</Jour>
+            <Heure>4</Heure>
+            <Minute>0</Minute>
+          </HeureFin>
+          <Coordonnees>
+            <Nom>uk</Nom>
+            <Point>
+              <X>-52</X>
+              <Y>-21</Y>
+            </Point>
+            <Descriptif />
+          </Coordonnees>
+          <Description>hjk</Description>
           <Spationautes>
             <Spationaute>
               <Nom>Neil Armstrong</Nom>
@@ -9725,7 +9791,7 @@
     </Journee>
     <Journee>
       <NumJour>37</NumJour>
-      <CompteRendu />
+      <CompteRendu>blablabla la la la</CompteRendu>
       <ListeActivitees>
         <Activite>
           <Nom>Sleeping</Nom>

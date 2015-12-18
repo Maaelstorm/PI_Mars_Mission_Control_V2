@@ -361,7 +361,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(894, 750);
+            this.ClientSize = new System.Drawing.Size(894, 862);
             this.Controls.Add(this.btn_leaveApp);
             this.Controls.Add(this.cb_activitesExt);
             this.Controls.Add(this.panel1);

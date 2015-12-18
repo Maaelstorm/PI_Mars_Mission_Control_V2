@@ -67,6 +67,7 @@ namespace Mars_Mission_Control_Dev
             }
 
             // calcule les écarts qu'il devra y avoir entre deux activités, sur le même principe que la taille d'une activité
+
             _listEcart.Add(((jourSelec.ListActiviteJournee[0].HeureDebut.Heure * 60 + jourSelec.ListActiviteJournee[0].HeureDebut.Minute) - 0) / 10 * _taille10minPixel); // écart entre Heure 0 et première activité
 
             // puis on ajoute les écarts à la liste
