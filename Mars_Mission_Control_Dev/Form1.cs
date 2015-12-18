@@ -34,9 +34,6 @@ namespace Mars_Mission_Control_Dev
         private int posX = 0;
         private int posY = 0; 
 
-        // Un bouton = une journée
-        public Button btn_jour { get; set; } 
-        
         private List<Button> _listBtnJour;
         public List<Button> ListBtnJour
         {
@@ -64,7 +61,8 @@ namespace Mars_Mission_Control_Dev
 
         public Form1()
         {
-            // Fonction recherche : création des 500 numéros pour l'affichage des journées
+            // ListJourneeNumAffichage contient les numéros de toutes les journées affichées. Par défaut, on lui donne toutes les valeurs de 1 à 500.
+            // On lui associe de nouvelles valeurs lorsqu'on utilise la fonction recherche.
             for (int i = 1; i <= 500; i++) 
             {
                 this.ListJourneeNumAffichage.Add(i);
@@ -263,6 +261,7 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void btn_goRecherche_Click(object sender, EventArgs e)
+            // modifie la liste des journées à afficher en fonction des critère rentrés dans le formulaire de recherche.
         {
             int jourDeb, jourFin;
             if (tb_jourDebut.Text != string.Empty) jourDeb = Int32.Parse(tb_jourDebut.Text);
@@ -284,6 +283,11 @@ namespace Mars_Mission_Control_Dev
                 ListNumTmp.Add(uneJournee.NumJour);
             }
             ListJourneeNumAffichage = ListNumTmp;
+            // on affiche à l'utilisateur un texte disant qu'il est dans une recherche, ainsi que le bouton pour revenir
+            // au calendrier de base
+            btn_retour_recherche.Visible = true;
+            lb_resultatsRecherche.Visible = true;
+            //on change l'affichage des boutons.
             refreshBouttons();
         }
         #endregion
@@ -303,6 +307,25 @@ namespace Mars_Mission_Control_Dev
         {
             this.Cal.enregistrer();
             this.Close();
+        }
+
+        private void btn_retour_recherche_Click(object sender, EventArgs e)
+        {
+            this.btn_retour_recherche.Visible = false;
+            lb_resultatsRecherche.Visible = false;
+            //on change la liste des journes à afficher pour lui redonner sa valeur par défaut
+            List<int> ListProv = new List<int>();
+            for (int i=1;i<=500;i++)
+            {
+                ListProv.Add(i);
+            }
+            ListJourneeNumAffichage=ListProv;
+            refreshBouttons();
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
