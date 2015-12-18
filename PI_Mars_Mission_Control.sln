@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI_Mars_Mission_Control", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mars_Mission_Control_Dev", "Mars_Mission_Control_Dev\Mars_Mission_Control_Dev.csproj", "{AEBDE880-E81C-4BCA-B03C-BF93B8B65B99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCalendrier", "TestCalendrier\TestCalendrier.csproj", "{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25DAB0F9-CD51-4287-BBAB-77FD19FB5E8E}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
@@ -49,16 +47,6 @@ Global
 		{AEBDE880-E81C-4BCA-B03C-BF93B8B65B99}.Release|Mixed Platforms.Build.0 = Release|x86
 		{AEBDE880-E81C-4BCA-B03C-BF93B8B65B99}.Release|x86.ActiveCfg = Release|x86
 		{AEBDE880-E81C-4BCA-B03C-BF93B8B65B99}.Release|x86.Build.0 = Release|x86
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{E3E6B0FB-8525-412C-93FD-27ACDDFB1CB4}.Release|x86.ActiveCfg = Release|Any CPU
 		{795E0FA1-0CD8-4A76-8EFE-77A9704531E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{795E0FA1-0CD8-4A76-8EFE-77A9704531E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{795E0FA1-0CD8-4A76-8EFE-77A9704531E9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

@@ -188,6 +188,7 @@
             this.panelActivites1.Name = "panelActivites1";
             this.panelActivites1.Size = new System.Drawing.Size(261, 844);
             this.panelActivites1.TabIndex = 46;
+            this.panelActivites1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActivites1_Paint);
             // 
             // tabSpatio
             // 
@@ -199,6 +200,7 @@
             this.tabSpatio.SelectedIndex = 0;
             this.tabSpatio.Size = new System.Drawing.Size(323, 842);
             this.tabSpatio.TabIndex = 47;
+            this.tabSpatio.SelectedIndexChanged += new System.EventHandler(this.switchTab);
             // 
             // tabPage1
             // 

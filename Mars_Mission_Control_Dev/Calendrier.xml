@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Calendrier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <JourDebutMission>2015-12-16T18:00:00</JourDebutMission>
-  <JourActuel>1</JourActuel>
+  <JourDebutMission>2015-10-09T00:00:00</JourDebutMission>
+  <JourActuel>68</JourActuel>
   <ListeJournees>
     <Journee>
       <NumJour>1</NumJour>
@@ -18153,9 +18153,6 @@
           <Description>Repas</Description>
           <Spationautes>
             <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
               <Nom>Edwin Aldrin</Nom>
             </Spationaute>
             <Spationaute>
@@ -18187,9 +18184,6 @@
           <Spationautes>
             <Spationaute>
               <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Edwin Aldrin</Nom>
             </Spationaute>
             <Spationaute>
               <Nom>Pete Conrad</Nom>
@@ -18390,13 +18384,7 @@
           <Description>Repos</Description>
           <Spationautes>
             <Spationaute>
-              <Nom>Neil Armstrong</Nom>
-            </Spationaute>
-            <Spationaute>
               <Nom>Edwin Aldrin</Nom>
-            </Spationaute>
-            <Spationaute>
-              <Nom>Pete Conrad</Nom>
             </Spationaute>
           </Spationautes>
         </Activite>

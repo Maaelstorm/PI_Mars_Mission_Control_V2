@@ -2,13 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-using System.Collections.Generic;
-using System.Drawing;
-
 namespace TestProject
-{
-    
-    
+{        
     /// <summary>
     ///Classe de test pour CalendrierTest, destinée à contenir tous
     ///les tests unitaires CalendrierTest
@@ -16,8 +11,6 @@ namespace TestProject
     [TestClass()]
     public class CalendrierTest
     {
-
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -35,45 +28,7 @@ namespace TestProject
                 testContextInstance = value;
             }
         }
-
-        private Calendrier _leCalendrier;
-        public Calendrier LeCalendrier
-        {
-            get { return _leCalendrier; }
-            set { _leCalendrier = value; }
-        }
-
-        public void initialiseCalendrier()
-        {
-            //List<Activite> listeActivite = new List<Activite>();
-            //List<Journee> listeJournee = new List<Journee>();
-            //List<Spationaute> listeSpationaute = new List<Spationaute>();
-            //listeSpationaute.Add(new Spationaute("bobby"));
-            //listeSpationaute.Add(new Spationaute("John"));
-            //listeSpationaute.Add(new Spationaute("William"));
-
-            ////on remplit les journees
-            //for (int i = 0; i < 20; i++)
-            //{
-            //    listeJournee.Add(new Journee(i, listeSpationaute));
-            //}
-            //listeJournee[2].ListActiviteJournee[1].Lieu.Position = new Point(30, 40);
-            //listeJournee[2].ListActiviteJournee[1].Nom = "Test 1";
-
-            //listeJournee[5].ListActiviteJournee[3].Lieu.Position = new Point(20, 50);
-            //listeJournee[5].ListActiviteJournee[3].Nom = "Test 2";
-            
-            //listeJournee[10].ListActiviteJournee[6].Lieu.Position = new Point(-15, 70);
-            //listeJournee[10].ListActiviteJournee[6].Nom = "Test 3";
-
-            //listeJournee[17].ListActiviteJournee[17].Lieu.Position = new Point(-60, -10);
-            //listeJournee[17].ListActiviteJournee[17].Nom = "Test 4";
-
-            LeCalendrier = new Calendrier();
-
-
-        }
-
+                
 
         #region Attributs de tests supplémentaires
         // 

@@ -102,9 +102,11 @@ namespace Mars_Mission_Control_Dev
             //this.ListActiviteDefaut = listeActivites;
             this.ListSpationaute = listeSpationautes;
         }
-        #endregion
 
-        #region	Méthodes
+#endregion
+
+
+#region	Méthodes
 
         public void enregistrer()
         //enregistre le calendrier dans un fichier xml
@@ -156,41 +158,8 @@ namespace Mars_Mission_Control_Dev
                 }
             }
             return ListResult;
-        }/*
-        public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
-        //renvoie la liste de toute les activités comprises entre les deux dates passées en argument.
-        {
-            List<Activite> ListPeriode = new List<Activite>();
-            foreach (Journee uneJournee in ListJournees)
-            {
-                ListPeriode.AddRange(uneJournee.selectionPeriode(dateDeb, dateFin));
-            }
-            return ListPeriode;
         }
-        public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
-        //renvoie toutes les activités comprises entre les deux dates passées en argument dont le nom contient la chaine mot.
-        {
-            List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
-            List<Activite> listResult = listPeriode.FindAll(
-            delegate(Activite act)
-            {
-                return (act.Nom == mot);
-            }
-            );
-            return listResult;
-        }
-        public List<Activite> rechercheDescActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
-        //renvoie toutes les activités comprises entre les deux dates passées en argument dont la description contient la chaine mot.
-        {
-            List<Activite> listPeriode = selectionPeriodeAct(dateDeb, dateFin);
-            List<Activite> listResult = listPeriode.FindAll(
-            delegate(Activite act)
-            {
-                return (act.Descritpion.Contains(mot));
-            }
-            );
-            return listResult;
-        }*/
+
 
         public List<Journee> selectionPeriodeJour(Dates dateDeb, Dates dateFin)
         // renvoie toutes les journees comprises entre les deux dates passées en argument
@@ -239,6 +208,7 @@ namespace Mars_Mission_Control_Dev
             return activitesDehors;
         }
 
+
         public Dates conversionHeureMartienne(DateTime HeureTerre)
         //converti une date terrestre en une date martienndu calendrier de la mission martienne
         {
@@ -251,6 +221,7 @@ namespace Mars_Mission_Control_Dev
             return DateM;
         }
 
-        #endregion
+#endregion
+
     }
 }

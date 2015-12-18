@@ -259,19 +259,30 @@ namespace Mars_Mission_Control_Dev
             //}
             //        }
 
-            
-            jourSelec.ListActiviteJournee.Find(delegate(Activite act)
-            {
-                for (int i = 0; i < act.ListSpationaute.Count; i++)
+            for (int i = 0; i < jourSelec.ListActiviteJournee.Count; i++)
+			{
+			    for (int j = 0; j < this.actiActuelle.ListSpationaute.Count; j++)
                 {
-                    if (act.ListSpationaute.ElementAt(i).Nom == this._nomSpatio)
+                    if (this.actiActuelle.ListSpationaute.ElementAt(j).Nom == this._nomSpatio)
                     {
-                        act.ListSpationaute.RemoveAt(i);
+                        this.actiActuelle.ListSpationaute.RemoveAt(j);
                     }
                 }
-                return true;
-            }
-            );
+			}
+
+
+            //jourSelec.ListActiviteJournee.Find(delegate(Activite act == this.actiActuelle)
+            //{
+            //    for (int i = 0; i < act.ListSpationaute.Count; i++)
+            //    {
+            //        if (act.ListSpationaute.ElementAt(i).Nom == this._nomSpatio)
+            //        {
+            //            act.ListSpationaute.RemoveAt(i);
+            //        }
+            //    }
+            //    return true;
+            //}
+            //);
 
 
             //jourSelec.ListActiviteJournee.Remove(actiActuelle);
@@ -346,6 +357,11 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void descriptif_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
         }
