@@ -89,7 +89,7 @@ namespace Mars_Mission_Control_Dev
         }
         public override string ToString()
         {
-            return String.Format("{0}:{1}", this.Heure, this.Minute);
+            return String.Format("Jour {0} - {1} heures & {2} minutes",this.Jour, this.Heure, this.Minute);
         }
         #endregion
 

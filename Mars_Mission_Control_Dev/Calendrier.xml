@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Calendrier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <JourDebutMission>2015-12-01T00:00:00</JourDebutMission>
-  <JourActuel>17</JourActuel>
+  <JourDebutMission>2015-12-16T18:00:00</JourDebutMission>
+  <JourActuel>1</JourActuel>
   <ListeJournees>
     <Journee>
       <NumJour>1</NumJour>

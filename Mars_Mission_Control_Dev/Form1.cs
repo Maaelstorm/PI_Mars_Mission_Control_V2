@@ -74,9 +74,15 @@ namespace Mars_Mission_Control_Dev
 
             chargementXML();
 
-            Cal.JourDebutMission = new DateTime(2015, 12, 01);
+            //Cal.JourDebutMission = new DateTime(2015, 01, 01);
                        
-            Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
+            //Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
+
+
+            Cal.JourDebutMission = new DateTime(2015, 12, 16, 18, 00, 00);
+
+            Cal.JourActuel = Cal.conversionHeureMartienne(new DateTime(2015, 12, 18, 18, 00, 00)).Jour;
+
 
             // Si le calenderier n'a pas été chargé via la déserialisation
             if (Cal.ListJournees.Count == 0)

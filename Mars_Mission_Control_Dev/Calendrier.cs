@@ -244,9 +244,9 @@ namespace Mars_Mission_Control_Dev
         {
             TimeSpan DureeMissionT = HeureTerre - JourDebutMission;
             int DureeMissionMin = (DureeMissionT.Days * 24 + DureeMissionT.Hours) * 60 + DureeMissionT.Minutes;
-            int minuteM = DureeMissionMin % (60 * 24+40)%60;
-            int heureM = DureeMissionMin % (60*24+40)/60;
-            int joursM = DureeMissionMin / (24 * 60+40);
+            int minuteM = DureeMissionMin % (60 * 24 + 40) % 60;
+            int heureM = DureeMissionMin % (60 * 24 + 40) / 60;
+            int joursM = DureeMissionMin / (24 * 60 + 40);
             Dates DateM = new Dates(joursM, heureM, minuteM);
             return DateM;
         }

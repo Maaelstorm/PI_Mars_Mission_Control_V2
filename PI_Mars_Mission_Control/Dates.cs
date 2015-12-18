@@ -64,17 +64,7 @@ namespace Mars_Mission_Control_Dev
         }
         #endregion
         #region methodes
-        public Dates ecart(Dates date)
-        {
-            int date1=(this.Jour*24+this.Heure)*60+this.Minute;
-            int date2=(date.Jour*24+date.Heure)*60+date.Minute;
-            int ecartMin = Math.Abs(date1 - date2);
-            int ecartJour = ecartMin/(60*24);
-            int ecartH = (ecartMin/60)%24;
-            ecartMin = ecartMin%60;
-            Dates ecartTps = new Dates(ecartJour, ecartH, ecartMin);
-            return ecartTps;
-        }
+
         public override string ToString()
         {
             return String.Format("{0}:{1}", this.Heure, this.Minute);
