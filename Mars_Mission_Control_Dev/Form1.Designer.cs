@@ -247,6 +247,7 @@
             this.cb_activiteExt.TabIndex = 21;
             this.cb_activiteExt.Text = "Activité en extérieur";
             this.cb_activiteExt.UseVisualStyleBackColor = true;
+            this.cb_activiteExt.Visible = false;
             this.cb_activiteExt.CheckedChanged += new System.EventHandler(this.cb_activiteExt_CheckedChanged);
             // 
             // lb_jourFin
@@ -275,6 +276,7 @@
             this.clb_activites.Name = "clb_activites";
             this.clb_activites.Size = new System.Drawing.Size(183, 4);
             this.clb_activites.TabIndex = 18;
+            this.clb_activites.Visible = false;
             this.clb_activites.SelectedIndexChanged += new System.EventHandler(this.clb_activites_SelectedIndexChanged);
             // 
             // btn_goRecherche

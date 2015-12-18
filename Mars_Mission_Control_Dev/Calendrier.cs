@@ -129,31 +129,6 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        public List<Activite> checkActivite(Activite newActivite)
-        //verifie si l'activite newActivite empiète sur d'autres. Renvoie une liste contenant toutes les activités posant conflit.
-        {
-            List<Activite> lst_ActiviteConflit = new List<Activite>();
-            foreach (Journee uneJournee in ListJournees)
-            {
-                foreach (Activite uneActivite in uneJournee.ListActiviteJournee)
-                {
-                    if (uneActivite.HeureFin.Heure >= newActivite.HeureDebut.Heure && uneActivite.HeureFin.Minute >= newActivite.HeureDebut.Minute)
-                    {
-                        foreach (Spationaute spatioOccupe in uneActivite.ListSpationaute)
-                        {
-                            foreach (Spationaute spatioNewActivite in newActivite.ListSpationaute)
-                            {
-                                if (spatioNewActivite == spatioOccupe)
-                                {
-                                    lst_ActiviteConflit.Add(uneActivite);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return lst_ActiviteConflit;
-        }
         public List<Journee> rechercheJournee(List<string> ListNomAct, string motsDescAct, string motsCompteRendu, int jourDeb, int jourFin)
         /* renvoie une liste de toute les journée correspondant aux critères passés en arguments. Si un critère est non renseigné, on considère que toutes les journées
          * correspondent au critère
@@ -181,7 +156,7 @@ namespace Mars_Mission_Control_Dev
                 }
             }
             return ListResult;
-        }
+        }/*
         public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
         //renvoie la liste de toute les activités comprises entre les deux dates passées en argument.
         {
@@ -215,7 +190,7 @@ namespace Mars_Mission_Control_Dev
             }
             );
             return listResult;
-        }
+        }*/
 
         public List<Journee> selectionPeriodeJour(Dates dateDeb, Dates dateFin)
         // renvoie toutes les journees comprises entre les deux dates passées en argument
