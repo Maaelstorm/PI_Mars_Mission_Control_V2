@@ -305,7 +305,6 @@ namespace Mars_Mission_Control_Dev
         
         private void btn_leaveApp_Click(object sender, EventArgs e)
         {
-            this.Cal.enregistrer();
             this.Close();
         }
 
@@ -329,6 +328,16 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void cb_activiteExt_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

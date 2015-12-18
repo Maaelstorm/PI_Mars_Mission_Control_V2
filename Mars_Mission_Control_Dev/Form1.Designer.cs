@@ -62,12 +62,13 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Broadway", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 5);
+            this.label1.Font = new System.Drawing.Font("Broadway", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(315, 42);
+            this.label1.Size = new System.Drawing.Size(409, 55);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mars Calendar\r\n";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button2
             // 
@@ -95,7 +96,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(62, 54);
+            this.label2.Location = new System.Drawing.Point(532, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 24);
             this.label2.TabIndex = 4;
@@ -104,17 +105,18 @@
             // listBox1
             // 
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Items.AddRange(new object[] {
             "Neil Armstrong",
             "Edwin Aldrin",
             "Pete Conrad"});
-            this.listBox1.Location = new System.Drawing.Point(237, 50);
+            this.listBox1.Location = new System.Drawing.Point(717, 23);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 48);
+            this.listBox1.Size = new System.Drawing.Size(120, 60);
             this.listBox1.TabIndex = 6;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -166,7 +168,7 @@
             // tb_rechercheCR
             // 
             this.tb_rechercheCR.Location = new System.Drawing.Point(20, 89);
-            this.tb_rechercheCR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_rechercheCR.Margin = new System.Windows.Forms.Padding(2);
             this.tb_rechercheCR.Name = "tb_rechercheCR";
             this.tb_rechercheCR.Size = new System.Drawing.Size(183, 20);
             this.tb_rechercheCR.TabIndex = 23;
@@ -174,7 +176,7 @@
             // tb_rechercheDescAct
             // 
             this.tb_rechercheDescAct.Location = new System.Drawing.Point(20, 36);
-            this.tb_rechercheDescAct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_rechercheDescAct.Margin = new System.Windows.Forms.Padding(2);
             this.tb_rechercheDescAct.Name = "tb_rechercheDescAct";
             this.tb_rechercheDescAct.Size = new System.Drawing.Size(183, 20);
             this.tb_rechercheDescAct.TabIndex = 20;
@@ -230,7 +232,7 @@
             // tb_jourDebut
             // 
             this.tb_jourDebut.Location = new System.Drawing.Point(110, 44);
-            this.tb_jourDebut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_jourDebut.Margin = new System.Windows.Forms.Padding(2);
             this.tb_jourDebut.Name = "tb_jourDebut";
             this.tb_jourDebut.Size = new System.Drawing.Size(24, 20);
             this.tb_jourDebut.TabIndex = 3;
@@ -239,7 +241,7 @@
             // 
             this.cb_activiteExt.AutoSize = true;
             this.cb_activiteExt.Location = new System.Drawing.Point(22, 89);
-            this.cb_activiteExt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_activiteExt.Margin = new System.Windows.Forms.Padding(2);
             this.cb_activiteExt.Name = "cb_activiteExt";
             this.cb_activiteExt.Size = new System.Drawing.Size(119, 17);
             this.cb_activiteExt.TabIndex = 21;
@@ -260,7 +262,7 @@
             // tb_jourFin
             // 
             this.tb_jourFin.Location = new System.Drawing.Point(110, 64);
-            this.tb_jourFin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_jourFin.Margin = new System.Windows.Forms.Padding(2);
             this.tb_jourFin.Name = "tb_jourFin";
             this.tb_jourFin.Size = new System.Drawing.Size(24, 20);
             this.tb_jourFin.TabIndex = 5;
@@ -269,7 +271,7 @@
             // 
             this.clb_activites.FormattingEnabled = true;
             this.clb_activites.Location = new System.Drawing.Point(21, 109);
-            this.clb_activites.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clb_activites.Margin = new System.Windows.Forms.Padding(2);
             this.clb_activites.Name = "clb_activites";
             this.clb_activites.Size = new System.Drawing.Size(183, 4);
             this.clb_activites.TabIndex = 18;
@@ -279,7 +281,7 @@
             // 
             this.btn_goRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_goRecherche.Location = new System.Drawing.Point(738, 47);
-            this.btn_goRecherche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_goRecherche.Margin = new System.Windows.Forms.Padding(2);
             this.btn_goRecherche.Name = "btn_goRecherche";
             this.btn_goRecherche.Size = new System.Drawing.Size(123, 50);
             this.btn_goRecherche.TabIndex = 12;
@@ -316,7 +318,7 @@
             // 
             this.btn_retour_recherche.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_retour_recherche.Location = new System.Drawing.Point(764, 127);
-            this.btn_retour_recherche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_retour_recherche.Margin = new System.Windows.Forms.Padding(2);
             this.btn_retour_recherche.Name = "btn_retour_recherche";
             this.btn_retour_recherche.Size = new System.Drawing.Size(74, 24);
             this.btn_retour_recherche.TabIndex = 11;

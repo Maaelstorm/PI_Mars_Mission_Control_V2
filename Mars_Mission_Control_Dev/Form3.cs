@@ -17,7 +17,9 @@ namespace Mars_Mission_Control_Dev
         public System.Drawing.Graphics graphics; 
         private Calendrier calendrierActuel;
 
-        public Form3(Form2 p, Calendrier calendrier, Journee jourSelec, Activite actiActuelle)
+        private string _nomSpatio;
+
+        public Form3(Form2 p, Calendrier calendrier, Journee jourSelec, Activite actiActuelle, string nomSpatio)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -46,10 +48,13 @@ namespace Mars_Mission_Control_Dev
 
             this.calendrierActuel = calendrier;
 
+            this._nomSpatio = nomSpatio;
+
             parent = p;
 
             graphics = pictureBox1.CreateGraphics();
 
+            changerCouleurJours();
             desactiverJourPasses();
         }
 
@@ -237,7 +242,39 @@ namespace Mars_Mission_Control_Dev
 
         private void btn_suppr_Click(object sender, EventArgs e) // retire l'activité de la liste d'activités
         {
-            jourSelec.ListActiviteJournee.Remove(actiActuelle);
+            //List<Activite> listResult = listPeriode.FindAll(
+            //delegate(Activite act)
+            //{
+            //    return (act.Nom == mot);
+            //}
+            //);
+
+            //        for
+
+            //        foreach (var item in jourSelec.ListActiviteJournee)
+            //        {
+            //            if (item.ListSpationaute)
+            //{
+
+            //}
+            //        }
+
+            
+            jourSelec.ListActiviteJournee.Find(delegate(Activite act)
+            {
+                for (int i = 0; i < act.ListSpationaute.Count; i++)
+                {
+                    if (act.ListSpationaute.ElementAt(i).Nom == this._nomSpatio)
+                    {
+                        act.ListSpationaute.RemoveAt(i);
+                    }
+                }
+                return true;
+            }
+            );
+
+
+            //jourSelec.ListActiviteJournee.Remove(actiActuelle);
             this.Close();
         }
 
@@ -287,9 +324,30 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+        private void changerCouleurJours()
+        {
+            // Label Jour sélectionné
+            if (int.Parse(jour_actuel.Text) < calendrierActuel.JourActuel)
+                panel2.BackColor = Color.LightGray;
+            else if (int.Parse(jour_actuel.Text) == calendrierActuel.JourActuel)
+                panel2.BackColor = Color.LightBlue;
+            else
+                panel2.BackColor = Color.LimeGreen;
+        }
+
         private void btn_retourJour_Click(object sender, EventArgs e) // retourne à la journée sans modification
         {
             this.Close();
+        }
+
+        private void niveau3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void descriptif_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

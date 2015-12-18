@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_prevDay = new System.Windows.Forms.Button();
+            this.btn_nextDay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tagjourSelec = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -40,8 +40,8 @@
             this.label_nom_acti = new System.Windows.Forms.Label();
             this.tb_Description = new System.Windows.Forms.RichTextBox();
             this.tb_compteRendu = new System.Windows.Forms.RichTextBox();
-            this.panelActivites = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.panelActivites1 = new System.Windows.Forms.Panel();
+            this.tabSpatio = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.horaires = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -54,7 +54,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.tabControl1.SuspendLayout();
+            this.tabSpatio.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.horaires)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -67,27 +67,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_prevDay
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(380, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Jour précédent";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.jourPrecedent_Click);
+            this.btn_prevDay.BackColor = System.Drawing.Color.Transparent;
+            this.btn_prevDay.Location = new System.Drawing.Point(380, 14);
+            this.btn_prevDay.Name = "btn_prevDay";
+            this.btn_prevDay.Size = new System.Drawing.Size(100, 40);
+            this.btn_prevDay.TabIndex = 5;
+            this.btn_prevDay.Text = "Jour précédent";
+            this.btn_prevDay.UseVisualStyleBackColor = false;
+            this.btn_prevDay.Click += new System.EventHandler(this.jourPrecedent_Click);
             // 
-            // button2
+            // btn_nextDay
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(693, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 40);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Jour suivant";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.jourSuivant_Click);
+            this.btn_nextDay.BackColor = System.Drawing.Color.Transparent;
+            this.btn_nextDay.Location = new System.Drawing.Point(693, 14);
+            this.btn_nextDay.Name = "btn_nextDay";
+            this.btn_nextDay.Size = new System.Drawing.Size(100, 40);
+            this.btn_nextDay.TabIndex = 4;
+            this.btn_nextDay.Text = "Jour suivant";
+            this.btn_nextDay.UseVisualStyleBackColor = false;
+            this.btn_nextDay.Click += new System.EventHandler(this.jourSuivant_Click);
             // 
             // label1
             // 
@@ -104,7 +104,7 @@
             // 
             this.tagjourSelec.AutoSize = true;
             this.tagjourSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tagjourSelec.Location = new System.Drawing.Point(130, 7);
+            this.tagjourSelec.Location = new System.Drawing.Point(136, 7);
             this.tagjourSelec.Name = "tagjourSelec";
             this.tagjourSelec.Size = new System.Drawing.Size(19, 24);
             this.tagjourSelec.TabIndex = 7;
@@ -182,28 +182,28 @@
             this.tb_compteRendu.Text = "";
             this.tb_compteRendu.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
-            // panelActivites
+            // panelActivites1
             // 
-            this.panelActivites.Location = new System.Drawing.Point(51, 6);
-            this.panelActivites.Name = "panelActivites";
-            this.panelActivites.Size = new System.Drawing.Size(261, 844);
-            this.panelActivites.TabIndex = 46;
+            this.panelActivites1.Location = new System.Drawing.Point(51, 6);
+            this.panelActivites1.Name = "panelActivites1";
+            this.panelActivites1.Size = new System.Drawing.Size(261, 844);
+            this.panelActivites1.TabIndex = 46;
             // 
-            // tabControl1
+            // tabSpatio
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(323, 842);
-            this.tabControl1.TabIndex = 47;
+            this.tabSpatio.Controls.Add(this.tabPage1);
+            this.tabSpatio.Controls.Add(this.tabPage2);
+            this.tabSpatio.Controls.Add(this.tabPage3);
+            this.tabSpatio.Location = new System.Drawing.Point(12, 12);
+            this.tabSpatio.Name = "tabSpatio";
+            this.tabSpatio.SelectedIndex = 0;
+            this.tabSpatio.Size = new System.Drawing.Size(323, 842);
+            this.tabSpatio.TabIndex = 47;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.horaires);
-            this.tabPage1.Controls.Add(this.panelActivites);
+            this.tabPage1.Controls.Add(this.panelActivites1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -334,21 +334,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(894, 862);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabSpatio);
             this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_prevDay);
+            this.Controls.Add(this.btn_nextDay);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabSpatio.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.horaires)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -367,8 +368,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_prevDay;
+        private System.Windows.Forms.Button btn_nextDay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label tagjourSelec;
         private System.Windows.Forms.Button button3;
@@ -378,8 +379,8 @@
         private System.Windows.Forms.Label label_nom_acti;
         private System.Windows.Forms.RichTextBox tb_Description;
         private System.Windows.Forms.RichTextBox tb_compteRendu;
-        private System.Windows.Forms.Panel panelActivites;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Panel panelActivites1;
+        private System.Windows.Forms.TabControl tabSpatio;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panelActivites2;
