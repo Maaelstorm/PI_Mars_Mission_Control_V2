@@ -185,19 +185,12 @@ namespace Mars_Mission_Control_Dev
         public List<Activite> selectionPeriodeAct(Dates dateDeb, Dates dateFin)
         //renvoie la liste de toute les activités comprises entre les deux dates passées en argument.
         {
-            List<Activite> lst_periode = new List<Activite>();
+            List<Activite> ListPeriode = new List<Activite>();
             foreach (Journee uneJournee in ListJournees)
             {
-                foreach (Activite uneActivite in uneJournee.ListActiviteJournee)
-                {
-                    //on regarde si l'activite est dans l'intervalle de temps qui nous intéresse
-                    if (uneActivite.HeureFin.diff(dateDeb) < 0 || uneActivite.HeureFin.diff(dateFin) > 0)
-                    {
-                        lst_periode.Add(uneActivite);
-                    }
-                }
+                ListPeriode.AddRange(uneJournee.selectionPeriode(dateDeb, dateFin));
             }
-            return lst_periode;
+            return ListPeriode;
         }
         public List<Activite> rechercheNomActivitePeriode(string mot, Dates dateDeb, Dates dateFin)
         //renvoie toutes les activités comprises entre les deux dates passées en argument dont le nom contient la chaine mot.

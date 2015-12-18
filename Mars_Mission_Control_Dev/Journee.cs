@@ -161,6 +161,8 @@ namespace Mars_Mission_Control_Dev
             return listResult;
 		}
         public List<Activite> rechercheDescActivite(string mot, Dates dateDeb, Dates dateFin)
+            /*Renvoie la liste des activités dont la description contient "mot" dans la plage horaire sélectionnée. 
+             * Elle est appelée par la méthode rechercheDescActivitePeriode de calendrier. */
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
 			List<Activite> listResult = listPeriode.FindAll(
@@ -172,8 +174,9 @@ namespace Mars_Mission_Control_Dev
             return listResult;
 		}
 
-
 		public List<Activite> selectionPeriode(Dates HeureDeb, Dates HeureFin)
+            /*renvoie la liste des activités dans la plage horaire donnée par les deux dates martiennes 
+             * passées en argument. Cette méthode est appelée par la méthode Calendrier.selectionPeriode*/
 		{
 			List<Activite> lst_periode = new List<Activite>();
 			foreach (Activite uneActivite in ListActiviteJournee)
@@ -185,7 +188,6 @@ namespace Mars_Mission_Control_Dev
 			}
 			return lst_periode;
 		}
-
 
 		public List<Activite> selectionPeriode(int HeureDeb, int HeureFin)
 		{
@@ -205,7 +207,7 @@ namespace Mars_Mission_Control_Dev
 			);
 			return listResult;
 		}
-		public List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
+		private List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
 		{
 			var datesDuree = this.int2Dates(HeureDeb, HeureFin);
 			return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);

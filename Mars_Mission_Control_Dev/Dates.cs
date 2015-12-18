@@ -36,12 +36,13 @@ namespace Mars_Mission_Control_Dev
             get { return _minute; }
             set
             {
-                if (value >= 0 && value <= 60) _minute = value;
+                if (value >= 0 && value <= 59) _minute = value;
                 else throw new System.ArgumentException("la valeur de la minute doit être comprise entre 0 et 60 inclus");
             }
         }
 
         #endregion
+
         #region constructeurs
         public Dates()
         {
@@ -65,11 +66,12 @@ namespace Mars_Mission_Control_Dev
             Minute = laMinute;
         }
         #endregion
+
         #region methodes
-        public int diff(Dates date)
-            /*retourne la différence en minutes entre la date this et la date passée en argument.
-             * si la date en argument est posterieure à la date this, la valeur de retour est positive. 
-             * Elle est négative sinon*/
+        private int diff(Dates date)
+        /*retourne la différence en minutes avec date passée en argument.
+         * si la date en argument est posterieure, la valeur de retour est positive. 
+         * Elle est négative sinon*/
         {
             int date1 = (this.Jour * 24 + this.Heure) * 60 + this.Minute;
             int date2 = (date.Jour * 24 + date.Heure) * 60 + date.Minute;
@@ -90,5 +92,6 @@ namespace Mars_Mission_Control_Dev
             return String.Format("{0}:{1}", this.Heure, this.Minute);
         }
         #endregion
+
     }
 }
