@@ -287,7 +287,7 @@ namespace Mars_Mission_Control_Dev
             // au calendrier de base
             btn_retour_recherche.Visible = true;
             lb_resultatsRecherche.Visible = true;
-            //on change l'affichage des boutons.
+            //on raffraichit l'affichage des boutons.
             refreshBouttons();
         }
         #endregion
@@ -324,6 +324,11 @@ namespace Mars_Mission_Control_Dev
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_activiteExt_CheckedChanged(object sender, EventArgs e)
         {
 
         }

@@ -35,7 +35,6 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cb_activitesExt = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lb_rechercheDsAct = new System.Windows.Forms.Label();
             this.tb_rechercheCR = new System.Windows.Forms.TextBox();
@@ -50,13 +49,11 @@
             this.tb_jourFin = new System.Windows.Forms.TextBox();
             this.clb_activites = new System.Windows.Forms.CheckedListBox();
             this.btn_goRecherche = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.btn_leaveApp = new System.Windows.Forms.Button();
             this.lb_resultatsRecherche = new System.Windows.Forms.Label();
             this.btn_retour_recherche = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.cb_activitesExt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +73,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(960, 572);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(173, 49);
             this.button2.TabIndex = 2;
@@ -89,7 +86,7 @@
             this.btn_jour_precedents.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_jour_precedents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_jour_precedents.Location = new System.Drawing.Point(779, 572);
-            this.btn_jour_precedents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_jour_precedents.Margin = new System.Windows.Forms.Padding(4);
             this.btn_jour_precedents.Name = "btn_jour_precedents";
             this.btn_jour_precedents.Size = new System.Drawing.Size(173, 49);
             this.btn_jour_precedents.TabIndex = 3;
@@ -119,7 +116,7 @@
             "Edwin Aldrin",
             "Pete Conrad"});
             this.listBox1.Location = new System.Drawing.Point(316, 62);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(160, 40);
             this.listBox1.TabIndex = 6;
@@ -132,7 +129,7 @@
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1159, 130);
             this.panel1.TabIndex = 7;
@@ -141,28 +138,14 @@
             // cb_activitesExt
             // 
             this.cb_activitesExt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cb_activitesExt.Controls.Add(this.pictureBox3);
             this.cb_activitesExt.Controls.Add(this.panel3);
             this.cb_activitesExt.Controls.Add(this.panel2);
             this.cb_activitesExt.Controls.Add(this.btn_goRecherche);
-            this.cb_activitesExt.Controls.Add(this.label3);
-            this.cb_activitesExt.Location = new System.Drawing.Point(17, 641);
-            this.cb_activitesExt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_activitesExt.Location = new System.Drawing.Point(17, 637);
+            this.cb_activitesExt.Margin = new System.Windows.Forms.Padding(4);
             this.cb_activitesExt.Name = "cb_activitesExt";
-            this.cb_activitesExt.Size = new System.Drawing.Size(1153, 404);
+            this.cb_activitesExt.Size = new System.Drawing.Size(1153, 196);
             this.cb_activitesExt.TabIndex = 8;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Mars_Mission_Control_Dev.Properties.Resources.magnifier58;
-            this.pictureBox3.InitialImage = global::Mars_Mission_Control_Dev.Properties.Resources.magnifier58;
-            this.pictureBox3.Location = new System.Drawing.Point(229, 10);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(56, 52);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 26;
-            this.pictureBox3.TabStop = false;
             // 
             // panel3
             // 
@@ -171,17 +154,17 @@
             this.panel3.Controls.Add(this.tb_rechercheCR);
             this.panel3.Controls.Add(this.tb_rechercheDescAct);
             this.panel3.Controls.Add(this.lb_rechercheCR);
-            this.panel3.Location = new System.Drawing.Point(427, 86);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(427, 13);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(550, 283);
+            this.panel3.Size = new System.Drawing.Size(550, 171);
             this.panel3.TabIndex = 25;
             // 
             // lb_rechercheDsAct
             // 
             this.lb_rechercheDsAct.AutoSize = true;
             this.lb_rechercheDsAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lb_rechercheDsAct.Location = new System.Drawing.Point(27, 25);
+            this.lb_rechercheDsAct.Location = new System.Drawing.Point(27, 19);
             this.lb_rechercheDsAct.Name = "lb_rechercheDsAct";
             this.lb_rechercheDsAct.Size = new System.Drawing.Size(374, 24);
             this.lb_rechercheDsAct.TabIndex = 19;
@@ -189,20 +172,18 @@
             // 
             // tb_rechercheCR
             // 
-            this.tb_rechercheCR.Location = new System.Drawing.Point(27, 209);
+            this.tb_rechercheCR.Location = new System.Drawing.Point(27, 110);
             this.tb_rechercheCR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_rechercheCR.Multiline = true;
             this.tb_rechercheCR.Name = "tb_rechercheCR";
-            this.tb_rechercheCR.Size = new System.Drawing.Size(243, 43);
+            this.tb_rechercheCR.Size = new System.Drawing.Size(243, 22);
             this.tb_rechercheCR.TabIndex = 23;
             // 
             // tb_rechercheDescAct
             // 
-            this.tb_rechercheDescAct.Location = new System.Drawing.Point(27, 74);
+            this.tb_rechercheDescAct.Location = new System.Drawing.Point(27, 44);
             this.tb_rechercheDescAct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_rechercheDescAct.Multiline = true;
             this.tb_rechercheDescAct.Name = "tb_rechercheDescAct";
-            this.tb_rechercheDescAct.Size = new System.Drawing.Size(243, 43);
+            this.tb_rechercheDescAct.Size = new System.Drawing.Size(243, 22);
             this.tb_rechercheDescAct.TabIndex = 20;
             this.tb_rechercheDescAct.TextChanged += new System.EventHandler(this.tb_rechercheDescAct_TextChanged);
             // 
@@ -210,7 +191,7 @@
             // 
             this.lb_rechercheCR.AutoSize = true;
             this.lb_rechercheCR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lb_rechercheCR.Location = new System.Drawing.Point(27, 160);
+            this.lb_rechercheCR.Location = new System.Drawing.Point(27, 80);
             this.lb_rechercheCR.Name = "lb_rechercheCR";
             this.lb_rechercheCR.Size = new System.Drawing.Size(425, 24);
             this.lb_rechercheCR.TabIndex = 22;
@@ -226,10 +207,10 @@
             this.panel2.Controls.Add(this.lb_jourFin);
             this.panel2.Controls.Add(this.tb_jourFin);
             this.panel2.Controls.Add(this.clb_activites);
-            this.panel2.Location = new System.Drawing.Point(20, 86);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(20, 13);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(378, 283);
+            this.panel2.Size = new System.Drawing.Size(378, 171);
             this.panel2.TabIndex = 24;
             // 
             // label4
@@ -245,7 +226,7 @@
             // lb_jourDebut
             // 
             this.lb_jourDebut.AutoSize = true;
-            this.lb_jourDebut.Location = new System.Drawing.Point(27, 74);
+            this.lb_jourDebut.Location = new System.Drawing.Point(27, 54);
             this.lb_jourDebut.Name = "lb_jourDebut";
             this.lb_jourDebut.Size = new System.Drawing.Size(104, 17);
             this.lb_jourDebut.TabIndex = 2;
@@ -253,7 +234,7 @@
             // 
             // tb_jourDebut
             // 
-            this.tb_jourDebut.Location = new System.Drawing.Point(147, 74);
+            this.tb_jourDebut.Location = new System.Drawing.Point(147, 54);
             this.tb_jourDebut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_jourDebut.Name = "tb_jourDebut";
             this.tb_jourDebut.Size = new System.Drawing.Size(31, 22);
@@ -262,18 +243,19 @@
             // cb_activiteExt
             // 
             this.cb_activiteExt.AutoSize = true;
-            this.cb_activiteExt.Location = new System.Drawing.Point(29, 187);
+            this.cb_activiteExt.Location = new System.Drawing.Point(29, 109);
             this.cb_activiteExt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_activiteExt.Name = "cb_activiteExt";
-            this.cb_activiteExt.Size = new System.Drawing.Size(162, 21);
+            this.cb_activiteExt.Size = new System.Drawing.Size(154, 21);
             this.cb_activiteExt.TabIndex = 21;
-            this.cb_activiteExt.Text = "Activité en extérieure";
+            this.cb_activiteExt.Text = "Activité en extérieur";
             this.cb_activiteExt.UseVisualStyleBackColor = true;
+            this.cb_activiteExt.CheckedChanged += new System.EventHandler(this.cb_activiteExt_CheckedChanged);
             // 
             // lb_jourFin
             // 
             this.lb_jourFin.AutoSize = true;
-            this.lb_jourFin.Location = new System.Drawing.Point(27, 123);
+            this.lb_jourFin.Location = new System.Drawing.Point(27, 79);
             this.lb_jourFin.Name = "lb_jourFin";
             this.lb_jourFin.Size = new System.Drawing.Size(83, 17);
             this.lb_jourFin.TabIndex = 4;
@@ -281,7 +263,7 @@
             // 
             // tb_jourFin
             // 
-            this.tb_jourFin.Location = new System.Drawing.Point(147, 123);
+            this.tb_jourFin.Location = new System.Drawing.Point(147, 79);
             this.tb_jourFin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_jourFin.Name = "tb_jourFin";
             this.tb_jourFin.Size = new System.Drawing.Size(31, 22);
@@ -290,35 +272,24 @@
             // clb_activites
             // 
             this.clb_activites.FormattingEnabled = true;
-            this.clb_activites.Location = new System.Drawing.Point(29, 220);
+            this.clb_activites.Location = new System.Drawing.Point(28, 134);
             this.clb_activites.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clb_activites.Name = "clb_activites";
-            this.clb_activites.Size = new System.Drawing.Size(243, 4);
+            this.clb_activites.Size = new System.Drawing.Size(243, 21);
             this.clb_activites.TabIndex = 18;
             this.clb_activites.SelectedIndexChanged += new System.EventHandler(this.clb_activites_SelectedIndexChanged);
             // 
             // btn_goRecherche
             // 
-            this.btn_goRecherche.Location = new System.Drawing.Point(995, 319);
+            this.btn_goRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_goRecherche.Location = new System.Drawing.Point(984, 58);
             this.btn_goRecherche.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_goRecherche.Name = "btn_goRecherche";
-            this.btn_goRecherche.Size = new System.Drawing.Size(133, 49);
+            this.btn_goRecherche.Size = new System.Drawing.Size(164, 61);
             this.btn_goRecherche.TabIndex = 12;
-            this.btn_goRecherche.Text = "Valider";
+            this.btn_goRecherche.Text = "lancer la recherche";
             this.btn_goRecherche.UseVisualStyleBackColor = true;
             this.btn_goRecherche.Click += new System.EventHandler(this.btn_goRecherche_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 38);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Recherches";
             // 
             // btn_leaveApp
             // 
@@ -326,7 +297,7 @@
             this.btn_leaveApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_leaveApp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_leaveApp.Location = new System.Drawing.Point(67, 572);
-            this.btn_leaveApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_leaveApp.Margin = new System.Windows.Forms.Padding(4);
             this.btn_leaveApp.Name = "btn_leaveApp";
             this.btn_leaveApp.Size = new System.Drawing.Size(201, 49);
             this.btn_leaveApp.TabIndex = 9;
@@ -348,7 +319,7 @@
             // btn_retour_recherche
             // 
             this.btn_retour_recherche.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_retour_recherche.Location = new System.Drawing.Point(983, 149);
+            this.btn_retour_recherche.Location = new System.Drawing.Point(1018, 156);
             this.btn_retour_recherche.Name = "btn_retour_recherche";
             this.btn_retour_recherche.Size = new System.Drawing.Size(99, 29);
             this.btn_retour_recherche.TabIndex = 11;
@@ -363,19 +334,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1192, 923);
+            this.ClientSize = new System.Drawing.Size(1192, 850);
             this.Controls.Add(this.btn_retour_recherche);
             this.Controls.Add(this.lb_resultatsRecherche);
-=======
-            this.ClientSize = new System.Drawing.Size(894, 862);
->>>>>>> origin/master
             this.Controls.Add(this.btn_leaveApp);
             this.Controls.Add(this.cb_activitesExt);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_jour_precedents);
             this.Controls.Add(this.button2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
@@ -383,8 +350,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.cb_activitesExt.ResumeLayout(false);
-            this.cb_activitesExt.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -403,7 +368,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel cb_activitesExt;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_jourFin;
         private System.Windows.Forms.Label lb_jourFin;
@@ -416,7 +380,6 @@
         private System.Windows.Forms.CheckBox cb_activiteExt;
         private System.Windows.Forms.TextBox tb_rechercheCR;
         private System.Windows.Forms.Label lb_rechercheCR;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_leaveApp;
