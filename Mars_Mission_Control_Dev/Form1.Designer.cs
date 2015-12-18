@@ -363,9 +363,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1192, 923);
             this.Controls.Add(this.btn_retour_recherche);
             this.Controls.Add(this.lb_resultatsRecherche);
+=======
+            this.ClientSize = new System.Drawing.Size(894, 862);
+>>>>>>> origin/master
             this.Controls.Add(this.btn_leaveApp);
             this.Controls.Add(this.cb_activitesExt);
             this.Controls.Add(this.panel1);
