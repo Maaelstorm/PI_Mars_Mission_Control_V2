@@ -68,7 +68,6 @@
             this.label1.Size = new System.Drawing.Size(409, 55);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mars Calendar\r\n";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button2
             // 
@@ -116,7 +115,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 60);
             this.listBox1.TabIndex = 6;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -129,7 +127,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(870, 106);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cb_activitesExt
             // 
@@ -180,7 +177,6 @@
             this.tb_rechercheDescAct.Name = "tb_rechercheDescAct";
             this.tb_rechercheDescAct.Size = new System.Drawing.Size(183, 20);
             this.tb_rechercheDescAct.TabIndex = 20;
-            this.tb_rechercheDescAct.TextChanged += new System.EventHandler(this.tb_rechercheDescAct_TextChanged);
             // 
             // lb_rechercheCR
             // 
@@ -248,7 +244,6 @@
             this.cb_activiteExt.Text = "Activité en extérieur";
             this.cb_activiteExt.UseVisualStyleBackColor = true;
             this.cb_activiteExt.Visible = false;
-            this.cb_activiteExt.CheckedChanged += new System.EventHandler(this.cb_activiteExt_CheckedChanged);
             // 
             // lb_jourFin
             // 
@@ -277,7 +272,6 @@
             this.clb_activites.Size = new System.Drawing.Size(183, 4);
             this.clb_activites.TabIndex = 18;
             this.clb_activites.Visible = false;
-            this.clb_activites.SelectedIndexChanged += new System.EventHandler(this.clb_activites_SelectedIndexChanged);
             // 
             // btn_goRecherche
             // 
@@ -346,7 +340,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.cb_activitesExt.ResumeLayout(false);

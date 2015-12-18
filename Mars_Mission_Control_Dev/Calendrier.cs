@@ -13,16 +13,14 @@ using System.Windows.Forms;
 // ANTOINE
 namespace Mars_Mission_Control_Dev
 {
-    [XmlRoot("Calendrier")]
-    public class Calendrier
     /* La Classe Calendrier Contient l'ensemble des informations du planning de la mission. Une instance Cal est créée dans le form1 à
      * partir du xml (s'il existe), et est passé en argument pour construire le form2 et le form3
      * */
-
+    [XmlRoot("Calendrier")]
+    public class Calendrier
     {
 
-        #region Accesseurs & Propriétés
-
+#region Accesseurs & Propriétés
 
         private DateTime _jourDebutMission;
         [XmlElement("JourDebutMission")]
@@ -31,8 +29,7 @@ namespace Mars_Mission_Control_Dev
             get { return _jourDebutMission; }
             set { _jourDebutMission = value; }
         }
-
-
+        
         private int _jourActuel;
         [XmlElement("JourActuel")]
         public int JourActuel
@@ -40,8 +37,7 @@ namespace Mars_Mission_Control_Dev
             get { return _jourActuel; }
             set { _jourActuel = value; }
         }
-
-
+        
         private Carte _map;
         [XmlElement("Carte")]
         public Carte Map
@@ -50,7 +46,6 @@ namespace Mars_Mission_Control_Dev
             set { _map = value; }
         }
 
-
         private List<Journee> _listJournees;
         [XmlArray("ListeJournees")]
         public List<Journee> ListJournees
@@ -58,7 +53,6 @@ namespace Mars_Mission_Control_Dev
             get { return _listJournees; }
             set { _listJournees = value; }
         }
-
 
         private List<Spationaute> _listSpationaute;
         [XmlArray("ListSpationaute")]
@@ -76,30 +70,26 @@ namespace Mars_Mission_Control_Dev
             set { _listActiviteDefaut = value; }
         }
 
+#endregion
 
-        #endregion
 
-        #region constructeurs
+#region constructeurs
 
         public Calendrier()
-        {
-            this.Map = null;
-            this.ListJournees = new List<Journee>();
-            this.ListActiviteDefaut = new List<Activite>();
-            this.ListSpationaute = new List<Spationaute>();
+        {           
         }
+
         public Calendrier(List<Journee> listeJournees, List<Spationaute> listeSpationautes)
         {
             this.Map = null;
             this.ListJournees = listeJournees;
-            //this.ListActiviteDefaut = listeActivites;
             this.ListSpationaute = listeSpationautes;
         }
+
         public Calendrier(Carte map, List<Journee> listeJournees, List<Spationaute> listeSpationautes)
         {
             this.Map = map;
             this.ListJournees = listeJournees;
-            //this.ListActiviteDefaut = listeActivites;
             this.ListSpationaute = listeSpationautes;
         }
 
@@ -108,8 +98,8 @@ namespace Mars_Mission_Control_Dev
 
 #region	Méthodes
 
-        public void enregistrer()
-        //enregistre le calendrier dans un fichier xml
+        // Enregistre le calendrier dans un fichier xml
+        public void enregistrer()        
         {
             DialogResult result = new DialogResult();
 
@@ -131,14 +121,15 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+               
         public List<Journee> rechercheJournee(List<string> ListNomAct, string motsDescAct, string motsCompteRendu, int jourDeb, int jourFin)
         /* renvoie une liste de toute les journée correspondant aux critères passés en arguments. Si un critère est non renseigné, on considère que toutes les journées
-         * correspondent au critère
-         * ListNomAct : les noms de toutes les activités que l'on cherche
-         * motsDescAct : une chaine de caractère que l'on cherche dans la description des activités. La chaine est recherchée d'un seul bloc. SI les mots sont dans le désordre ça ne marche pas
-         * motCompteRendu : une chaine de caractère que l'on cherche dans les compte-rendus des journées . La chaine est recherchée d'un seul bloc.
-         * jourDeb, jourFin : les numéros des jours qui bornent de la période de recherche. 
-         */
+        * correspondent au critère
+        * ListNomAct : les noms de toutes les activités que l'on cherche
+        * motsDescAct : une chaine de caractère que l'on cherche dans la description des activités. La chaine est recherchée d'un seul bloc. SI les mots sont dans le désordre ça ne marche pas
+        * motCompteRendu : une chaine de caractère que l'on cherche dans les compte-rendus des journées . La chaine est recherchée d'un seul bloc.
+        * jourDeb, jourFin : les numéros des jours qui bornent de la période de recherche. 
+        */
         {
             List<Journee> ListResult = new List<Journee>();
             bool motCRVide;
@@ -210,7 +201,7 @@ namespace Mars_Mission_Control_Dev
 
 
         public Dates conversionHeureMartienne(DateTime HeureTerre)
-        //converti une date terrestre en une date martienndu calendrier de la mission martienne
+        // converti une date terrestre en une date martienndu calendrier de la mission martienne
         {
             TimeSpan DureeMissionT = HeureTerre - JourDebutMission;
             int DureeMissionMin = (DureeMissionT.Days * 24 + DureeMissionT.Hours) * 60 + DureeMissionT.Minutes;

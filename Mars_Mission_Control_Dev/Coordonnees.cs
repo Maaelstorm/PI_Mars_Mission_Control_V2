@@ -51,15 +51,12 @@ namespace Mars_Mission_Control_Dev
 
 #endregion
 
+
 #region constructeurs
 
 		// Constructeur par défaut pour la sérialisation
 		public Coordonnees()
 		{
-			this.Nom = "serialisation";
-			this.Position = new Point(0,0);
-			this.Icone = null;
-			this.Descriptif = "";
 		}
 
 		public Coordonnees(string nom, Point point)
@@ -82,6 +79,7 @@ namespace Mars_Mission_Control_Dev
 		}
 
 #endregion
+
 
 #region methodes
 

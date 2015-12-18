@@ -11,6 +11,10 @@ namespace Mars_Mission_Control_Dev
 {
     public partial class Form3 : Form
     {
+
+
+#region Accesseurs & Propriétés
+
         public Form2 parent;
         public Journee jourSelec;
         public Activite actiActuelle;
@@ -19,6 +23,13 @@ namespace Mars_Mission_Control_Dev
 
         private string _nomSpatio;
 
+        private List<Spationaute> _listSpatio = new List<Spationaute>();
+
+#endregion
+
+
+#region Constructeur
+
         public Form3(Form2 p, Calendrier calendrier, Journee jourSelec, Activite actiActuelle, string nomSpatio)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -26,6 +37,14 @@ namespace Mars_Mission_Control_Dev
             InitializeComponent();
 
             this.treeView1.ExpandAll();
+
+            this.jour_actuel.Text = jourSelec.NumJour.ToString();
+            this.jourSelec = jourSelec;
+            this.actiActuelle = actiActuelle;
+
+            this.calendrierActuel = calendrier;
+
+            this._nomSpatio = nomSpatio;
 
             if (actiActuelle != null) // mets les caractéristiques d'une activité dans le cas d'un chargement d'activité
             {
@@ -37,19 +56,22 @@ namespace Mars_Mission_Control_Dev
                 this.labelActi.Text = actiActuelle.Nom;
                 this.textBoxX.Text = string.Format("{0}", actiActuelle.Lieu.Position.X);
                 this.textBoxY.Text = string.Format("{0}", actiActuelle.Lieu.Position.Y);
+                this._listSpatio = this.calendrierActuel.ListSpationaute;
             }
             else
             {
-                btn_suppr.Enabled = false; // laisse les champs vide pour une création d'activité
+                this.labelActi.Text = "Aucun type d'activité sélectionné";
+                btn_suppr.Enabled = false; // laisse les champs vide pour une création d'activité 
+
+                for (int i = 0; i < this.calendrierActuel.ListSpationaute.Count; i++)
+                {
+                    if (this.calendrierActuel.ListSpationaute.ElementAt(i).Nom.ToString() == this._nomSpatio)
+                    {
+                        this._listSpatio.Add(this.calendrierActuel.ListSpationaute.ElementAt(i));
+                    }
+                }
             }
-            this.jour_actuel.Text = jourSelec.NumJour.ToString();
-            this.jourSelec = jourSelec;
-            this.actiActuelle = actiActuelle;
-
-            this.calendrierActuel = calendrier;
-
-            this._nomSpatio = nomSpatio;
-
+           
             parent = p;
 
             graphics = pictureBox1.CreateGraphics();
@@ -58,15 +80,18 @@ namespace Mars_Mission_Control_Dev
             desactiverJourPasses();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
-        {
+#endregion
 
-        }
 
-        #region methode de verification
+#region Méthode de vérification
+
         private bool verifieDonnees(List<Activite> listActi, Activite tmpActi) // vérifie que l'emplacement horaire est libre pour la création de l'activité
         {
-            if ((tmpActi.HeureDebut.Heure * 60 + tmpActi.HeureDebut.Minute) > (tmpActi.HeureFin.Heure * 60 + tmpActi.HeureFin.Minute))
+            if (tmpActi.HeureDebut == null || tmpActi.HeureFin == null)
+            {
+                return false;
+            }
+            else if ((tmpActi.HeureDebut.Heure * 60 + tmpActi.HeureDebut.Minute) > (tmpActi.HeureFin.Heure * 60 + tmpActi.HeureFin.Minute))
             {
                 return false;
             }
@@ -79,7 +104,7 @@ namespace Mars_Mission_Control_Dev
                     if ((tmpActi.HeureDebut.Heure * 60 + tmpActi.HeureDebut.Minute) > (item.HeureDebut.Heure * 60 + item.HeureDebut.Minute))
                     {
                         // heure de début de la nouvelle activité > heure de fin d'une ancienne
-                        if (!((tmpActi.HeureDebut.Heure * 60 + tmpActi.HeureDebut.Minute) >= (item.HeureFin.Heure * 60 + item.HeureFin.Minute)))
+                        if (!((tmpActi.HeureDebut.Heure * 60 + tmpActi.HeureDebut.Minute) <= (item.HeureFin.Heure * 60 + item.HeureFin.Minute)))
                         {
                             res = false;
                         }
@@ -98,6 +123,7 @@ namespace Mars_Mission_Control_Dev
             return res;
         }
 
+
         private bool testCoord(string coord, out double valeur, int coordMin, int coordMax) // vérifie que les coordonées rentrées sont cohérentes
         {
             bool res = double.TryParse(coord, out valeur);
@@ -106,33 +132,23 @@ namespace Mars_Mission_Control_Dev
             return res;
         }
 
+
         private bool testTreeView() // annule la sélection automatique d'un noeud dans le treeView
         {
             return treeView1.SelectedNode == null || treeView1.SelectedNode.Nodes.Count == 0;
         }
-        #endregion
 
-        #region Evenement
+#endregion
+
+
+#region Evenement
+        
         private void btn_confirmer_Click(object sender, EventArgs e)
         {
             bool PossibleDeChanger = true;
 
             Dates datesDebut = null;
             Dates datesFin = null;
-
-            try // vérifie qu'on renseigne bien des horaires pour l'activité
-            {
-                datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
-                datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine("Erreur : {0}. {1}", ex.Message, "Veuillez renseigner les horaires");
-            }
-            finally
-            {
-
-            }
 
             // vérifie qu'on renseigne bien des horaires
             if (H_debut.Text == "" || M_debut.Text == "" || H_fin.Text == "" || M_fin.Text == "")
@@ -144,7 +160,6 @@ namespace Mars_Mission_Control_Dev
                 datesDebut = new Dates(jourSelec.NumJour, int.Parse(H_debut.Text), int.Parse(M_debut.Text));
                 datesFin = new Dates(jourSelec.NumJour, int.Parse(H_fin.Text), int.Parse(M_fin.Text));
             }
-
 
             // vérifie qu'on renseigne bien des coordonnées
             double cooX, cooY;
@@ -166,9 +181,9 @@ namespace Mars_Mission_Control_Dev
             else
             {
                 nomActiTmp = treeView1.SelectedNode.Text; // autrement, met ls noeud sélectionné par l'utilisateur
-            }
+            }            
 
-            Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, jourSelec.ListActiviteJournee[0].ListSpationaute); //attention a l'assignation des Spationautes
+            Activite tmpActi = new Activite(nomActiTmp, datesDebut, datesFin, coo, description.Text, this._listSpatio); //attention a l'assignation des Spationautes
             // Vérification des données
             if (!verifieDonnees(jourSelec.ListActiviteJournee, tmpActi))
                 PossibleDeChanger = false;
@@ -192,6 +207,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+
         private void H_debut_SelectedIndexChanged(object sender, EventArgs e) // enlève la valeur "50" des minutes si on sélectionne l'heure "24"
         {
             if (((ComboBox)sender).SelectedIndex == 24)
@@ -205,6 +221,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+
         private void H_fin_SelectedIndexChanged(object sender, EventArgs e) // enlève la valeur "50" des minutes si on sélectionne l'heure "24"
         {
             if (((ComboBox)sender).SelectedIndex == 24)
@@ -217,6 +234,7 @@ namespace Mars_Mission_Control_Dev
                     M_fin.Items.Add(50);
             }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e) // Gestion de la carte
         {
@@ -235,30 +253,15 @@ namespace Mars_Mission_Control_Dev
             graphics.DrawImage(robot, p); // affiche le robot au point cliqué
         }
 
-        private void btn_annuler_Click(object sender, EventArgs e) // ferme le form sans modification
+
+        private void btn_annuler_Click(object sender, EventArgs e) // Ferme le Form sans modification
         {
             this.Close();
         }
 
-        private void btn_suppr_Click(object sender, EventArgs e) // retire l'activité de la liste d'activités
+
+        private void btn_suppr_Click(object sender, EventArgs e) // Retire l'activité de la liste d'activités
         {
-            //List<Activite> listResult = listPeriode.FindAll(
-            //delegate(Activite act)
-            //{
-            //    return (act.Nom == mot);
-            //}
-            //);
-
-            //        for
-
-            //        foreach (var item in jourSelec.ListActiviteJournee)
-            //        {
-            //            if (item.ListSpationaute)
-            //{
-
-            //}
-            //        }
-
             for (int i = 0; i < jourSelec.ListActiviteJournee.Count; i++)
 			{
 			    for (int j = 0; j < this.actiActuelle.ListSpationaute.Count; j++)
@@ -270,24 +273,11 @@ namespace Mars_Mission_Control_Dev
                 }
 			}
 
-
-            //jourSelec.ListActiviteJournee.Find(delegate(Activite act == this.actiActuelle)
-            //{
-            //    for (int i = 0; i < act.ListSpationaute.Count; i++)
-            //    {
-            //        if (act.ListSpationaute.ElementAt(i).Nom == this._nomSpatio)
-            //        {
-            //            act.ListSpationaute.RemoveAt(i);
-            //        }
-            //    }
-            //    return true;
-            //}
-            //);
-
-
-            //jourSelec.ListActiviteJournee.Remove(actiActuelle);
+            this.parent.rafraichirPage(this.jourSelec.NumJour);
+            
             this.Close();
         }
+
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -295,30 +285,11 @@ namespace Mars_Mission_Control_Dev
             parent.rafraichirPage(jourSelec.NumJour);
         }
 
-        private void textBoxXY_TextChanged(object sender, EventArgs e)
-        {
-            //pictureBox1.Refresh();
-            //int taille = 50;
-            //Image patate = Image.FromFile("../../../patate.png");
-            //patate = (Image)(new Bitmap(patate, new Size(taille, taille)));
-            //int cooX = 0, cooY = 0;
-            //int.TryParse(textBoxX.Text, out cooX);
-            //int.TryParse(textBoxY.Text, out cooY);
-
-            //int positionX = (int)((((((double)(cooX) * 5) + 700) / 1095) * pictureBox1.Size.Width));
-            //int positionY = (int)((((((double)(cooY) * 5) + 1000) / 2053) * pictureBox1.Size.Height));
-
-            //Point p = new Point(positionX - taille / 2, positionY - taille / 2);
-            //if (graphics == null)
-            //    graphics = pictureBox1.CreateGraphics();
-            //graphics.DrawImage(patate, p);
-        }
-        #endregion
+#endregion
         
+
         private void desactiverJourPasses() // Désactivation des éléments si la journée sélectionnée est passée
         {
-
-            // RAJOUTER CONDITION pour insérer activité jours < jourSelec
             if (this.calendrierActuel.JourActuel > this.jourSelec.NumJour)
             {
                 this.H_debut.Enabled = false;
@@ -335,6 +306,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+
         private void changerCouleurJours()
         {
             // Label Jour sélectionné
@@ -346,24 +318,17 @@ namespace Mars_Mission_Control_Dev
                 panel2.BackColor = Color.LimeGreen;
         }
 
+
         private void btn_retourJour_Click(object sender, EventArgs e) // retourne à la journée sans modification
         {
             this.Close();
         }
 
-        private void niveau3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void descriptif_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            this.labelActi.Text = this.treeView1.SelectedNode.Text;                
         }
+
     }
 }

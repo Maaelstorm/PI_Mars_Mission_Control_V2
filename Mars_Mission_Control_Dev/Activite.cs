@@ -25,17 +25,7 @@ namespace Mars_Mission_Control_Dev
 		public string Nom
 		{
 			get { return _nom; }
-			set
-			{
-				// La chaine de caractère en entrée va être comparée à l'expression régulière regex
-				Regex regex = new Regex(@"[A-Za-z]");
-				Match match = regex.Match(value);
-				if (match.Success)
-				{
-					_nom = value;
-				}
-				else throw new System.ArgumentException("le nom de l'activité ne doit être composé que de caractère alphabétique");						
-			}
+			set	{ _nom = value; }
 		}
 
 		private Dates _heureDebut;
@@ -76,26 +66,16 @@ namespace Mars_Mission_Control_Dev
 		{
 			get { return _listSpationaute; }
 			set { _listSpationaute = value; }
-		}
-		
+		}		
 
 #endregion
 
 
 #region constructeur
-
+        
+        // Constructeur par défaut pour la sérialisation
 		public Activite()
-		{
-			this.Nom = "defaut";
-
-			this.HeureDebut = new Dates(0,0,0);
-			this.HeureFin = new Dates(0,0,1);
-
-			this.Lieu = new Coordonnees("defaut",new Point(0,0));
-			this.Descritpion = "defaut";
-
-			this.ListSpationaute = new List<Spationaute>();
-
+		{			
 		}
 
 		public Activite(string nom, Dates hdeb,Dates hfin, Coordonnees lieu, string desc, List<Spationaute> listSpatio)
@@ -113,14 +93,6 @@ namespace Mars_Mission_Control_Dev
 		}
 
 #endregion
-
-
-#region méthodes
-
-		// nope
-
-#endregion
-
 
 	}
 }

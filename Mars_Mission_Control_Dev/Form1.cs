@@ -16,7 +16,7 @@ namespace Mars_Mission_Control_Dev
     public partial class Form1 : Form
     {
 
-        #region Accesseurs & Propriétés
+#region Accesseurs & Propriétés
 
         // une période = 50 jours
         private int _period = 0; 
@@ -55,9 +55,10 @@ namespace Mars_Mission_Control_Dev
             set { _listJourneeNumAffichage = value; }
         }
 
-        #endregion
+#endregion
 
-        #region Constructeur
+
+#region Constructeur
 
         public Form1()
         {
@@ -74,11 +75,10 @@ namespace Mars_Mission_Control_Dev
 
             chargementXML();
 
-            Cal.JourDebutMission = new DateTime(2015, 10, 09);
-                       
+            Cal.JourDebutMission = new DateTime(2015, 11, 20);
+                                   
             Cal.JourActuel = Cal.conversionHeureMartienne(DateTime.Now).Jour;
             
-
             // Si le calendrier n'a pas été chargé via la déserialisation
             if (Cal.ListJournees.Count == 0)
             {
@@ -99,10 +99,8 @@ namespace Mars_Mission_Control_Dev
                     // Ajout de toutes les activités par défaut à la journée
                     Cal.ListJournees.ElementAt(i).ListActiviteJournee.AddRange(Cal.ListActiviteDefaut);
                 }
-
             }  
-
-
+            
             // Création et gestion des boutons
             if (this.ListBtnJour == null)
             {
@@ -138,6 +136,7 @@ namespace Mars_Mission_Control_Dev
                 else
                     btn_jour.BackColor = Color.LimeGreen;
             }
+
             // on ajoute les activités par défaut dans la liste à cocher
             string[] nomsActivites = new string[Cal.ListActiviteDefaut.Count];
             for (int i = 0; i < nomsActivites.Length; i++)
@@ -149,13 +148,13 @@ namespace Mars_Mission_Control_Dev
                 this.clb_activites.Items.Add(unNomAct, true);
             }
             this.clb_activites.Items.AddRange(nomsActivites);
-        }//end of constructor
+        }
 
-        #endregion
-
-        #region Méthodes
+#endregion
 
 
+#region Méthodes
+        
         private void chargementXML()
         {
             // Toutes les données sont sérialisées dans le même document 
@@ -179,10 +178,12 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+
         private void refreshBouttons()
         {
             int numBtn;
             int numJour;
+
             // au passage à une autre période, on renomme les boutons
             for (int i = 0; i <= 49; i++)
             {
@@ -197,6 +198,7 @@ namespace Mars_Mission_Control_Dev
                     ListBtnJour[i].Visible = false;
                 }
                 numJour = int.Parse(ListBtnJour[i].Text);
+
                 // couleurs des boutons liés à la journée en cours                   
                 if (numJour < Cal.JourActuel)
                     ListBtnJour[i].BackColor = Color.Silver;
@@ -207,6 +209,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
         
+
         private void jour_Click(object sender, EventArgs e)
         {
             int NumJour = int.Parse(((Button)sender).Text.ToString()) - 1; // on récupère le numéro du jour sur lequel l'utilisateur a cliqué
@@ -219,6 +222,7 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
+
         private void joursSuivants_Click(object sender, EventArgs e) 
         {
             // on passe à la période suivante (50 jours suivants)
@@ -227,6 +231,7 @@ namespace Mars_Mission_Control_Dev
                 Period++;
             }
         }
+
 
         private void joursPrecedents_Click(object sender, EventArgs e)
         {
@@ -237,18 +242,6 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        #region fonctionRecherche
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -256,13 +249,9 @@ namespace Mars_Mission_Control_Dev
             this.Cal.enregistrer(); 
         }
 
-        private void tb_rechercheDescAct_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_goRecherche_Click(object sender, EventArgs e)
-            // modifie la liste des journées à afficher en fonction des critère rentrés dans le formulaire de recherche.
+        // modifie la liste des journées à afficher en fonction des critère rentrés dans le formulaire de recherche.
         {
             int jourDeb, jourFin;
             if (tb_jourDebut.Text != string.Empty) jourDeb = Int32.Parse(tb_jourDebut.Text);
@@ -284,30 +273,23 @@ namespace Mars_Mission_Control_Dev
                 ListNumTmp.Add(uneJournee.NumJour);
             }
             ListJourneeNumAffichage = ListNumTmp;
+
             // on affiche à l'utilisateur un texte disant qu'il est dans une recherche, ainsi que le bouton pour revenir
             // au calendrier de base
             btn_retour_recherche.Visible = true;
             lb_resultatsRecherche.Visible = true;
+
             //on raffraichit l'affichage des boutons.
             refreshBouttons();
         }
-        #endregion
-
-        private void clb_activites_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+       
+        
         
         private void btn_leaveApp_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
 
         private void btn_retour_recherche_Click(object sender, EventArgs e)
         {
@@ -323,24 +305,7 @@ namespace Mars_Mission_Control_Dev
             refreshBouttons();
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_activiteExt_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+#endregion
+        
     }
 }

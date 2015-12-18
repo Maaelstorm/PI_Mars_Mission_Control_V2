@@ -50,11 +50,6 @@ namespace Mars_Mission_Control_Dev
 		public void ajouterCoord(int x, int y)
 		{
 			throw new System.NotImplementedException();
-		}
-
-		public void selectCoord(int x, int y)
-		{
-			throw new System.NotImplementedException();
-		}
+        }
     }
 }

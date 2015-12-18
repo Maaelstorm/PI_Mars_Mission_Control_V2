@@ -7,7 +7,9 @@ namespace Mars_Mission_Control_Dev
 {
     public class Dates
     {
-        #region Accesseurs & propriétés
+
+#region Accesseurs & propriétés
+
         private int _jour;
         public int Jour
         {
@@ -41,14 +43,13 @@ namespace Mars_Mission_Control_Dev
             }
         }
 
-        #endregion
+#endregion
 
-        #region constructeurs
+
+#region constructeurs
+
         public Dates()
         {
-            Jour = 0;
-            Heure = 0;
-            Minute = 0;
         }
         public Dates(int leJour)
             : this()
@@ -65,33 +66,18 @@ namespace Mars_Mission_Control_Dev
         {
             Minute = laMinute;
         }
-        #endregion
 
-        #region methodes
-        private int diff(Dates date)
-        /*retourne la différence en minutes avec date passée en argument.
-         * si la date en argument est posterieure, la valeur de retour est positive. 
-         * Elle est négative sinon*/
-        {
-            int date1 = (this.Jour * 24 + this.Heure) * 60 + this.Minute;
-            int date2 = (date.Jour * 24 + date.Heure) * 60 + date.Minute;
-            int ecartMin = date2 - date1;
-            return ecartMin;
-        }
-        public Dates ecart(Dates date)
-        {
-            int ecartMin = Math.Abs(diff(date));
-            int ecartJour = ecartMin / (60 * 24);
-            int ecartH = (ecartMin / 60) % 24;
-            ecartMin = ecartMin % 60;
-            Dates ecartTps = new Dates(ecartJour, ecartH, ecartMin);
-            return ecartTps;
-        }
+#endregion
+
+
+#region methodes
+        
         public override string ToString()
         {
-            return String.Format("Jour {0} - {1} heures & {2} minutes",this.Jour, this.Heure, this.Minute);
+            return String.Format("{0}:{1}",this.Heure, this.Minute);
         }
-        #endregion
+
+#endregion
 
     }
 }

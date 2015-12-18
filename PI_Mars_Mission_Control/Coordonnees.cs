@@ -46,6 +46,17 @@ namespace Mars_Mission_Control_Dev
 			}
 		}
 
+        public string Nom
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
 		public double distance()
 		{
 			throw new System.NotImplementedException();

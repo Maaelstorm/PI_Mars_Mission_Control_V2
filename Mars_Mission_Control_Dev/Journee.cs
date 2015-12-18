@@ -17,7 +17,7 @@ namespace Mars_Mission_Control_Dev
     public class Journee
     {
 
-        #region Accesseurs & Propriétés
+#region Accesseurs & Propriétés
 
 		private int _numJour;
 		[XmlElement("NumJour")]
@@ -36,11 +36,7 @@ namespace Mars_Mission_Control_Dev
 		public string CompteRendu
 		{
 			get { return _compteRendu; }
-			set 
-			{
-				if (value.Length > 400) throw new System.ArgumentException("le compte rendu ne doit pas excéder 300 caractères");
-				else _compteRendu = value;
-			}
+			set	{ _compteRendu = value; }
 		}
 
 		private List<Activite> _listActiviteJournee;
@@ -49,19 +45,16 @@ namespace Mars_Mission_Control_Dev
 		{
 			get { return _listActiviteJournee; }
 			set { _listActiviteJournee = value; }
-		}
-			
+		}			
 		
 #endregion
 
-        #region constructeurs
+
+#region constructeurs
 		
         // Constructeur par défaut dont le num jour est égal à 0 (pour pouvoir sérialiser l'objet journée)
 		public Journee()
 		{
-			NumJour = 0;
-			CompteRendu = "";
-			this.ListActiviteJournee = new List<Activite>();
 		}
 
 		public Journee(int nJour)
@@ -70,43 +63,12 @@ namespace Mars_Mission_Control_Dev
 			CompteRendu = "";
 			this.ListActiviteJournee = new List<Activite>();
 		}
-        //ce constructeur ne sert que pour les tests unitaires
-        public Journee(int nJour, List<Spationaute> listeSpationaute)
-        {
-            CompteRendu = "";
+        
+#endregion
 
-            ListActiviteJournee = new List<Activite>();
 
-            Dates h0 = new Dates(nJour, 0, 0);
-            Dates h7 = new Dates(nJour, 7, 0);
-            Dates h8 = new Dates(nJour, 8, 0);
-            Dates h12 = new Dates(nJour, 12, 0);
-            Dates h14 = new Dates(nJour, 14, 0);
-            Dates h19 = new Dates(nJour, 19, 0);
-            Dates h21 = new Dates(nJour, 21, 0);
-            Dates h23 = new Dates(nJour, 23, 0);
-            Dates h24_40 = new Dates(nJour, 24, 40);
+#region methodes
 
-            Coordonnees baseMission = new Coordonnees("base", new Point(0,0));
-            string sleeping = "Sleeping";
-            string eating = "Eating";
-            string prive = "Private";
-
-            //on ajoute les activites par defaut de la journee.
-
-            ListActiviteJournee.Add(new Activite(sleeping, h0, h7, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(eating, h7, h8, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(prive, h8, h12, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(eating, h12, h14, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(prive, h14, h19, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(eating, h19, h21, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(prive, h21, h23, baseMission, CompteRendu, listeSpationaute));
-            ListActiviteJournee.Add(new Activite(sleeping, h23, h24_40, baseMission, CompteRendu, listeSpationaute));
-        }
-
-        #endregion
-
-        #region methodes
         public List<Activite> checkActivite(Activite newActivite)
         //on verifie si une activite empiète sur d'autres.
         {
@@ -129,6 +91,8 @@ namespace Mars_Mission_Control_Dev
             }
             return lst_ActiviteConflit;
         }
+
+
         public bool recherche(string motDesc, List<string> ListNomAct)
         /* renvoie un bouléen true si une activité que l'on recherche est dans la liste des activités de la journée, false sinon
          * motDesc : mot à rechercher dans la description de l'activité
@@ -149,6 +113,8 @@ namespace Mars_Mission_Control_Dev
             }
             return false;
         }
+
+
 		public List<Activite> rechercheNomActivite(string mot, Dates dateDeb, Dates dateFin)
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
@@ -160,9 +126,11 @@ namespace Mars_Mission_Control_Dev
 			);
             return listResult;
 		}
+
+
         public List<Activite> rechercheDescActivite(string mot, Dates dateDeb, Dates dateFin)
-            /*Renvoie la liste des activités dont la description contient "mot" dans la plage horaire sélectionnée. 
-             * Elle est appelée par la méthode rechercheDescActivitePeriode de calendrier. */
+        /*Renvoie la liste des activités dont la description contient "mot" dans la plage horaire sélectionnée. 
+        * Elle est appelée par la méthode rechercheDescActivitePeriode de calendrier. */
 		{
 			List<Activite> listPeriode = selectionPeriode(dateDeb, dateFin);
 			List<Activite> listResult = listPeriode.FindAll(
@@ -174,9 +142,10 @@ namespace Mars_Mission_Control_Dev
             return listResult;
 		}
 
+
 		public List<Activite> selectionPeriode(Dates HeureDeb, Dates HeureFin)
-            /*renvoie la liste des activités dans la plage horaire donnée par les deux dates martiennes 
-             * passées en argument. Cette méthode est appelée par la méthode Calendrier.selectionPeriode*/
+        /*renvoie la liste des activités dans la plage horaire donnée par les deux dates martiennes 
+        * passées en argument. Cette méthode est appelée par la méthode Calendrier.selectionPeriode*/
 		{
 			List<Activite> lst_periode = new List<Activite>();
 			foreach (Activite uneActivite in ListActiviteJournee)
@@ -189,11 +158,14 @@ namespace Mars_Mission_Control_Dev
 			return lst_periode;
 		}
 
+
 		public List<Activite> selectionPeriode(int HeureDeb, int HeureFin)
 		{
 			var datesDuree = this.int2Dates(HeureDeb, HeureFin);
 			return selectionPeriode(datesDuree.Item1, datesDuree.Item2);
 		}
+
+
 		public List<Activite> rechercheLieuExploration(Point hg, Point bd, Dates HeureDeb, Dates HeureFin)
 		// hg : point en haut à gauche du rectangle dans lequel on veut chercher
 		// bd : point en bas à droite du rectangle dans lequel on veut chercher
@@ -207,11 +179,15 @@ namespace Mars_Mission_Control_Dev
 			);
 			return listResult;
 		}
+
+
 		private List<Activite> rechercheLieuExploration(Point hg, Point bd, int HeureDeb, int HeureFin)
 		{
 			var datesDuree = this.int2Dates(HeureDeb, HeureFin);
 			return rechercheLieuExploration(hg, bd, datesDuree.Item1, datesDuree.Item2);
 		}
+
+
         internal List<Activite> rechercheSorties(Dates HeureDeb, Dates HeureFin)
         {
             List<Activite> activitesDehors = new List<Activite>();
@@ -221,11 +197,15 @@ namespace Mars_Mission_Control_Dev
             }
             return activitesDehors;
         }
+
+
         internal List<Activite> rechercheSorties(int HeureDeb, int HeureFin)
         {
             var datesDuree = this.int2Dates(HeureDeb, HeureFin);
             return rechercheSorties(datesDuree.Item1, datesDuree.Item2);
         }
+
+
 		private Tuple<Dates, Dates> int2Dates(int HeureDeb, int HeureFin)
         //converti 2 int en dates.
 		{
@@ -235,6 +215,8 @@ namespace Mars_Mission_Control_Dev
 			else dateFin = new Dates(this.NumJour, HeureFin, 0);
 			return Tuple.Create(dateDeb, dateFin);
         }
-        #endregion
+
+#endregion
+
     }
 }

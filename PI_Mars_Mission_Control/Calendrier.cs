@@ -56,39 +56,67 @@ namespace Mars_Mission_Control_Dev
 			}
 		}
 
-		public List<Activite> selectionPeriode()
+        public int JourActuel
         {
-            throw new System.NotImplementedException();
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
 
-		public System.Collections.Generic.List<Mars_Mission_Control_Dev.Journee> rechercheJourSortie()
-		{
-			throw new System.NotImplementedException();
-		}
+        public Carte Map
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
 
-		public void conversionHeureMartienne()
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public List<Activite> rechercheLieuExploration()
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public List<Activite> rechercheNomActivitePeriode(string mot)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public List<Activite> rechercheDescActivitePeriode(int numJour)
-		{
-			throw new System.NotImplementedException();
-		}
+        public List<Activite> ListActiviteDefaut
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
 
 		public void enregistrer()
 		{
 			throw new System.NotImplementedException();
 		}
+
+        public List<Journee> rechercheJournee()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Journee> selectionPeriodeJour()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Activite> rechercheLieuExploration()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Activite> rechercheSorties()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Dates conversionHeureMartienne()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

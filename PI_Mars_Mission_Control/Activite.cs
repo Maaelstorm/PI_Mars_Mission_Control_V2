@@ -76,11 +76,6 @@ namespace Mars_Mission_Control_Dev
 			set
 			{
 			}
-		}
-
-        public void enregister()
-        {
-            throw new System.NotImplementedException();
-		}
+        }
     }
 }

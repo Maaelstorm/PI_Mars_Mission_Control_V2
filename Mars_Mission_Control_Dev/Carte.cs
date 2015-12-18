@@ -44,6 +44,7 @@ namespace Mars_Mission_Control_Dev
 
 #endregion
 
+
 #region Constructeur
 
 		// Constructeur
@@ -67,28 +68,11 @@ namespace Mars_Mission_Control_Dev
 
 #region Méthodes
 
-		//public void serializer()
-		//{
-		//    XmlSerializer xs = new XmlSerializer(typeof(Carte));
-		//    // Ouverture de l'instance d'écriture en précisant le chemin du fichier
-		//    using (TextWriter writer = new StreamWriter("./..//..//InfoGenerales.xml"))
-		//    {
-		//        xs.Serialize(writer, this);
-		//    }
-
-		//    Console.WriteLine(string.Format("Carte : enregistrement réussi"));
-		//}
-
 		public void ajouterCoord(string nom, int x, int y)
 		{
 			Point pt = new Point(x,y);
 			Coordonnees cord = new Coordonnees(nom, pt);
 			this.ListCoordonnees.Add(cord);
-		}
-
-		public void selectCoord(int x, int y)
-		{
-			//this.ImageZone.
 		}
 
 #endregion

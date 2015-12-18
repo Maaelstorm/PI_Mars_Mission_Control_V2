@@ -43,16 +43,6 @@ namespace Mars_Mission_Control_Dev
 			set
 			{
 			}
-		}
-
-        public void setCompteRendu()
-        {
-            throw new System.NotImplementedException();
-        }
-
-		public List<Activite> rechercheActiviteSpationaute()
-		{
-			throw new System.NotImplementedException();
         }
 
         public List<Activite> checkActivite()
@@ -60,32 +50,52 @@ namespace Mars_Mission_Control_Dev
             throw new System.NotImplementedException();
         }
 
-        public List<Activite> RechercheNomActivite()
+        public bool recherche()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Activite> RechercheDescActivite()
+        public List<Activite> rechercheNomActivite()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Activite> selectionPeriode()
+        public List<Activite> rechercheDescActivite()
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Activite> rechercheLieuExploration()
+        public List<Activite> selectionPeriode(Dates HeureDeb, Dates HeureFin)
         {
             throw new System.NotImplementedException();
         }
 
-        internal List<Activite> rechercheSorties()
+        public List<Activite> selectionPeriode(int HeureDeb, int HeureFin)
         {
             throw new System.NotImplementedException();
         }
 
-        private Tuple<Dates, Dates> int2Dates()
+        public List<Activite> rechercheLieuExploration(System.Drawing.Point hg, System.Drawing.Point bd, Dates HeureDeb, Dates HeureFin)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Activite> rechercheLieuExploration(System.Drawing.Point hg, System.Drawing.Point bd, int HeureDeb, int HeureFin)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Activite> rechercheSorties(Dates HeureDeb, Dates HeureFin)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Activite> rechercheSorties(int HeureDeb, int HeureFin)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Tuple<Dates, Dates> int2Dates(int HeureDeb, int HeureFin)
         {
             throw new System.NotImplementedException();
         }
